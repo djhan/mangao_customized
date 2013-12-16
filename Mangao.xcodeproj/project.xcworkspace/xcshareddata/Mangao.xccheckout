@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6CB0F3F4-2E3A-4BB9-8D8F-A00B0E2B992E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Mangao</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>89ECAC84-68D5-4A68-81D4-2B82313A7F6F</key>
+		<string>https://github.com/djhan/mangao_customized.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Mangao.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>89ECAC84-68D5-4A68-81D4-2B82313A7F6F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/djhan/mangao_customized.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>89ECAC84-68D5-4A68-81D4-2B82313A7F6F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>89ECAC84-68D5-4A68-81D4-2B82313A7F6F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mangao_customized</string>
+		</dict>
+	</array>
+</dict>
+</plist>
