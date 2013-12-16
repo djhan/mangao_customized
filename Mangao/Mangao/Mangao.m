@@ -319,9 +319,9 @@
     [BrightnessItem setTitle:NSLocalizedString(@"明るさ",@"")];
     [Brightness setTitle:NSLocalizedString(@"明るさ",@"")];
     
-    NSMenuItem *NSMenuItemDefaultBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"デフォルト",@"") action:@selector(SetDefaultBrightness) keyEquivalent:@","];
-    NSMenuItem *NSMenuItemMinusBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"暗く",@"") action:@selector(SetMinusBrightness) keyEquivalent:@"."];
-    NSMenuItem *NSMenuItemPlusBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"明るく",@"") action:@selector(SetPlusBrightness) keyEquivalent:@"/"];
+    NSMenuItem *NSMenuItemDefaultBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"デフォルト",@"") action:@selector(SetDefaultBrightness) keyEquivalent:@"/"];
+    NSMenuItem *NSMenuItemMinusBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"暗く",@"") action:@selector(SetMinusBrightness) keyEquivalent:@","];
+    NSMenuItem *NSMenuItemPlusBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"明るく",@"") action:@selector(SetPlusBrightness) keyEquivalent:@"."];
     [NSMenuItemDefaultBrightness setKeyEquivalentModifierMask:0];
     [NSMenuItemMinusBrightness setKeyEquivalentModifierMask:0];
     [NSMenuItemPlusBrightness setKeyEquivalentModifierMask:0];
@@ -351,9 +351,9 @@
     [ContrastItem setTitle:NSLocalizedString(@"コントラスト",@"")];
     [Contrast setTitle:NSLocalizedString(@"コントラスト",@"")];
     
-    NSMenuItem *NSMenuItemDefaultContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"デフォルト",@"") action:@selector(SetDefaultContrast) keyEquivalent:@"<"];
-    NSMenuItem *NSMenuItemMinusContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"低く",@"") action:@selector(SetMinusContrast) keyEquivalent:@">"];
-    NSMenuItem *NSMenuItemPlusContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"高く",@"") action:@selector(SetPlusContrast) keyEquivalent:@"?"];
+    NSMenuItem *NSMenuItemDefaultContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"デフォルト",@"") action:@selector(SetDefaultContrast) keyEquivalent:@"?"];
+    NSMenuItem *NSMenuItemMinusContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"低く",@"") action:@selector(SetMinusContrast) keyEquivalent:@"<"];
+    NSMenuItem *NSMenuItemPlusContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"高く",@"") action:@selector(SetPlusContrast) keyEquivalent:@">"];
     [NSMenuItemDefaultContrast setKeyEquivalentModifierMask:0];
     [NSMenuItemMinusContrast setKeyEquivalentModifierMask:0];
     [NSMenuItemPlusContrast setKeyEquivalentModifierMask:0];
@@ -1181,9 +1181,9 @@
         [BrightnessItem setTitle:NSLocalizedString(@"明るさ",@"")];
         [Brightness setTitle:NSLocalizedString(@"明るさ",@"")];
         
-        NSMenuItem *NSMenuItemDefaultBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"デフォルト",@"") action:@selector(SetDefaultBrightness) keyEquivalent:@","];
-        NSMenuItem *NSMenuItemMinusBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"暗く",@"") action:@selector(SetMinusBrightness) keyEquivalent:@"."];
-        NSMenuItem *NSMenuItemPlusBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"明るく",@"") action:@selector(SetPlusBrightness) keyEquivalent:@"/"];
+        NSMenuItem *NSMenuItemDefaultBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"デフォルト",@"") action:@selector(SetDefaultBrightness) keyEquivalent:@"/"];
+        NSMenuItem *NSMenuItemMinusBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"暗く",@"") action:@selector(SetMinusBrightness) keyEquivalent:@","];
+        NSMenuItem *NSMenuItemPlusBrightness  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"明るく",@"") action:@selector(SetPlusBrightness) keyEquivalent:@"."];
         [NSMenuItemDefaultBrightness setKeyEquivalentModifierMask:0];
         [NSMenuItemMinusBrightness setKeyEquivalentModifierMask:0];
         [NSMenuItemPlusBrightness setKeyEquivalentModifierMask:0];
@@ -1277,9 +1277,9 @@
         [ContrastItem setTitle:NSLocalizedString(@"コントラスト",@"")];
         [Contrast setTitle:NSLocalizedString(@"コントラスト",@"")];
         
-        NSMenuItem *NSMenuItemDefaultContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"デフォルト",@"") action:@selector(SetDefaultContrast) keyEquivalent:@"<"];
-        NSMenuItem *NSMenuItemMinusContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"低く",@"") action:@selector(SetMinusContrast) keyEquivalent:@">"];
-        NSMenuItem *NSMenuItemPlusContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"高く",@"") action:@selector(SetPlusContrast) keyEquivalent:@"?"];
+        NSMenuItem *NSMenuItemDefaultContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"デフォルト",@"") action:@selector(SetDefaultContrast) keyEquivalent:@"?"];
+        NSMenuItem *NSMenuItemMinusContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"低く",@"") action:@selector(SetMinusContrast) keyEquivalent:@"<"];
+        NSMenuItem *NSMenuItemPlusContrast  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"高く",@"") action:@selector(SetPlusContrast) keyEquivalent:@">"];
         [NSMenuItemDefaultContrast setKeyEquivalentModifierMask:0];
         [NSMenuItemMinusContrast setKeyEquivalentModifierMask:0];
         [NSMenuItemPlusContrast setKeyEquivalentModifierMask:0];
