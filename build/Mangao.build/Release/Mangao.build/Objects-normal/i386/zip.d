@@ -1,4 +1,5 @@
-dependencies: /Volumes/Data/Mangao_source_2013_12_16/Mangao/minizip/zip.c \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/minizip/zip.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/minizip/ioapi.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/minizip/crypt.h
+dependencies: \
+  /Users/djhan/Documents/mangao_customized/Mangao/minizip/zip.c \
+  /Users/djhan/Documents/mangao_customized/Mangao/minizip/zip.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/minizip/ioapi.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/minizip/crypt.h

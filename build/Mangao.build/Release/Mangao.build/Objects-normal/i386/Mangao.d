@@ -1,20 +1,20 @@
 dependencies: \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Mangao/Mangao.m \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Mangao/Mangao.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Frameworks/Sparkle.framework/Headers/Sparkle.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Frameworks/Sparkle.framework/Headers/SUUpdater.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionComparisonProtocol.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionDisplayProtocol.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcast.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcastItem.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Mangao/Loupe.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Mangao/thumbnail.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/ZipFile/ZipFile.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/minizip/unzip.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/minizip/ioapi.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/RarFile/RarFile.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/HTMangaColorize/HTMangaColorize.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Mangao/AutoEnhance.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Mangao/SepiaTone.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Mangao/Grayscale.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Mangao/BrightnessAndContrast.h
+  /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m \
+  /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/Sparkle.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUUpdater.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionComparisonProtocol.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionDisplayProtocol.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcast.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcastItem.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Loupe.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Mangao/thumbnail.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/ZipFile/ZipFile.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/minizip/unzip.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/minizip/ioapi.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/RarFile/RarFile.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/HTMangaColorize/HTMangaColorize.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Mangao/AutoEnhance.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Mangao/SepiaTone.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Grayscale.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/Mangao/BrightnessAndContrast.h

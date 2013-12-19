@@ -1,3 +1,3 @@
 dependencies: \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Mangao/Loupe.m \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/Mangao/Loupe.h
+  /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Loupe.m \
+  /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Loupe.h

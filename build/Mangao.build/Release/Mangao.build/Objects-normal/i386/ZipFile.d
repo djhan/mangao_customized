@@ -1,5 +1,5 @@
 dependencies: \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/ZipFile/ZipFile.m \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/ZipFile/ZipFile.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/minizip/unzip.h \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/minizip/ioapi.h
+  /Users/djhan/Documents/mangao_customized/Mangao/ZipFile/ZipFile.m \
+  /Users/djhan/Documents/mangao_customized/Mangao/ZipFile/ZipFile.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/minizip/unzip.h \
+  /Users/djhan/Documents/mangao_customized/Mangao/minizip/ioapi.h

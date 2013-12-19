@@ -1,3 +1,3 @@
 dependencies: \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/minizip/ioapi.c \
-  /Volumes/Data/Mangao_source_2013_12_16/Mangao/minizip/ioapi.h
+  /Users/djhan/Documents/mangao_customized/Mangao/minizip/ioapi.c \
+  /Users/djhan/Documents/mangao_customized/Mangao/minizip/ioapi.h

@@ -3730,24 +3730,29 @@ end://左側の画像のIndexを最後に表示した画像として記録する
             //左開きの場合(『デフォルトで左開き』を考慮)
             if(abs(app.hidaribirakiMode - [[[plistValue objectAtIndex:0] objectAtIndex:0] intValue]))
             {
-                //画面を更新
+                //좌우로 긴 이미지가 아닐 때에만 화면 갱신
                 imageLeftFieldxxx = imageRightField;
                 imageRightFieldxxx = imageLeftField;
+                
+                if(!app.yokonaga)
+                {
                 [self LniSet];
                 [self RniSet];
-                
+                }
                 //ページ移動メニューを更新
                 [self goPageMenuReload:1];
             }
             //右開きの場合
             else
             {
-                //画面を更新
+                //좌우로 긴 이미지가 아닐 때에만 화면 갱신
                 imageLeftFieldxxx = imageLeftField;
                 imageRightFieldxxx = imageRightField;
+                if(!app.yokonaga)
+                {
                 [self LniSet];
                 [self RniSet];
-                
+                }
                 //ページ移動メニューを更新
                 [self goPageMenuReload:0];
             }
