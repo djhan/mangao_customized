@@ -81,6 +81,8 @@
 		EE0076DD18596719008CE56D /* SepiaTone.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0076DC18596719008CE56D /* SepiaTone.m */; };
 		EE0076E2185973C0008CE56D /* Grayscale.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0076E1185973C0008CE56D /* Grayscale.m */; };
 		EE43A19B185DBEE900D98FBA /* BrightnessAndContrast.m in Sources */ = {isa = PBXBuildFile; fileRef = EE43A19A185DBEE900D98FBA /* BrightnessAndContrast.m */; };
+		EE910A0A1863C78A008AD5E6 /* XADMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE910A091863C78A008AD5E6 /* XADMaster.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EE910A0C1863C810008AD5E6 /* XADMaster.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE910A0B1863C810008AD5E6 /* XADMaster.framework */; };
 		EEE9CD2C185EBB98007D226C /* CantOpenThisArchive.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EEE9CD27185EBB98007D226C /* CantOpenThisArchive.pdf */; };
 		EEE9CD2D185EBB98007D226C /* CantReadThisImage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EEE9CD28185EBB98007D226C /* CantReadThisImage.pdf */; };
 		EEE9CD2E185EBB98007D226C /* PleaseInstallTrueCrypt.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EEE9CD29185EBB98007D226C /* PleaseInstallTrueCrypt.pdf */; };
@@ -97,6 +99,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				CE17CF2C17E6F7D400BE44CB /* Sparkle.framework in CopyFiles */,
+				EE910A0C1863C810008AD5E6 /* XADMaster.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +287,8 @@
 		EE0076E1185973C0008CE56D /* Grayscale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grayscale.m; sourceTree = "<group>"; };
 		EE43A199185DBEE900D98FBA /* BrightnessAndContrast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrightnessAndContrast.h; sourceTree = "<group>"; };
 		EE43A19A185DBEE900D98FBA /* BrightnessAndContrast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrightnessAndContrast.m; sourceTree = "<group>"; };
+		EE910A091863C78A008AD5E6 /* XADMaster.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XADMaster.framework; path = Mangao/Frameworks/XADMaster.framework; sourceTree = "<group>"; };
+		EE910A0B1863C810008AD5E6 /* XADMaster.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XADMaster.framework; path = Mangao/Frameworks/XADMaster.framework; sourceTree = "<group>"; };
 		EEE9CD27185EBB98007D226C /* CantOpenThisArchive.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CantOpenThisArchive.pdf; sourceTree = "<group>"; };
 		EEE9CD28185EBB98007D226C /* CantReadThisImage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CantReadThisImage.pdf; sourceTree = "<group>"; };
 		EEE9CD29185EBB98007D226C /* PleaseInstallTrueCrypt.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PleaseInstallTrueCrypt.pdf; sourceTree = "<group>"; };
@@ -301,6 +306,7 @@
 				CE8EE21D177B9E7E00F7AB80 /* Cocoa.framework in Frameworks */,
 				CE33F60418534D3D00919D70 /* AppKit.framework in Frameworks */,
 				CE31A97D17AF61B200BF844D /* Quartz.framework in Frameworks */,
+				EE910A0A1863C78A008AD5E6 /* XADMaster.framework in Frameworks */,
 				CEECAAF3185602C20014E1DA /* QuartzCore.framework in Frameworks */,
 				CE6A57DD17E6F6CA0048E1DF /* Sparkle.framework in Frameworks */,
 			);
@@ -493,6 +499,7 @@
 		CE8EE210177B9E7E00F7AB80 = {
 			isa = PBXGroup;
 			children = (
+				EE910A0B1863C810008AD5E6 /* XADMaster.framework */,
 				CE3301471846D3B200F0EFB2 /* mangao-icon.icns */,
 				CE4DB5C71785408B0090E713 /* libz.dylib */,
 				CE17CF2B17E6F7D400BE44CB /* Sparkle.framework */,
@@ -526,6 +533,7 @@
 		CE8EE21E177B9E7E00F7AB80 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE910A091863C78A008AD5E6 /* XADMaster.framework */,
 				CE8EE21F177B9E7E00F7AB80 /* AppKit.framework */,
 				CE8EE220177B9E7E00F7AB80 /* CoreData.framework */,
 				CE8EE221177B9E7E00F7AB80 /* Foundation.framework */,
@@ -836,8 +844,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/Mangao/Frameworks\"",
+					"$(SRCROOT)",
+					"\\\"$(SRCROOT)/Mangao/Frameworks\\\"",
+					/Users/djhan/Documents/mangao_customized,
+					/Users/djhan/Documents/mangao_customized/Mangao/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mangao/Mangao-Prefix.pch";
@@ -858,8 +868,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/Mangao/Frameworks\"",
+					"$(SRCROOT)",
+					"\\\"$(SRCROOT)/Mangao/Frameworks\\\"",
+					/Users/djhan/Documents/mangao_customized,
+					/Users/djhan/Documents/mangao_customized/Mangao/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mangao/Mangao-Prefix.pch";

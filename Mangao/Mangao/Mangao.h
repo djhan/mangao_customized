@@ -26,6 +26,8 @@
 #import <Quartz/Quartz.h>
 //MD5
 #import <CommonCrypto/CommonDigest.h>
+//xadmaster
+#import <XADMaster/XADArchive.h>
 
 @interface Mangao : NSObject <NSApplicationDelegate,NSOpenSavePanelDelegate>
 {
