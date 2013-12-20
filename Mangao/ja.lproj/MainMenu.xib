@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1040" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
@@ -46,7 +46,7 @@
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="1698"/>
                     </imageView>
                     <tokenField focusRingType="none" verticalHuggingPriority="750" id="5CK-TA-4nJ">
-                        <rect key="frame" x="3" y="5" width="84" height="20"/>
+                        <rect key="frame" x="-2" y="1" width="64" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <tokenFieldCell key="cell" allowsUndo="NO" focusRingType="none" alignment="left" allowsEditingTextAttributes="YES" id="kZv-JO-ODb">
                             <font key="font" size="12" name="Helvetica"/>
@@ -55,7 +55,7 @@
                         </tokenFieldCell>
                     </tokenField>
                     <tokenField focusRingType="none" verticalHuggingPriority="750" id="vAf-9f-wzj">
-                        <rect key="frame" x="507" y="8" width="69" height="17"/>
+                        <rect key="frame" x="523" y="1" width="64" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <tokenFieldCell key="cell" allowsUndo="NO" focusRingType="none" alignment="right" placeholderString="" allowsEditingTextAttributes="YES" id="71x-E2-lri">
                             <font key="font" size="12" name="Helvetica"/>

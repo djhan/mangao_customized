@@ -1796,23 +1796,9 @@
                 }
             }
         }
-    }
-}
-
-//フルスクリーンならマウスカーソルを隠す
-- (void)setHiddenUntilMouseMoves
-{
-    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
-    
-    //サムネイル一覧を実行中ではない場合
-    if(!app.isThumbnail)
-    {
-        //フルスクリーン時
+        //풀스크린시 페이지 번호 표시
         if(![NSMenu menuBarVisible])
         {
-            [NSCursor setHiddenUntilMouseMoves: YES];
-
-            //show pagenumber
             //좌우로 긴 이미지일 때
             if (app.yokonaga)
             {
@@ -1850,6 +1836,22 @@
             //hide pagenumber
             pagenumberPrev.hidden = 1;
             pagenumberNext.hidden = 1;
+        }
+    }
+}
+
+//フルスクリーンならマウスカーソルを隠す
+- (void)setHiddenUntilMouseMoves
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    
+    //サムネイル一覧を実行中ではない場合
+    if(!app.isThumbnail)
+    {
+        //フルスクリーン時
+        if(![NSMenu menuBarVisible])
+        {
+            [NSCursor setHiddenUntilMouseMoves: YES];
         }
     }
 }
@@ -2263,7 +2265,7 @@
 - (void)open
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
-    
+
     app.folderPath = [app.filePath stringByDeletingLastPathComponent];
     
     //選択したのがTrueCryptボリュームの場合
@@ -2504,7 +2506,7 @@
 - (void)ZIP_RAR:(int)witch
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
-    
+
     //アーカイブを開く
     ZipFile *zipFile = nil;
     RarFile *rarFile = nil;

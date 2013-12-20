@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "408871064.855908"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1007"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "408871064.855908"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1072"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "408871064.855908"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1129"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "408871064.855908"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1253"
@@ -280,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158619.635067"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2876"
-            endingLineNumber = "2876"
+            startingLineNumber = "2897"
+            endingLineNumber = "2897"
             landmarkName = "-setImage"
             landmarkType = "5">
          </BreakpointContent>
@@ -296,7 +296,103 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158623.641935"
+            timestampString = "409211415.698598"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2907"
+            endingLineNumber = "2907"
+            landmarkName = "-setImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mangao/Mangao/Mangao.m"
+            timestampString = "409211415.698598"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2921"
+            endingLineNumber = "2921"
+            landmarkName = "-setImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mangao/Mangao/Mangao.m"
+            timestampString = "409211415.698598"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2932"
+            endingLineNumber = "2932"
+            landmarkName = "-setImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mangao/Mangao/Mangao.m"
+            timestampString = "409211415.698598"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2939"
+            endingLineNumber = "2939"
+            landmarkName = "-setImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mangao/Mangao/Mangao.m"
+            timestampString = "409211415.698598"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2946"
+            endingLineNumber = "2946"
+            landmarkName = "-setImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mangao/Mangao/Mangao.m"
+            timestampString = "409211415.698598"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2950"
+            endingLineNumber = "2950"
+            landmarkName = "-setImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mangao/Mangao/Mangao.m"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2886"
@@ -312,11 +408,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158625.662324"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2900"
-            endingLineNumber = "2900"
+            startingLineNumber = "2891"
+            endingLineNumber = "2891"
             landmarkName = "-setImage"
             landmarkType = "5">
          </BreakpointContent>
@@ -328,107 +424,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158629.88696"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2911"
-            endingLineNumber = "2911"
-            landmarkName = "-setImage"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158631.407337"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2918"
-            endingLineNumber = "2918"
-            landmarkName = "-setImage"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158633.129852"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2925"
-            endingLineNumber = "2925"
-            landmarkName = "-setImage"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158635.136555"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2929"
-            endingLineNumber = "2929"
-            landmarkName = "-setImage"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158703.495715"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2865"
-            endingLineNumber = "2865"
-            landmarkName = "-setImage"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158704.517267"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2870"
-            endingLineNumber = "2870"
-            landmarkName = "-setImage"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158902.276406"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3743"
-            endingLineNumber = "3743"
+            startingLineNumber = "3764"
+            endingLineNumber = "3764"
             landmarkName = "-migibirakiHidaribiraki"
             landmarkType = "5">
          </BreakpointContent>
@@ -440,11 +440,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158902.276406"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3757"
-            endingLineNumber = "3757"
+            startingLineNumber = "3778"
+            endingLineNumber = "3778"
             landmarkName = "-migibirakiHidaribiraki"
             landmarkType = "5">
          </BreakpointContent>
@@ -456,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158902.276406"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3739"
-            endingLineNumber = "3739"
+            startingLineNumber = "3760"
+            endingLineNumber = "3760"
             landmarkName = "-migibirakiHidaribiraki"
             landmarkType = "5">
          </BreakpointContent>
@@ -472,12 +472,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "409158902.276406"
+            timestampString = "409211415.698598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3753"
-            endingLineNumber = "3753"
+            startingLineNumber = "3774"
+            endingLineNumber = "3774"
             landmarkName = "-migibirakiHidaribiraki"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mangao/Mangao/Mangao.m"
+            timestampString = "409211415.698598"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2288"
+            endingLineNumber = "2288"
+            landmarkName = "-open"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

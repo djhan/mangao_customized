@@ -89,6 +89,8 @@
     //pagenumber 추가
     NSTextField *pagenumberPrev;
     NSTextField *pagenumberNext;
+    //xadarchive 추가
+    //XADArchiveParser *parser;
 }
 
 @property (nonatomic, retain) NSArray *imageFileType;
@@ -151,5 +153,8 @@
 @property (assign) IBOutlet NSTextField *pagenumberNext;
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename;
+
+//xadarchive 추가
+//-(id)initWithArchiveParser:(XADArchiveParser *)parent entry:(NSDictionary *)entry realPath:(NSString *)realpath;
 
 @end
