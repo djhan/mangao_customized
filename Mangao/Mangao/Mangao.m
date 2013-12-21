@@ -185,7 +185,7 @@
     if(!app.plistKey)
     {
         //keyに00000000000000000000000000000000を追加
-        //valueに(デフォルトで左開きフラグ,デフォルトで1画面フラグ,予約,予約,予約,予約,予約,予約,予約,背景色,밝기값,콘트라스트값 등 2개 추가)を追加
+        //valueに(デフォルトで左開きフラグ,デフォルトで1画面フラグ,予約,予約,予約,予約,予約,予約,予約,背景色,밝기값,콘트라스트값 2개 추가)を追加
         app.plistKey = [NSMutableArray arrayWithObject:@"00000000000000000000000000000000"];
         app.plistValue = [NSMutableArray arrayWithObject:[NSMutableArray arrayWithObjects:[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithFloat:0],[NSNumber numberWithFloat:1],nil]];
     }
@@ -2117,7 +2117,34 @@
     {
         app.yokonaga = 0;
     }
-    
+/*
+    [image lockFocus];
+    NSRect imageBounds = {NSZeroPoint, [image size]};
+    [[NSGraphicsContext
+      currentContext] setImageInterpolation:NSImageInterpolationHigh];
+    [image drawInRect:imageBounds fromRect:NSZeroRect operation:NSCompositeCopy fraction:1.0];
+    [image unlockFocus];
+*/
+    //CGImageRef imageFinal = [image CGImageForProposedRect:nil context:nil hints:nil];
+    //NSBitmapImageRep *finalRep = [[NSBitmapImageRep alloc] initWithCGImage:imageFinal];
+
+    /*
+    NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]];
+    NSSize nowSize = NSMakeSize([imageRep pixelsWide],[imageRep pixelsHigh]);
+    NSImage *finalImage = [[[NSImage alloc] initWithSize:nowSize] autorelease];
+    NSRect targetFrame = NSMakeRect(0, 0, nowSize.width, nowSize.height);
+    [finalImage lockFocus];
+    [[NSGraphicsContext currentContext] setImageInterpolation: NSImageInterpolationHigh];
+    [imageRep drawInRect:targetFrame
+                fromRect:NSZeroRect       //portion of source image to draw
+               operation:NSCompositeCopy  //compositing operation
+                fraction:1.0              //alpha (transparency) value
+          respectFlipped:YES              //coordinate system
+                   hints:@{NSImageHintInterpolation:
+                               [NSNumber numberWithInt:NSImageInterpolationHigh]}];
+    [finalImage unlockFocus];
+    image = finalImage;
+    */
     return image;
 }
 
