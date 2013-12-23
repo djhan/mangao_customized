@@ -149,6 +149,7 @@
 @synthesize plistKey;
 @synthesize plistValue;
 @synthesize plistKeyIndex;
+@synthesize lastfile;
 
 - (void)dealloc
 {
@@ -180,6 +181,8 @@
     app.defaults = [NSUserDefaults standardUserDefaults];
     app.plistKey = [[defaults objectForKey:@"key"]mutableCopy];
     app.plistValue = [[defaults objectForKey:@"value"]mutableCopy];
+    //가장 마지막 파일 패스 열기
+    app.lastfile = [defaults objectForKey:@"lastfile"];
     
     //初回起動の場合
     if(!app.plistKey)
@@ -422,20 +425,20 @@
     [mainMenu addItem: [NSMenuItem separatorItem]];
     
     [mainMenu addItemWithTitle:NSLocalizedString(@"開く",@"") action:@selector(openMenu) keyEquivalent:@"o"];
-//    [mainMenu addItemWithTitle:NSLocalizedString(@"最後のファイルを開く",@"") action:@selector(openLastMenu) keyEquivalent:@"O"];
+    [mainMenu addItemWithTitle:NSLocalizedString(@"Open Last File",@"") action:@selector(openLastFile) keyEquivalent:@"O"];
 
 // 최근 파일 열기 메뉴 추가
     NSMenuItem	*OpenRecentItem = [[[NSMenuItem alloc] init] autorelease];
     OpenRecentItem = [mainMenu addItemWithTitle:NSLocalizedString(@"Open Recent", nil)
-						   action:NULL
-					keyEquivalent:@""];
+                                         action:NULL
+                                  keyEquivalent:@""];
 	NSMenu * openRecentMenu = [[[NSMenu alloc] initWithTitle:@"Open Recent"] autorelease];
 	[openRecentMenu performSelector:@selector(_setMenuName:) withObject:@"NSRecentDocumentsMenu"];
 	[OpenRecentItem setSubmenu:openRecentMenu];
 	
 	OpenRecentItem = [openRecentMenu addItemWithTitle:NSLocalizedString(@"Clear Menu", nil)
-									 action:@selector(clearRecentDocuments:)
-							  keyEquivalent:@""];
+                                               action:@selector(clearRecentDocuments:)
+                                        keyEquivalent:@""];
 //최근 파일 열기 메뉴 종료
     
     [mainMenu addItem: [NSMenuItem separatorItem]];
@@ -1799,6 +1802,13 @@
         //풀스크린시 페이지 번호 표시
         if(![NSMenu menuBarVisible])
         {
+            [[pagenumberNext cell] setBezelStyle: NSTextFieldRoundedBezel];
+            [pagenumberNext setAlphaValue:0.6];
+
+            [[pagenumberPrev cell] setBezelStyle: NSTextFieldRoundedBezel];
+            [pagenumberPrev setAlphaValue:0.6];
+            
+
             //좌우로 긴 이미지일 때
             if (app.yokonaga)
             {
@@ -1873,6 +1883,9 @@
     
     [defaults removeObjectForKey:@"readme"];
     [defaults setObject:@"key:一番目は予約、2番目以降は一度開いたアーカイブ(フォルダも含む)へのフルパスをMD5化したもの value:一番目は(デフォルトで左開きフラグ,デフォルトで1画面フラグ,デフォルトで右回転フラグ,デフォルトで左回転フラグ,予約,予約,予約,文字コード,自動着色,背景色(0:デフォルト、1:白、2:黒))、2番目以降は(最後に開いたページ数,左開きフラグ,1画面フラグ,ページずれフラグ,ブックマークしたページ数のarray(一つもブックマークがない場合はNSNumber:0),予約,予約,予約,予約,予約)" forKey:@"readme"];
+    //가장 마지막 파일 패스 plist값을 현재의 파일 패스로 변경
+    [defaults removeObjectForKey:@"lastfile"];
+    [defaults setObject:[app.fileListFullPathOfArchive objectAtIndex:app.indexOfArchive] forKey:@"lastfile"];
     [defaults removeObjectForKey:@"key"];
     [defaults removeObjectForKey:@"value"];
     [defaults setObject:app.plistKey forKey:@"key"];
@@ -2128,7 +2141,7 @@
     //CGImageRef imageFinal = [image CGImageForProposedRect:nil context:nil hints:nil];
     //NSBitmapImageRep *finalRep = [[NSBitmapImageRep alloc] initWithCGImage:imageFinal];
 
-    /*
+/*
     NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]];
     NSSize nowSize = NSMakeSize([imageRep pixelsWide],[imageRep pixelsHigh]);
     NSImage *finalImage = [[[NSImage alloc] initWithSize:nowSize] autorelease];
@@ -2144,7 +2157,8 @@
                                [NSNumber numberWithInt:NSImageInterpolationHigh]}];
     [finalImage unlockFocus];
     image = finalImage;
-    */
+*/
+ 
     return image;
 }
 
@@ -2257,14 +2271,14 @@
     }
 }
 
-/* open recent 도입으로 삭제
-//가장 최근 파일 열기
-- (void)openLastMenu
+//가장 마지막에 열었던 파일 열기
+- (void)openLastFile
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    NSLog(@"lastfile:%@", app.lastfile);
 
-    //가장 최근 파일이 있는지 확인
-    if ([app.plistKey lastObject]) {
+    //가장 마지막 파일 패스가 있는지 확인
+    if (app.lastfile) {
         //サムネイル一覧を実行中ではない場合
         if(!app.isThumbnail)
         {
@@ -2276,9 +2290,8 @@
             [NSCursor unhide];
         
             //최근 파일 열기
-            app.filePath = [app.plistKey lastObject];
+            app.filePath = app.lastfile;
             [self open];
-        
         }
         else
         {
@@ -2286,7 +2299,6 @@
         }
     }
 }
- */
 
 //開いた時
 - (void)open
@@ -2294,6 +2306,7 @@
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
 
     app.folderPath = [app.filePath stringByDeletingLastPathComponent];
+    //NSLog(@"currentfile:%@", app.filePath);
     
     //選択したのがTrueCryptボリュームの場合
     if([app.filePath hasSuffix:@".tc"] || [app.filePath hasSuffix:@".cbtc"] || [app.filePath hasSuffix:@".TC"] || [app.filePath hasSuffix:@".CBTC"])
@@ -2417,15 +2430,8 @@
     //選択したアーカイブのフルパスをMD5に変換
     NSString *fullPathMD5 = [self NSString2MD5NSString:[app.fileListFullPathOfArchive objectAtIndex:app.indexOfArchive]];
     
-    //Full Path 비교
-    //NSString *fullPathMD5 = [app.fileListFullPathOfArchive objectAtIndex:app.indexOfArchive];
-
     //keyの中で何番目か検索
     app.plistKeyIndex = [plistKey indexOfObject:fullPathMD5];
-    
-    //마지막 파일 풀패스 출력
-    //NSString *temp = [app.plistKey lastObject];
-    //NSLog(@"temp:%@", temp);
     
     //未書き込みの場合
     if(app.plistKeyIndex == NSNotFound)
@@ -2447,19 +2453,12 @@
     }
     else
     {
-        //index를 최후에 표시한 페이지로 세팅 (nsnumber 그대로, 마지막 파일 열기 용으로 추가했지만 일단 보류)
-        //NSNumber *tempindex = [[plistValue objectAtIndex:plistKeyIndex] objectAtIndex:0];
-
         //indexを最後に表示したページにセット(NSNumberからintに変換)
         app.index = [[[plistValue objectAtIndex:plistKeyIndex] objectAtIndex:0]intValue];
         //左開きフラグを確認
         app.hidaribirakiMode = [[[plistValue objectAtIndex:plistKeyIndex] objectAtIndex:1]intValue];
         //1画面フラグを確認
         app.onePageMode = [[[plistValue objectAtIndex:plistKeyIndex] objectAtIndex:2]intValue];
-
-        //마지막 파일 열기 용으로 추가했지만 일단 보류
-        //[plistKey addObject:fullPathMD5];
-        //[plistValue addObject:[NSMutableArray arrayWithObjects:tempindex,app.hidaribirakiMode,app.onePageMode,[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],nil]];
     }
     
     //ブックマークメニューを再読込する
@@ -3634,10 +3633,12 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     if(!app.hidaribirakiMode)
     {
         [pagenumberPrev setStringValue:[NSString stringWithFormat:@"%@",nowpagenumberPrev]];
+        //[pagenumberNext setStringValue:[NSString stringWithFormat:@"%@/%d",nowpagenumberNext,app.listSize]];
         [pagenumberNext setStringValue:[NSString stringWithFormat:@"%@",nowpagenumberNext]];
     }
     else
     {
+        //[pagenumberPrev setStringValue:[NSString stringWithFormat:@"%@/%d",nowpagenumberNext,app.listSize]];
         [pagenumberPrev setStringValue:[NSString stringWithFormat:@"%@",nowpagenumberNext]];
         [pagenumberNext setStringValue:[NSString stringWithFormat:@"%@",nowpagenumberPrev]];
     }
@@ -4258,7 +4259,7 @@ end://左側の画像のIndexを最後に表示した画像として記録する
 - (void)goPageMenuReload:(int)witch
 {
     //ページ移動メニューを削除
-    [mainMenu removeItemAtIndex:13];
+    [mainMenu removeItemAtIndex:14];
     
     NSMenuItem	*GoPageItem = [[[NSMenuItem alloc] init] autorelease];
     NSMenu *GoPage = [[[NSMenu alloc] init] autorelease];
@@ -4340,7 +4341,7 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     
     //ページ移動メニューを追加
     [GoPageItem setSubmenu: GoPage];
-    [mainMenu insertItem:GoPageItem atIndex:13];
+    [mainMenu insertItem:GoPageItem atIndex:14];
 }
 
 //ブックマークを追加/削除
