@@ -1,12 +1,6 @@
 dependencies: \
   /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m \
   /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.h \
-  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/Sparkle.h \
-  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUUpdater.h \
-  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionComparisonProtocol.h \
-  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionDisplayProtocol.h \
-  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcast.h \
-  /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcastItem.h \
   /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/Headers/XADArchive.h \
   /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/Headers/XADArchiveParser.h \
   /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/Headers/XADException.h \

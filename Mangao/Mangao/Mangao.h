@@ -20,8 +20,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-//Sparkle
-#import <Sparkle/Sparkle.h>
+//Sparkle 중지
+//#import <Sparkle/Sparkle.h>
 //PDFkit
 #import <Quartz/Quartz.h>
 //MD5
@@ -70,7 +70,7 @@
     NSWindow *viewWindow;
     NSMenu *mainMenu;
     NSMenuItem *mainMenuItem;
-    SUUpdater *sparkle;
+    //SUUpdater *sparkle;
     NSImageView *imageRightField;
     NSImageView *imageLeftField;
     NSImageView *imageRightFieldxxx;
@@ -89,8 +89,6 @@
     //pagenumber 추가
     NSTextField *pagenumberPrev;
     NSTextField *pagenumberNext;
-    //lastfile 추가
-    NSString *lastfile;
     //xadarchive 추가
     //XADArchiveParser *parser;
 }
@@ -130,12 +128,11 @@
 @property (nonatomic, retain) NSMutableArray *plistKey;
 @property (nonatomic, retain) NSMutableArray *plistValue;
 @property (nonatomic, assign) NSUInteger plistKeyIndex;
-@property (nonatomic, assign) NSString *lastfile;
 
 @property (assign) IBOutlet NSWindow *viewWindow;
 @property (assign) IBOutlet NSMenu *mainMenu;
 @property (assign) IBOutlet NSMenuItem *mainMenuItem;
-@property (assign) IBOutlet SUUpdater *sparkle;
+//@property (assign) IBOutlet SUUpdater *sparkle;
 @property (assign) IBOutlet NSImageView *imageRightField;
 @property (assign) IBOutlet NSImageView *imageLeftField;
 @property (assign) IBOutlet NSImageView *imageRightFieldxxx;

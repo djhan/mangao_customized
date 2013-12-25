@@ -129,8 +129,8 @@ cLd /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.bui
 cLd /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao normal i386
 cCreateUniversalBinary /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/MacOS/Mangao normal x86_64\ i386
 cCompileXIB /Users/djhan/Documents/mangao_customized/Mangao/ja.lproj/MainMenu.xib
-cCpResource Mangao/ZipFile/README build/Debug/Mangao.app/Contents/Resources/README
 cCpResource Mangao/RarFile/README build/Debug/Mangao.app/Contents/Resources/README
+cCpResource Mangao/ZipFile/README build/Debug/Mangao.app/Contents/Resources/README
 cCpResource Mangao/minizip/MiniZip64_info.txt build/Debug/Mangao.app/Contents/Resources/MiniZip64_info.txt
 cCpResource Mangao/Mangao/LICENSE build/Debug/Mangao.app/Contents/Resources/LICENSE
 cCpResource Mangao/Mangao/errorMessage/PleaseInstallTrueCrypt.pdf build/Debug/Mangao.app/Contents/Resources/PleaseInstallTrueCrypt.pdf
@@ -143,10 +143,8 @@ cCpResource Mangao/Mangao/errorMessage/CantReadThisImage.pdf build/Debug/Mangao.
 cCpResource Mangao/HTMangaColorize/README.md build/Debug/Mangao.app/Contents/Resources/README.md
 cCpResource Mangao/unrar/license.txt build/Debug/Mangao.app/Contents/Resources/license.txt
 cCpResource Mangao/Mangao/errorMessage/ThisArchiveHasNoImage.pdf build/Debug/Mangao.app/Contents/Resources/ThisArchiveHasNoImage.pdf
-cCpResource Mangao/dsa_pub.pem build/Debug/Mangao.app/Contents/Resources/dsa_pub.pem
 cCpResource Mangao/Mangao/errorMessage/PleasePressO.pdf build/Debug/Mangao.app/Contents/Resources/PleasePressO.pdf
 cCpResource Mangao/Mangao/errorMessage/CantOpenThisArchive.pdf build/Debug/Mangao.app/Contents/Resources/CantOpenThisArchive.pdf
-cPBXCp Mangao/Frameworks/Sparkle.framework build/Debug/Mangao.app/Contents/Frameworks/Sparkle.framework
 cPBXCp Mangao/Frameworks/XADMaster.framework build/Debug/Mangao.app/Contents/Frameworks/XADMaster.framework
 cTouch /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app
 
@@ -546,39 +544,39 @@ t1387684084
 s204
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcast.h
-c0000000052B660F400000000000002BB
-t1387684084
-s699
+c00000000000000000000000000000000
+t2
+s0
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcastItem.h
-c0000000052B660F40000000000000509
-t1387684084
-s1289
+c00000000000000000000000000000000
+t2
+s0
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUUpdater.h
-c0000000052B660F40000000000001B5F
-t1387684084
-s7007
+c00000000000000000000000000000000
+t2
+s0
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionComparisonProtocol.h
-c0000000052B660F40000000000000303
-t1387684084
-s771
+c00000000000000000000000000000000
+t2
+s0
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionDisplayProtocol.h
-c0000000052B660F40000000000000284
-t1387684084
-s644
+c00000000000000000000000000000000
+t2
+s0
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/Sparkle.h
-c0000000052B660F40000000000000218
-t1387684084
-s536
+c00000000000000000000000000000000
+t2
+s0
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Sparkle
-c0000000052B660F4000000000009F2B4
-t1387684084
-s651956
+c00000000000000000000000000000000
+t2
+s0
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework
 c0000000052B660F400000000000000CC
@@ -661,9 +659,9 @@ t1387684084
 s2267
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Mangao-Info.plist
-c0000000052B67F1F000000000000107E
-t1387691807
-s4222
+c0000000052BA3C700000000000000FED
+t1387936880
+s4077
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Mangao-Prefix.pch
 c0000000052B660F4000000000000008F
@@ -726,14 +724,14 @@ t1387684084
 s7815
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.h
-c0000000052B660F400000000000017B1
-t1387684084
-s6065
+c0000000052BA3C9800000000000017BE
+t1387936920
+s6078
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m
-c0000000052B6F96A00000000000312C1
-t1387723114
-s201409
+c0000000052BA3CA500000000000312EB
+t1387936933
+s201451
 
 N/Users/djhan/Documents/mangao_customized/Mangao/Mangao/SepiaTone.h
 c0000000052B660F40000000000000112
@@ -826,9 +824,9 @@ t1387684084
 s8946
 
 N/Users/djhan/Documents/mangao_customized/Mangao/ja.lproj/MainMenu.xib
-c0000000052B98CFD0000000000004E96
-t1387891965
-s20118
+c0000000052B98D860000000000004EAF
+t1387892102
+s20143
 
 N/Users/djhan/Documents/mangao_customized/Mangao/ko.lproj/Localizable.strings
 c0000000052B660F4000000000000267E
@@ -1511,569 +1509,569 @@ t1387684084
 s4082
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app
-t1387723031
+t1387936792
 s102
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Frameworks/Sparkle.framework
-t1387691982
+t1387936061
 s204
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Frameworks/XADMaster.framework
-t1387691982
+t1387936061
 s204
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Info.plist
-t1387691977
-s4649
+t1387936881
+s4504
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/MacOS/Mangao
-t1387891967
-s1616440
+t1387936934
+s1612144
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/PkgInfo
-t1387691977
+t1387936881
 s8
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/4color4.png
-t1387691982
+t1387936061
 s4324
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/CantOpenThisArchive.pdf
-t1387691982
+t1387936061
 s322082
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/CantReadThisImage.pdf
-t1387691982
+t1387936061
 s316152
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/LICENSE
-t1387691982
+t1387936061
 s35147
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/MiniZip64_info.txt
-t1387691982
+t1387936061
 s3048
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/PleaseInstallTrueCrypt.pdf
-t1387691982
+t1387936061
 s460995
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/PleasePressO.pdf
-t1387691982
+t1387936061
 s316176
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/README
-t1387891967
+t1387936934
 s2463
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/README.md
-t1387691982
+t1387936061
 s2267
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/ThisArchiveHasNoImage.pdf
-t1387691982
+t1387936061
 s322556
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/dsa_pub.pem
-t1387691982
+t1387936061
 s1178
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/en.lproj/Localizable.strings
-t1387691982
+t1387936061
 s9418
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/ja.lproj/Localizable.strings
-t1387691982
+t1387936061
 s8946
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/ja.lproj/MainMenu.nib
-t1387891968
+t1387936061
 s21212
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/ko.lproj/Localizable.strings
-t1387691982
+t1387936061
 s9854
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/license.txt
-t1387691982
+t1387936061
 s1976
 
 N/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/mangao-icon.icns
-t1387691982
+t1387936061
 s914884
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/AutoEnhance.o
-t1387691981
+t1387936061
 s12780
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/BrightnessAndContrast.o
-t1387691981
+t1387936061
 s12396
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/DragAndDrop.o
-t1387691981
+t1387936061
 s26956
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Grayscale.o
-t1387691981
+t1387936061
 s15200
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/HTMangaColorize.o
-t1387691981
+t1387936061
 s21680
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Loupe.o
-t1387691980
+t1387936061
 s16036
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao
-t1387891967
-s764472
+t1387936934
+s764272
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.LinkFileList
-c0000000052B67FC90000000000001839
-t1387691977
+c0000000052BA393D0000000000001839
+t1387936061
 s6201
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.o
-t1387891967
-s451460
+t1387936934
+s449848
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/RarFile.o
-t1387691981
+t1387936061
 s13772
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/SepiaTone.o
-t1387691981
+t1387936061
 s11752
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/ZipFile.o
-t1387691980
+t1387936061
 s18600
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/archive.o
-t1387691980
+t1387936061
 s97592
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/arcread.o
-t1387691980
+t1387936061
 s111904
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/blake2s.o
-t1387691980
+t1387936061
 s17316
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/cmddata.o
-t1387691980
+t1387936061
 s72928
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/consio.o
-t1387691980
+t1387936061
 s7024
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/crc.o
-t1387691980
+t1387936061
 s7544
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/crypt.o
-t1387691980
+t1387936061
 s43152
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/dll.o
-t1387691981
+t1387936061
 s73388
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/encname.o
-t1387691980
+t1387936061
 s5404
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/errhnd.o
-t1387691980
+t1387936061
 s17764
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/extinfo.o
-t1387691981
+t1387936061
 s35536
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/extract.o
-t1387691981
+t1387936061
 s113632
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/filcreat.o
-t1387691981
+t1387936061
 s21032
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/file.o
-t1387691981
+t1387936061
 s38400
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/filefn.o
-t1387691981
+t1387936061
 s35160
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/filestr.o
-t1387691981
+t1387936061
 s26152
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/find.o
-t1387691981
+t1387936061
 s15136
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/getbits.o
-t1387691981
+t1387936061
 s7016
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/global.o
-t1387691981
+t1387936061
 s6316
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/hash.o
-t1387691981
+t1387936061
 s13816
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/headers.o
-t1387691981
+t1387936061
 s14916
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/ioapi.o
-t1387691980
+t1387936061
 s13004
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/main.o
-t1387691980
+t1387936061
 s2632
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/match.o
-t1387691981
+t1387936061
 s7856
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/mztools.o
-t1387691980
+t1387936061
 s10884
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/options.o
-t1387691981
+t1387936061
 s15592
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/pathfn.o
-t1387691981
+t1387936061
 s64540
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/qopen.o
-t1387691981
+t1387936061
 s52328
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/rarvm.o
-t1387691981
+t1387936061
 s30684
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/rawread.o
-t1387691981
+t1387936061
 s26660
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/rdwrfn.o
-t1387691981
+t1387936061
 s47516
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/rijndael.o
-t1387691981
+t1387936061
 s19248
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/scantree.o
-t1387691981
+t1387936061
 s29508
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/secpassword.o
-t1387691981
+t1387936061
 s8940
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/sha1.o
-t1387691981
+t1387936061
 s18008
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/sha256.o
-t1387691981
+t1387936061
 s8668
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/smallfn.o
-t1387691981
+t1387936061
 s3172
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/strfn.o
-t1387691981
+t1387936061
 s17908
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/strlist.o
-t1387691981
+t1387936061
 s16844
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/system.o
-t1387691981
+t1387936061
 s3804
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/thumbnail.o
-t1387691981
+t1387936061
 s11100
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/timefn.o
-t1387691981
+t1387936061
 s14548
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/unicode.o
-t1387691981
+t1387936061
 s12136
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/unpack.o
-t1387691981
+t1387936061
 s184040
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/unzip.o
-t1387691980
+t1387936061
 s44644
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/volume.o
-t1387691981
+t1387936061
 s44500
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/zip.o
-t1387691980
+t1387936061
 s51748
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/AutoEnhance.o
-t1387691980
+t1387936061
 s16464
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/BrightnessAndContrast.o
-t1387691979
+t1387936061
 s15840
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/DragAndDrop.o
-t1387691980
+t1387936061
 s29980
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Grayscale.o
-t1387691980
+t1387936061
 s18276
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/HTMangaColorize.o
-t1387691980
+t1387936061
 s26928
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Loupe.o
-t1387691979
+t1387936061
 s18492
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao
-t1387891967
-s846904
+t1387936934
+s842456
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.LinkFileList
-c0000000052B67FC900000000000018AB
-t1387691977
+c0000000052BA393D00000000000018AB
+t1387936061
 s6315
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.o
-t1387891967
-s494144
+t1387936934
+s491728
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/RarFile.o
-t1387691980
+t1387936061
 s17024
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/SepiaTone.o
-t1387691979
+t1387936061
 s14996
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/ZipFile.o
-t1387691979
+t1387936061
 s22072
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/archive.o
-t1387691979
+t1387936061
 s99072
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/arcread.o
-t1387691979
+t1387936061
 s111012
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/blake2s.o
-t1387691979
+t1387936061
 s17264
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/cmddata.o
-t1387691979
+t1387936061
 s73420
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/consio.o
-t1387691979
+t1387936061
 s7636
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/crc.o
-t1387691979
+t1387936061
 s7860
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/crypt.o
-t1387691979
+t1387936061
 s43720
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/dll.o
-t1387691979
+t1387936061
 s74208
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/encname.o
-t1387691979
+t1387936061
 s5828
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/errhnd.o
-t1387691979
+t1387936061
 s19216
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/extinfo.o
-t1387691979
+t1387936061
 s35100
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/extract.o
-t1387691979
+t1387936061
 s113012
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/filcreat.o
-t1387691979
+t1387936061
 s21552
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/file.o
-t1387691979
+t1387936061
 s38756
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/filefn.o
-t1387691979
+t1387936061
 s35352
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/filestr.o
-t1387691979
+t1387936061
 s26688
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/find.o
-t1387691979
+t1387936061
 s15288
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/getbits.o
-t1387691979
+t1387936061
 s7428
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/global.o
-t1387691980
+t1387936061
 s6576
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/hash.o
-t1387691980
+t1387936061
 s14504
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/headers.o
-t1387691980
+t1387936061
 s15220
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/ioapi.o
-t1387691979
+t1387936061
 s13756
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/main.o
-t1387691979
+t1387936061
 s2704
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/match.o
-t1387691980
+t1387936061
 s7900
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/mztools.o
-t1387691979
+t1387936061
 s10840
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/options.o
-t1387691980
+t1387936061
 s15924
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/pathfn.o
-t1387691980
+t1387936061
 s65148
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/qopen.o
-t1387691980
+t1387936061
 s52612
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/rarvm.o
-t1387691980
+t1387936061
 s31200
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/rawread.o
-t1387691980
+t1387936061
 s27360
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/rdwrfn.o
-t1387691980
+t1387936061
 s47944
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/rijndael.o
-t1387691980
+t1387936061
 s19180
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/scantree.o
-t1387691980
+t1387936061
 s29572
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/secpassword.o
-t1387691980
+t1387936061
 s9204
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/sha1.o
-t1387691980
+t1387936061
 s20660
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/sha256.o
-t1387691980
+t1387936061
 s9080
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/smallfn.o
-t1387691980
+t1387936061
 s3192
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/strfn.o
-t1387691980
+t1387936061
 s18756
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/strlist.o
-t1387691980
+t1387936061
 s17472
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/system.o
-t1387691980
+t1387936061
 s3948
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/thumbnail.o
-t1387691980
+t1387936061
 s14280
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/timefn.o
-t1387691980
+t1387936061
 s14872
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/unicode.o
-t1387691980
+t1387936061
 s12960
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/unpack.o
-t1387691980
+t1387936062
 s189496
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/unzip.o
-t1387691979
+t1387936062
 s45436
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/volume.o
-t1387691980
+t1387936062
 s45036
 
 N/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/zip.o
-t1387691979
+t1387936062
 s51880
 
 N/Users/djhan/Documents/mangao_customized/mangao-icon.icns
@@ -2286,7 +2284,7 @@ r0
 
 CCheck dependencies
 r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesc840f27dc469b841^24997d7ec469b841^-139"Warning: Multiple build commands for output file /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/README1(21%IDEActivityLogMessage2@138"Warning: Multiple build commands for output file /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/README-409584766#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--0#1#1#--18"Check dependencies36"709D3675-5B4A-4EF0-BD59-C7C1F5EAF3D7-
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies070a8c25746ab841^62a38c25746ab841^-139"Warning: Multiple build commands for output file /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/README1(21%IDEActivityLogMessage2@138"Warning: Multiple build commands for output file /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/README-409629733#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--0#1#1#--18"Check dependencies36"FF389690-8E53-48E7-A021-B75164791978-
 
 CCompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/AutoEnhance.o /Users/djhan/Documents/mangao_customized/Mangao/Mangao/AutoEnhance.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s409384781.195913
@@ -2385,8 +2383,8 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Compile
 b60F6AD4C-E1E8-48EA-BEE3-B6D66287EC4E
 
 CCompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.o /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s409584766.525962
-e409584767.430433
+s409629733.562311
+e409629734.237947
 r1
 xCompileC
 xbuild/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.o
@@ -2397,12 +2395,6 @@ xobjective-c
 xcom.apple.compilers.llvm.clang.1_0.compiler
 d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m
 d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/Sparkle.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUUpdater.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionComparisonProtocol.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionDisplayProtocol.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcast.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcastItem.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/Headers/XADArchive.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/Headers/XADArchiveParser.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/Headers/XADException.h
@@ -2424,8 +2416,8 @@ d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/AutoEnhance.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/SepiaTone.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/Grayscale.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/BrightnessAndContrast.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m166"CompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.o Mangao/Mangao/Mangao.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilercec6867ec469b841^cb306e7fc469b841^---0#0#1#-19%DVTDocumentLocation2@70"file:///Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m0000000000000000^3082"CompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.o Mangao/Mangao/Mangao.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/djhan/Documents/mangao_customized    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DUSE_FILE32API -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.4 -g -Wno-sign-conversion -iquote /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-generated-files.hmap -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-own-target-headers.hmap -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-all-target-headers.hmap -iquote /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-project-headers.hmap -I/Users/djhan/Documents/mangao_customized/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/DerivedSources/i386 -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/DerivedSources -F/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized -F\"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks\" -F/Users/djhan/Documents/mangao_customized -F/Users/djhan/Documents/mangao_customized/Mangao/Frameworks -include /var/folders/19/l55x88h931v2rm12j3c68zlh0000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/Mangao-Prefix-enmeowltohvyaxezxgrlinmwbnhl/Mangao-Prefix.pch -MMD -MT dependencies -MF /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.d --serialize-diagnostics /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.dia -c /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m -o /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.o36"B6E0D377-3DDB-4AB7-B33E-436D5CDBA1A4-
-b02C5DC26-EA23-412B-A8E6-E535FEDDE7E1
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m166"CompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.o Mangao/Mangao/Mangao.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerae129025746ab841^25eb3c26746ab841^---0#0#1#-19%DVTDocumentLocation2@70"file:///Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m0000000000000000^3082"CompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.o Mangao/Mangao/Mangao.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/djhan/Documents/mangao_customized    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DUSE_FILE32API -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.4 -g -Wno-sign-conversion -iquote /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-generated-files.hmap -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-own-target-headers.hmap -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-all-target-headers.hmap -iquote /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-project-headers.hmap -I/Users/djhan/Documents/mangao_customized/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/DerivedSources/i386 -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/DerivedSources -F/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized -F\"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks\" -F/Users/djhan/Documents/mangao_customized -F/Users/djhan/Documents/mangao_customized/Mangao/Frameworks -include /var/folders/19/l55x88h931v2rm12j3c68zlh0000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/Mangao-Prefix-enmeowltohvyaxezxgrlinmwbnhl/Mangao-Prefix.pch -MMD -MT dependencies -MF /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.d --serialize-diagnostics /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.dia -c /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m -o /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.o36"0B1046FB-3DB2-4386-A310-09F1748C5A86-
+bDB818E85-2FE2-4900-83EF-A1C021ACA48F
 
 CCompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/RarFile.o /Users/djhan/Documents/mangao_customized/Mangao/RarFile/RarFile.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 s409384781.604031
@@ -6283,8 +6275,8 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Compile
 b60F6AD4C-E1E8-48EA-BEE3-B6D66287EC4E
 
 CCompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.o /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s409584766.504602
-e409584767.400166
+s409629733.552897
+e409629734.206962
 r1
 xCompileC
 xbuild/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.o
@@ -6295,12 +6287,6 @@ xobjective-c
 xcom.apple.compilers.llvm.clang.1_0.compiler
 d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m
 d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/Sparkle.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUUpdater.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionComparisonProtocol.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUVersionDisplayProtocol.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcast.h
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Headers/SUAppcastItem.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/Headers/XADArchive.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/Headers/XADArchiveParser.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/Headers/XADException.h
@@ -6322,8 +6308,8 @@ d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/AutoEnhance.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/SepiaTone.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/Grayscale.h
 d/Users/djhan/Documents/mangao_customized/Mangao/Mangao/BrightnessAndContrast.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m170"CompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.o Mangao/Mangao/Mangao.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler33c0817ec469b841^1571667fc469b841^---0#0#1#-19%DVTDocumentLocation2@70"file:///Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m0000000000000000^3096"CompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.o Mangao/Mangao/Mangao.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/djhan/Documents/mangao_customized    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DUSE_FILE32API -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.4 -g -Wno-sign-conversion -iquote /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-generated-files.hmap -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-own-target-headers.hmap -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-all-target-headers.hmap -iquote /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-project-headers.hmap -I/Users/djhan/Documents/mangao_customized/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/DerivedSources/x86_64 -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/DerivedSources -F/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized -F\"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks\" -F/Users/djhan/Documents/mangao_customized -F/Users/djhan/Documents/mangao_customized/Mangao/Frameworks -include /var/folders/19/l55x88h931v2rm12j3c68zlh0000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/Mangao-Prefix-dlzukpousmituwgbsehzsdcqxjbm/Mangao-Prefix.pch -MMD -MT dependencies -MF /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.d --serialize-diagnostics /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.dia -c /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m -o /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.o36"698502EA-B2CA-4FB8-B88F-4A40A1E1F674-
-b02C5DC26-EA23-412B-A8E6-E535FEDDE7E1
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m170"CompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.o Mangao/Mangao/Mangao.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler08af8d25746ab841^2afd3426746ab841^---0#0#1#-19%DVTDocumentLocation2@70"file:///Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m0000000000000000^3096"CompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.o Mangao/Mangao/Mangao.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/djhan/Documents/mangao_customized    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DUSE_FILE32API -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.4 -g -Wno-sign-conversion -iquote /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-generated-files.hmap -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-own-target-headers.hmap -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-all-target-headers.hmap -iquote /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Mangao-project-headers.hmap -I/Users/djhan/Documents/mangao_customized/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/DerivedSources/x86_64 -I/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/DerivedSources -F/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized -F\"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks\" -F/Users/djhan/Documents/mangao_customized -F/Users/djhan/Documents/mangao_customized/Mangao/Frameworks -include /var/folders/19/l55x88h931v2rm12j3c68zlh0000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/Mangao-Prefix-dlzukpousmituwgbsehzsdcqxjbm/Mangao-Prefix.pch -MMD -MT dependencies -MF /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.d --serialize-diagnostics /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.dia -c /Users/djhan/Documents/mangao_customized/Mangao/Mangao/Mangao.m -o /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.o36"37503208-71FD-4BBA-B226-0401252C29DC-
+bDB818E85-2FE2-4900-83EF-A1C021ACA48F
 
 CCompileC build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/RarFile.o /Users/djhan/Documents/mangao_customized/Mangao/RarFile/RarFile.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 s409384780.445836
@@ -10232,24 +10218,24 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Copy bu
 b60F6AD4C-E1E8-48EA-BEE3-B6D66287EC4E
 
 CCpResource Mangao/RarFile/README build/Debug/Mangao.app/Contents/Resources/README
-s409415831.447306
-e409415831.451263
+s409629592.289652
+e409629592.291081
 r1
 xCpResource
 xMangao/RarFile/README
 xbuild/Debug/Mangao.app/Contents/Resources/README
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Copy build/Debug/Mangao.app/Contents/Resources/README81"CpResource Mangao/RarFile/README build/Debug/Mangao.app/Contents/Resources/README8d9772973067b841^be8773973067b841^---0#0#1#-19%DVTDocumentLocation2@96"file:///Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/README0000000000000000^388"CpResource Mangao/RarFile/README build/Debug/Mangao.app/Contents/Resources/README    cd /Users/djhan/Documents/mangao_customized    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/djhan/Documents/mangao_customized/Mangao/RarFile/README /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources36"03688130-94F3-4676-9533-0634ED785F81-
-b4D055A8A-9148-4FCD-91E5-E55A3AD82D79
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Copy build/Debug/Mangao.app/Contents/Resources/README81"CpResource Mangao/RarFile/README build/Debug/Mangao.app/Contents/Resources/README0d354a98736ab841^55854a98736ab841^---0#0#1#-19%DVTDocumentLocation2@96"file:///Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/README0000000000000000^388"CpResource Mangao/RarFile/README build/Debug/Mangao.app/Contents/Resources/README    cd /Users/djhan/Documents/mangao_customized    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/djhan/Documents/mangao_customized/Mangao/RarFile/README /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources36"26DE7F18-1B15-43FA-BEF5-8F4CB1686AF1-
+b547DC7C3-59F0-48C7-8D54-15DEF3023771
 
 CCpResource Mangao/ZipFile/README build/Debug/Mangao.app/Contents/Resources/README
-s409584767.742506
-e409584767.750060
+s409629734.480258
+e409629734.483022
 r1
 xCpResource
 xMangao/ZipFile/README
 xbuild/Debug/Mangao.app/Contents/Resources/README
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Copy build/Debug/Mangao.app/Contents/Resources/README81"CpResource Mangao/ZipFile/README build/Debug/Mangao.app/Contents/Resources/READMEd53dbe7fc469b841^3e05c07fc469b841^---0#0#1#-19%DVTDocumentLocation2@96"file:///Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/README0000000000000000^388"CpResource Mangao/ZipFile/README build/Debug/Mangao.app/Contents/Resources/README    cd /Users/djhan/Documents/mangao_customized    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/djhan/Documents/mangao_customized/Mangao/ZipFile/README /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources36"C5B483D0-A44A-4CB1-866A-FA8D723B78C6-
-b02C5DC26-EA23-412B-A8E6-E535FEDDE7E1
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Copy build/Debug/Mangao.app/Contents/Resources/README81"CpResource Mangao/ZipFile/README build/Debug/Mangao.app/Contents/Resources/READMEc9057b26746ab841^42affb26746ab841^---0#0#1#-19%DVTDocumentLocation2@96"file:///Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources/README0000000000000000^388"CpResource Mangao/ZipFile/README build/Debug/Mangao.app/Contents/Resources/README    cd /Users/djhan/Documents/mangao_customized    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/djhan/Documents/mangao_customized/Mangao/ZipFile/README /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Resources36"20847DD4-C2EB-447C-88F1-A7360AA01976-
+bDB818E85-2FE2-4900-83EF-A1C021ACA48F
 
 CCpResource Mangao/dsa_pub.pem build/Debug/Mangao.app/Contents/Resources/dsa_pub.pem
 s409384782.072189
@@ -10292,19 +10278,19 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Copy bu
 b60F6AD4C-E1E8-48EA-BEE3-B6D66287EC4E
 
 CCreateUniversalBinary /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/MacOS/Mangao normal x86_64\ i386
-s409584767.724421
-e409584767.741735
+s409629734.460638
+e409629734.479291
 r1
 xCreateUniversalBinary
 x/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/MacOS/Mangao
 xnormal
 xx86_64 i386
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"Create universal binary /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/MacOS/Mangao86"CreateUniversalBinary build/Debug/Mangao.app/Contents/MacOS/Mangao normal x86_64\ i386ec8ab97fc469b841^d6e4bd7fc469b841^---0#0#1#-19%DVTDocumentLocation2@92"file:///Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/MacOS/Mangao0000000000000000^460"CreateUniversalBinary build/Debug/Mangao.app/Contents/MacOS/Mangao normal x86_64\ i386    cd /Users/djhan/Documents/mangao_customized    lipo -create /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao -output /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/MacOS/Mangao36"A0ADC612-A915-40C0-A2E9-50204FCD7679-
-b02C5DC26-EA23-412B-A8E6-E535FEDDE7E1
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"Create universal binary /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/MacOS/Mangao86"CreateUniversalBinary build/Debug/Mangao.app/Contents/MacOS/Mangao normal x86_64\ i386f8ff7526746ab841^5ea1fb26746ab841^---0#0#1#-19%DVTDocumentLocation2@92"file:///Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/MacOS/Mangao0000000000000000^460"CreateUniversalBinary build/Debug/Mangao.app/Contents/MacOS/Mangao normal x86_64\ i386    cd /Users/djhan/Documents/mangao_customized    lipo -create /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao -output /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/MacOS/Mangao36"65D4C43F-6E86-4B8D-9965-7764BBA35835-
+bDB818E85-2FE2-4900-83EF-A1C021ACA48F
 
 CLd /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao normal i386
-s409584767.459394
-e409584767.722500
+s409629734.245675
+e409629734.458614
 r1
 xLd
 x/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao
@@ -10375,30 +10361,12 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Quartz
 d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Sparkle
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Foundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libobjc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libstdc++.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libSystem.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libgcc_s.10.4.dylib
 d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.10.4.a
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzComposer.framework/Versions/A/QuartzComposer
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/PDFKit.framework/Versions/A/PDFKit
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzFilters.framework/Versions/A/QuartzFilters
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/ImageKit.framework/Versions/A/ImageKit
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuickLookUI.framework/Versions/A/QuickLookUI
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Security.framework/Security
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/WebKit.framework/WebKit
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/IOKit.framework/IOKit
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libbz2.1.0.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libxar.1.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework/SystemConfiguration
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreServices.framework/CoreServices
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/CoreImage.framework/Versions/A/CoreImage
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/ScalableUserInterface.framework/Versions/A/ScalableUserInterface
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libcache.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libcommonCrypto.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libcompiler_rt.dylib
@@ -10423,10 +10391,21 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libunc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libunwind.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libxpc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/CoreImage.framework/Versions/A/CoreImage
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/ScalableUserInterface.framework/Versions/A/ScalableUserInterface
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreData.framework/CoreData
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzComposer.framework/Versions/A/QuartzComposer
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/PDFKit.framework/Versions/A/PDFKit
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzFilters.framework/Versions/A/QuartzFilters
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/ImageKit.framework/Versions/A/ImageKit
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuickLookUI.framework/Versions/A/QuickLookUI
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreText.framework/CoreText
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ImageIO.framework/ImageIO
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreServices.framework/CoreServices
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSync.framework/Versions/A/ColorSync
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
@@ -10434,7 +10413,6 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/WebKit.framework/Versions/A/Frameworks/WebCore.framework/Versions/A/WebCore
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuickLook.framework/QuickLook
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
@@ -10445,12 +10423,12 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
 old: warning: directory not found for option '-F"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks"'
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection110"Link /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao79"Ld build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao normal i38686a9757fc469b841^e205b97fc469b841^-109"ld: warning: directory not found for option '-F"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks"'1(21%IDEActivityLogMessage2@95"Directory not found for option '-F"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks"'-409584767#0#109#-1#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#32"Apple Mach-O Linker (ld) Warning--0#0#1#--1284"Ld build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao normal i386    cd /Users/djhan/Documents/mangao_customized    setenv MACOSX_DEPLOYMENT_TARGET 10.4    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized -F\"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks\" -F/Users/djhan/Documents/mangao_customized -F/Users/djhan/Documents/mangao_customized/Mangao/Frameworks -filelist /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.LinkFileList -mmacosx-version-min=10.4 -fobjc-link-runtime -lz -framework Cocoa -framework AppKit -framework Quartz -weak_framework XADMaster -framework QuartzCore -weak_framework Sparkle -Xlinker -dependency_info -Xlinker /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao_dependency_info.dat -o /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao36"4937DE3A-8B03-443F-A78D-27E0EE5A8AC3-
-b02C5DC26-EA23-412B-A8E6-E535FEDDE7E1
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection110"Link /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao79"Ld build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao normal i38623f53e26746ab841^639cfb26746ab841^-109"ld: warning: directory not found for option '-F"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks"'1(21%IDEActivityLogMessage2@95"Directory not found for option '-F"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks"'-409629734#0#109#-1#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#32"Apple Mach-O Linker (ld) Warning--0#0#1#--1260"Ld build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao normal i386    cd /Users/djhan/Documents/mangao_customized    setenv MACOSX_DEPLOYMENT_TARGET 10.4    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized -F\"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks\" -F/Users/djhan/Documents/mangao_customized -F/Users/djhan/Documents/mangao_customized/Mangao/Frameworks -filelist /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao.LinkFileList -mmacosx-version-min=10.4 -fobjc-link-runtime -lz -framework Cocoa -framework AppKit -framework Quartz -weak_framework XADMaster -framework QuartzCore -Xlinker -dependency_info -Xlinker /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao_dependency_info.dat -o /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/i386/Mangao36"30BDD834-04CF-4B95-BDD5-D72EAD55E359-
+bDB818E85-2FE2-4900-83EF-A1C021ACA48F
 
 CLd /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao normal x86_64
-s409584767.450404
-e409584767.722657
+s409629734.243470
+e409629734.458436
 r1
 xLd
 x/Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao
@@ -10520,7 +10498,6 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/AppKit.framework/AppKit
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Quartz
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
-d/Users/djhan/Documents/mangao_customized/Mangao/Frameworks/Sparkle.framework/Sparkle
 d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_macosx.a
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Foundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libobjc.dylib
@@ -10528,6 +10505,17 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libSystem.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libgcc_s.10.4.dylib
 d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.10.4.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzComposer.framework/Versions/A/QuartzComposer
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/PDFKit.framework/Versions/A/PDFKit
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzFilters.framework/Versions/A/QuartzFilters
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/ImageKit.framework/Versions/A/ImageKit
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuickLookUI.framework/Versions/A/QuickLookUI
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/CoreImage.framework/Versions/A/CoreImage
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/ScalableUserInterface.framework/Versions/A/ScalableUserInterface
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreData.framework/CoreData
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libcache.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libcommonCrypto.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libcompiler_rt.dylib
@@ -10552,18 +10540,6 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libunc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libunwind.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/system/libxpc.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzComposer.framework/Versions/A/QuartzComposer
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/PDFKit.framework/Versions/A/PDFKit
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzFilters.framework/Versions/A/QuartzFilters
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/ImageKit.framework/Versions/A/ImageKit
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuickLookUI.framework/Versions/A/QuickLookUI
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreData.framework/CoreData
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/CoreImage.framework/Versions/A/CoreImage
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/ScalableUserInterface.framework/Versions/A/ScalableUserInterface
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuickLook.framework/QuickLook
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreText.framework/CoreText
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ImageIO.framework/ImageIO
@@ -10575,6 +10551,7 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuickLook.framework/QuickLook
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
@@ -10585,8 +10562,8 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/
 d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
 old: warning: directory not found for option '-F"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks"'
 old: warning: ignoring file /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster, missing required architecture x86_64 in file /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster (2 slices)
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"Link /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao83"Ld build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao normal x86_64f567737fc469b841^cc0ab97fc469b841^-371"ld: warning: directory not found for option '-F"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks"'ld: warning: ignoring file /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster, missing required architecture x86_64 in file /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster (2 slices)2(21%IDEActivityLogMessage2@95"Directory not found for option '-F"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks"'-409584767#0#109#-1#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#32"Apple Mach-O Linker (ld) Warning--2@248"Ignoring file /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster, missing required architecture x86_64 in file /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster (2 slices)-409584767#109#262#-1#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#32"Apple Mach-O Linker (ld) Warning--0#0#1#--1296"Ld build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao normal x86_64    cd /Users/djhan/Documents/mangao_customized    setenv MACOSX_DEPLOYMENT_TARGET 10.4    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized -F\"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks\" -F/Users/djhan/Documents/mangao_customized -F/Users/djhan/Documents/mangao_customized/Mangao/Frameworks -filelist /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.LinkFileList -mmacosx-version-min=10.4 -fobjc-link-runtime -lz -framework Cocoa -framework AppKit -framework Quartz -weak_framework XADMaster -framework QuartzCore -weak_framework Sparkle -Xlinker -dependency_info -Xlinker /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao_dependency_info.dat -o /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao36"450BDBD8-E628-4D1C-B0B6-A5F7758FFA45-
-b02C5DC26-EA23-412B-A8E6-E535FEDDE7E1
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"Link /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao83"Ld build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao normal x86_644c6c3e26746ab841^4697fb26746ab841^-371"ld: warning: directory not found for option '-F"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks"'ld: warning: ignoring file /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster, missing required architecture x86_64 in file /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster (2 slices)2(21%IDEActivityLogMessage2@95"Directory not found for option '-F"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks"'-409629734#0#109#-1#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#32"Apple Mach-O Linker (ld) Warning--2@248"Ignoring file /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster, missing required architecture x86_64 in file /Users/djhan/Documents/mangao_customized/Mangao/Frameworks/XADMaster.framework/XADMaster (2 slices)-409629734#109#262#-1#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#32"Apple Mach-O Linker (ld) Warning--0#0#1#--1272"Ld build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao normal x86_64    cd /Users/djhan/Documents/mangao_customized    setenv MACOSX_DEPLOYMENT_TARGET 10.4    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized/build/Debug -F/Users/djhan/Documents/mangao_customized -F\"/Users/djhan/Documents/mangao_customized/Mangao/Frameworks\" -F/Users/djhan/Documents/mangao_customized -F/Users/djhan/Documents/mangao_customized/Mangao/Frameworks -filelist /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao.LinkFileList -mmacosx-version-min=10.4 -fobjc-link-runtime -lz -framework Cocoa -framework AppKit -framework Quartz -weak_framework XADMaster -framework QuartzCore -Xlinker -dependency_info -Xlinker /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao_dependency_info.dat -o /Users/djhan/Documents/mangao_customized/build/Mangao.build/Debug/Mangao.build/Objects-normal/x86_64/Mangao36"DC8AEC62-87B7-4442-A257-B6DAA1A33B93-
+bDB818E85-2FE2-4900-83EF-A1C021ACA48F
 
 CPBXCp Mangao/Frameworks/Sparkle.framework build/Debug/Mangao.app/Contents/Frameworks/Sparkle.framework
 s409384782.131292
@@ -10609,14 +10586,14 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Copy bu
 b60F6AD4C-E1E8-48EA-BEE3-B6D66287EC4E
 
 CProcessInfoPlistFile /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Info.plist /Users/djhan/Documents/mangao_customized/Mangao/Mangao-Info.plist
-s409384777.944782
-e409384777.947238
+s409629681.179974
+e409629681.182190
 r1
 xProcessInfoPlistFile
 x/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Info.plist
 x/Users/djhan/Documents/mangao_customized/Mangao/Mangao-Info.plist
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Process /Users/djhan/Documents/mangao_customized/Mangao/Mangao-Info.plist88"ProcessInfoPlistFile build/Debug/Mangao.app/Contents/Info.plist Mangao/Mangao-Info.plistc4ecf149b766b841^d87ef249b766b841^---0#0#1#-19%DVTDocumentLocation2@72"file:///Users/djhan/Documents/mangao_customized/Mangao/Mangao-Info.plist0000000000000000^450"ProcessInfoPlistFile build/Debug/Mangao.app/Contents/Info.plist Mangao/Mangao-Info.plist    cd /Users/djhan/Documents/mangao_customized    builtin-infoPlistUtility /Users/djhan/Documents/mangao_customized/Mangao/Mangao-Info.plist -genpkginfo /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Info.plist36"9CEB2F49-CE00-416A-B043-2362A3336B14-
-b60F6AD4C-E1E8-48EA-BEE3-B6D66287EC4E
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Process /Users/djhan/Documents/mangao_customized/Mangao/Mangao-Info.plist88"ProcessInfoPlistFile build/Debug/Mangao.app/Contents/Info.plist Mangao/Mangao-Info.plist601e2ef1736ab841^dfa32ef1736ab841^---0#0#1#-19%DVTDocumentLocation2@72"file:///Users/djhan/Documents/mangao_customized/Mangao/Mangao-Info.plist0000000000000000^450"ProcessInfoPlistFile build/Debug/Mangao.app/Contents/Info.plist Mangao/Mangao-Info.plist    cd /Users/djhan/Documents/mangao_customized    builtin-infoPlistUtility /Users/djhan/Documents/mangao_customized/Mangao/Mangao-Info.plist -genpkginfo /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app/Contents/Info.plist36"7F3C5E08-A595-4622-BB91-AE6D15199966-
+b8C1A43A3-5E4F-44DF-AF68-E38CE4B28837
 
 CProcessPCH /Users/djhan/Library/Developer/Xcode/DerivedData/Mangao-epmwgjwwqvpzybcalmqonzszlizj/Index/PrecompiledHeaders/Mangao-Prefix-autohcjcddkoftcnxjqkjaiyvmxo_ast/Mangao-Prefix.pch.pch Mangao/Mangao-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
 r0
@@ -10763,11 +10740,11 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection35"Precomp
 b60F6AD4C-E1E8-48EA-BEE3-B6D66287EC4E
 
 CTouch /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app
-s409584768.770795
-e409584768.778185
+s409629734.484232
+e409629734.490271
 r1
 xTouch
 x/Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection69"Touch /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app28"Touch build/Debug/Mangao.app0b61c580c469b841^8637c780c469b841^---0#0#1#--163"Touch build/Debug/Mangao.app    cd /Users/djhan/Documents/mangao_customized    /usr/bin/touch -c /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app36"29DE1A13-7C68-4E04-8B7D-FEF99194D331-
-b02C5DC26-EA23-412B-A8E6-E535FEDDE7E1
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection69"Touch /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app28"Touch build/Debug/Mangao.app1d017c26746ab841^a2b4fb26746ab841^---0#0#1#--163"Touch build/Debug/Mangao.app    cd /Users/djhan/Documents/mangao_customized    /usr/bin/touch -c /Users/djhan/Documents/mangao_customized/build/Debug/Mangao.app36"2048ED91-AECF-4FF2-ADE9-83DA542DCE53-
+bDB818E85-2FE2-4900-83EF-A1C021ACA48F
 
