@@ -89,6 +89,8 @@
     //pagenumber 추가
     NSTextField *pagenumberPrev;
     NSTextField *pagenumberNext;
+    //lastfile 추가
+    NSString *lastfile;
     //xadarchive 추가
     //XADArchiveParser *parser;
 }
@@ -128,6 +130,7 @@
 @property (nonatomic, retain) NSMutableArray *plistKey;
 @property (nonatomic, retain) NSMutableArray *plistValue;
 @property (nonatomic, assign) NSUInteger plistKeyIndex;
+@property (nonatomic, assign) NSString *lastfile;
 
 @property (assign) IBOutlet NSWindow *viewWindow;
 @property (assign) IBOutlet NSMenu *mainMenu;

@@ -207,8 +207,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1129"
             endingLineNumber = "1129"
-            landmarkName = "-SetDefaultBrightness"
-            landmarkType = "5">
+            landmarkName = "@implementation Mangao"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -333,7 +333,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2979"
             endingLineNumber = "2979"
-            landmarkName = "-pagePrev"
+            landmarkName = "-setImage"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -349,7 +349,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2986"
             endingLineNumber = "2986"
-            landmarkName = "-pagePrev"
+            landmarkName = "-setImage"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -429,7 +429,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3811"
             endingLineNumber = "3811"
-            landmarkName = "-onePageDisplay"
+            landmarkName = "-migibirakiHidaribiraki"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -461,7 +461,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3807"
             endingLineNumber = "3807"
-            landmarkName = "-onePageDisplay"
+            landmarkName = "-migibirakiHidaribiraki"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

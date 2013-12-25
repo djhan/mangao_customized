@@ -45,24 +45,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="1698"/>
                     </imageView>
-                    <tokenField focusRingType="none" verticalHuggingPriority="750" id="5CK-TA-4nJ">
-                        <rect key="frame" x="-2" y="1" width="64" height="20"/>
+                    <textField verticalHuggingPriority="750" id="zuY-Re-5Z5">
+                        <rect key="frame" x="0.0" y="1" width="60" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <tokenFieldCell key="cell" allowsUndo="NO" focusRingType="none" alignment="left" allowsEditingTextAttributes="YES" id="kZv-JO-ODb">
-                            <font key="font" size="12" name="Helvetica"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </tokenFieldCell>
-                    </tokenField>
-                    <tokenField focusRingType="none" verticalHuggingPriority="750" id="vAf-9f-wzj">
-                        <rect key="frame" x="523" y="1" width="64" height="20"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" drawsBackground="YES" id="MYn-p9-wOu">
+                            <font key="font" size="11" name="Helvetica-Bold"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="J18-Kp-13a">
+                        <rect key="frame" x="525" y="1" width="60" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <tokenFieldCell key="cell" allowsUndo="NO" focusRingType="none" alignment="right" placeholderString="" allowsEditingTextAttributes="YES" id="71x-E2-lri">
-                            <font key="font" size="12" name="Helvetica"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </tokenFieldCell>
-                    </tokenField>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" drawsBackground="YES" id="Wuv-WO-2s9">
+                            <font key="font" size="11" name="Helvetica-Bold"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
         </window>
@@ -135,8 +135,8 @@
                 <outlet property="loupeWindow" destination="Gpf-Rn-LOS" id="cQn-wb-25N"/>
                 <outlet property="mainMenu" destination="29" id="vgK-I2-vFK"/>
                 <outlet property="mainMenuItem" destination="56" id="Xtz-MP-rDS"/>
-                <outlet property="pagenumberNext" destination="5CK-TA-4nJ" id="LRO-Ej-NeY"/>
-                <outlet property="pagenumberPrev" destination="vAf-9f-wzj" id="hvl-zx-omL"/>
+                <outlet property="pagenumberNext" destination="zuY-Re-5Z5" id="eCp-sG-6cE"/>
+                <outlet property="pagenumberPrev" destination="J18-Kp-13a" id="PXU-7i-MVj"/>
                 <outlet property="sparkle" destination="2600" id="ULC-Rv-d5w"/>
                 <outlet property="thumbnailController" destination="5Rs-eM-ksS" id="w5g-2u-KVe"/>
                 <outlet property="thumbnailView" destination="Gzm-h2-eyn" id="tDP-HB-PFj"/>
