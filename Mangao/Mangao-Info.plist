@@ -133,7 +133,7 @@
 	<key>CFBundleIconFile</key>
 	<string>mangao-icon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.RyotaMinami93.Mangao</string>
+	<string>com.djhan.Mangao</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -141,11 +141,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>10.1.1</string>
+	<string>10.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1011</string>
+	<string>1010</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSTypeIsPackage</key>
@@ -156,9 +156,5 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SUFeedURL</key>
-	<string>http://ryotaminami93.appspot.com/mangao.xml</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsa_pub.pem</string>
 </dict>
 </plist>

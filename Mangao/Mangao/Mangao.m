@@ -170,11 +170,13 @@
     //ウインドウのサイズと場所を記憶するようにする
     [self.viewWindow setFrameAutosaveName:@"Autosave"];
     
-    //サイレントアップデートを行う
+    //자동 업데이트 중단
+    /*
     [sparkle setAutomaticallyChecksForUpdates:YES];
     [sparkle setAutomaticallyDownloadsUpdates:YES];
     [sparkle checkForUpdatesInBackground];
-    
+    */
+     
     //plistを読み込み
     //この方法以外だと"mutating method sent to immutable object"になる
     app.defaults = [NSUserDefaults standardUserDefaults];
@@ -2145,6 +2147,16 @@
     [finalImage unlockFocus];
     image = finalImage;
     */
+    
+    /*    NSRect leftframe = [imageLeftField frame];
+     NSLog(@"left frame width:%f", leftframe.size.width);
+     NSLog(@"left frame width:%f", leftframe.size.height);
+     
+     NSRect rightframe = [imageRightField frame];
+     NSLog(@"right frame width:%f", rightframe.size.width);
+     NSLog(@"right frame width:%f", rightframe.size.height);
+     */
+     
     return image;
 }
 
@@ -2416,7 +2428,7 @@
     
     //選択したアーカイブのフルパスをMD5に変換
     NSString *fullPathMD5 = [self NSString2MD5NSString:[app.fileListFullPathOfArchive objectAtIndex:app.indexOfArchive]];
-    
+
     //Full Path 비교
     //NSString *fullPathMD5 = [app.fileListFullPathOfArchive objectAtIndex:app.indexOfArchive];
 

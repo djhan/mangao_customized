@@ -51,7 +51,6 @@
 		6F56941917CF7E8C00308AAD /* RarFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F56941817CF7E8C00308AAD /* RarFile.mm */; };
 		6F56941B17CFA2C300308AAD /* README in Resources */ = {isa = PBXBuildFile; fileRef = 6F56941A17CFA2C200308AAD /* README */; };
 		CE16EB1417887A1C00B55438 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CE16EB1317887A1C00B55438 /* README */; };
-		CE17CF2C17E6F7D400BE44CB /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE17CF2B17E6F7D400BE44CB /* Sparkle.framework */; };
 		CE3037841785633F000A33D9 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = CE30377C1785633F000A33D9 /* ioapi.c */; };
 		CE3037851785633F000A33D9 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = CE30377E1785633F000A33D9 /* mztools.c */; };
 		CE3037861785633F000A33D9 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE3037801785633F000A33D9 /* unzip.c */; };
@@ -62,7 +61,6 @@
 		CE33F60418534D3D00919D70 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8EE21F177B9E7E00F7AB80 /* AppKit.framework */; };
 		CE4DB5C81785408B0090E713 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4DB5C71785408B0090E713 /* libz.dylib */; };
 		CE58E84617F7307400CA3DD8 /* Loupe.m in Sources */ = {isa = PBXBuildFile; fileRef = CE58E84517F7307400CA3DD8 /* Loupe.m */; };
-		CE6A57DD17E6F6CA0048E1DF /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6A57DC17E6F6CA0048E1DF /* Sparkle.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CE739B29185346A900A5876D /* thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = CE739B28185346A900A5876D /* thumbnail.m */; };
 		CE809414182028DB00D9B820 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE809416182028DB00D9B820 /* Localizable.strings */; };
 		CE8EE21D177B9E7E00F7AB80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8EE21C177B9E7E00F7AB80 /* Cocoa.framework */; };
@@ -72,7 +70,6 @@
 		CEAD23C2183E3C850066759E /* DragAndDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAD23C0183E3C850066759E /* DragAndDrop.m */; };
 		CED9573E178B257C00A2994D /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CED9573B178B257C00A2994D /* LICENSE */; };
 		CED9573F178B257C00A2994D /* Mangao.m in Sources */ = {isa = PBXBuildFile; fileRef = CED9573D178B257C00A2994D /* Mangao.m */; };
-		CEDBB92917E72B9E00E4F2A3 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = CEDBB92817E72B9E00E4F2A3 /* dsa_pub.pem */; };
 		CEECAAEE1856022F0014E1DA /* HTMangaColorize.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECAAEC1856022F0014E1DA /* HTMangaColorize.m */; };
 		CEECAAEF1856022F0014E1DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEECAAED1856022F0014E1DA /* README.md */; };
 		CEECAAF1185602740014E1DA /* 4color4.png in Resources */ = {isa = PBXBuildFile; fileRef = CEECAAF0185602740014E1DA /* 4color4.png */; };
@@ -98,7 +95,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CE17CF2C17E6F7D400BE44CB /* Sparkle.framework in CopyFiles */,
 				EE910A0C1863C810008AD5E6 /* XADMaster.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,7 +233,6 @@
 		CE0554F01820298500281F05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE0554F11820298D00281F05 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE16EB1317887A1C00B55438 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		CE17CF2B17E6F7D400BE44CB /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Mangao/Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		CE1D59D318524139003D86D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CE30377B1785633F000A33D9 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		CE30377C1785633F000A33D9 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
@@ -255,7 +250,6 @@
 		CE4DB5C71785408B0090E713 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CE58E84417F7307400CA3DD8 /* Loupe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loupe.h; sourceTree = "<group>"; };
 		CE58E84517F7307400CA3DD8 /* Loupe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loupe.m; sourceTree = "<group>"; };
-		CE6A57DC17E6F6CA0048E1DF /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Mangao/Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		CE739B27185346A900A5876D /* thumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thumbnail.h; sourceTree = "<group>"; };
 		CE739B28185346A900A5876D /* thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thumbnail.m; sourceTree = "<group>"; };
 		CE7549051799904300A8578E /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -273,7 +267,6 @@
 		CED9573B178B257C00A2994D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CED9573C178B257C00A2994D /* Mangao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mangao.h; sourceTree = "<group>"; };
 		CED9573D178B257C00A2994D /* Mangao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mangao.m; sourceTree = "<group>"; };
-		CEDBB92817E72B9E00E4F2A3 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		CEECAAEB1856022F0014E1DA /* HTMangaColorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMangaColorize.h; sourceTree = "<group>"; };
 		CEECAAEC1856022F0014E1DA /* HTMangaColorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMangaColorize.m; sourceTree = "<group>"; };
 		CEECAAED1856022F0014E1DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -308,7 +301,6 @@
 				CE31A97D17AF61B200BF844D /* Quartz.framework in Frameworks */,
 				EE910A0A1863C78A008AD5E6 /* XADMaster.framework in Frameworks */,
 				CEECAAF3185602C20014E1DA /* QuartzCore.framework in Frameworks */,
-				CE6A57DD17E6F6CA0048E1DF /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +494,6 @@
 				EE910A0B1863C810008AD5E6 /* XADMaster.framework */,
 				CE3301471846D3B200F0EFB2 /* mangao-icon.icns */,
 				CE4DB5C71785408B0090E713 /* libz.dylib */,
-				CE17CF2B17E6F7D400BE44CB /* Sparkle.framework */,
 				CE8EE222177B9E7E00F7AB80 /* Mangao */,
 				CE8EE21B177B9E7E00F7AB80 /* Frameworks */,
 				CE8EE21A177B9E7E00F7AB80 /* Products */,
@@ -522,7 +513,6 @@
 			children = (
 				CEECAAF2185602C20014E1DA /* QuartzCore.framework */,
 				CE1D59D318524139003D86D5 /* CoreGraphics.framework */,
-				CE6A57DC17E6F6CA0048E1DF /* Sparkle.framework */,
 				CE8EE21C177B9E7E00F7AB80 /* Cocoa.framework */,
 				CE31A97C17AF61B200BF844D /* Quartz.framework */,
 				CE8EE21E177B9E7E00F7AB80 /* Other Frameworks */,
@@ -559,7 +549,6 @@
 		CE8EE223177B9E7E00F7AB80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CEDBB92817E72B9E00E4F2A3 /* dsa_pub.pem */,
 				CE8EE224177B9E7E00F7AB80 /* Mangao-Info.plist */,
 				CE809416182028DB00D9B820 /* Localizable.strings */,
 				CE8EE228177B9E7E00F7AB80 /* main.m */,
@@ -671,7 +660,6 @@
 				CEECAAEF1856022F0014E1DA /* README.md in Resources */,
 				CE93B8C717D0214900F90C7E /* license.txt in Resources */,
 				EEE9CD30185EBB98007D226C /* ThisArchiveHasNoImage.pdf in Resources */,
-				CEDBB92917E72B9E00E4F2A3 /* dsa_pub.pem in Resources */,
 				EEE9CD2F185EBB98007D226C /* PleasePressO.pdf in Resources */,
 				EEE9CD2C185EBB98007D226C /* CantOpenThisArchive.pdf in Resources */,
 			);
