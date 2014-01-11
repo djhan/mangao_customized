@@ -87,11 +87,12 @@
 		CEAD23C2183E3C850066759E /* DragAndDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAD23C0183E3C850066759E /* DragAndDrop.m */; };
 		CEBDF3761875417C0067A0B6 /* mangao-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = CEBDF3741875417C0067A0B6 /* mangao-icon.icns */; };
 		CEBDF3771875417C0067A0B6 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEBDF3751875417C0067A0B6 /* readme.txt */; };
-		CEC7D68A1872C0C8004985BA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEC7D6891872C0C8004985BA /* README.txt */; };
 		CED9573E178B257C00A2994D /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CED9573B178B257C00A2994D /* LICENSE */; };
 		CED9573F178B257C00A2994D /* Mangao.m in Sources */ = {isa = PBXBuildFile; fileRef = CED9573D178B257C00A2994D /* Mangao.m */; };
 		CEECAAF3185602C20014E1DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEECAAF2185602C20014E1DA /* QuartzCore.framework */; };
 		CEF4F10B1788B784007F6E4A /* MiniZip64_info.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEF4F10A1788B784007F6E4A /* MiniZip64_info.txt */; };
+		EEE1ACA21881391900DF025B /* README(JP).txt in Resources */ = {isa = PBXBuildFile; fileRef = EEE1ACA11881391900DF025B /* README(JP).txt */; };
+		EEE1ACA41881391F00DF025B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEE1ACA31881391F00DF025B /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -293,12 +294,13 @@
 		CEAD23C1183E3C850066759E /* DragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragAndDrop.h; sourceTree = "<group>"; };
 		CEBDF3741875417C0067A0B6 /* mangao-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "mangao-icon.icns"; sourceTree = "<group>"; };
 		CEBDF3751875417C0067A0B6 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
-		CEC7D6891872C0C8004985BA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		CED9573B178B257C00A2994D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CED9573C178B257C00A2994D /* Mangao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mangao.h; sourceTree = "<group>"; };
 		CED9573D178B257C00A2994D /* Mangao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mangao.m; sourceTree = "<group>"; };
 		CEECAAF2185602C20014E1DA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEF4F10A1788B784007F6E4A /* MiniZip64_info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MiniZip64_info.txt; sourceTree = "<group>"; };
+		EEE1ACA11881391900DF025B /* README(JP).txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "README(JP).txt"; sourceTree = "<group>"; };
+		EEE1ACA31881391F00DF025B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,7 +523,8 @@
 		CE8EE210177B9E7E00F7AB80 = {
 			isa = PBXGroup;
 			children = (
-				CEC7D6891872C0C8004985BA /* README.txt */,
+				EEE1ACA31881391F00DF025B /* README.md */,
+				EEE1ACA11881391900DF025B /* README(JP).txt */,
 				CE6F3E29187542C100BAE600 /* COPYING */,
 				CE4DB5C71785408B0090E713 /* libz.dylib */,
 				CE8EE222177B9E7E00F7AB80 /* Mangao */,
@@ -685,6 +688,7 @@
 				CEF4F10B1788B784007F6E4A /* MiniZip64_info.txt in Resources */,
 				CE6F3E281875427A00BAE600 /* ThisArchiveHasNoImage.tiff in Resources */,
 				CE6F3E271875427A00BAE600 /* readme.txt in Resources */,
+				EEE1ACA41881391F00DF025B /* README.md in Resources */,
 				CE6F3E201875427A00BAE600 /* CantOpenThisArchive.tiff in Resources */,
 				CE6F3E261875427A00BAE600 /* PleasePressO.tiff in Resources */,
 				CEBDF3771875417C0067A0B6 /* readme.txt in Resources */,
@@ -698,9 +702,9 @@
 				CE6F3E231875427A00BAE600 /* COPYING.LESSER in Resources */,
 				CE6F3E241875427A00BAE600 /* loading.gif in Resources */,
 				CE17245F187FC42E007EFE59 /* LICENSE in Resources */,
-				CEC7D68A1872C0C8004985BA /* README.txt in Resources */,
 				6F56941B17CFA2C300308AAD /* README in Resources */,
 				CE6F3E251875427A00BAE600 /* PleaseInstallTrueCrypt.tiff in Resources */,
+				EEE1ACA21881391900DF025B /* README(JP).txt in Resources */,
 				CE93B8C717D0214900F90C7E /* license.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
