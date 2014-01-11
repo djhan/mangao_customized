@@ -92,6 +92,10 @@
     NSBitmapImageRep* srcRep= [NSBitmapImageRep imageRepWithData:[srcImage TIFFRepresentation]];
     CIFilter *ciFilter;
     CIImage *srcCI= [[CIImage alloc]initWithBitmapImageRep:srcRep];
+
+#if !__has_feature(objc_arc)
+    [srcCI autorelease];
+#endif
     
     //白黒チェック
     //CIAreaAverage で平均色を抽出し彩度を調べて判定。カラー画像なら受け取った NSImage をそのまま返す

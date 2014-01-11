@@ -76,7 +76,7 @@ static const unsigned int BUFFER_SIZE = 8192;
     const char *cp = nil;
     int i = 0;
     
-    //日本語==0,中国語==1,韓国語==2
+    //0→日本語,1→中国語,2→韓国語
     if(witch == 0)
     {
         NSStringEncoding CharacterEncodingList[] =
@@ -182,7 +182,7 @@ static const unsigned int BUFFER_SIZE = 8192;
 		
 		NSString *str = nil;
         int i = 0;
-        //日本語==0,中国語==1,韓国語==2
+        //0→日本語,1→中国語,2→韓国語
         if(witch == 0)
         {
             NSStringEncoding CharacterEncodingList[] =

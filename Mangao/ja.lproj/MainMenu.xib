@@ -15,8 +15,8 @@
         <customObject id="-3" userLabel="Application"/>
         <menu title="AMainMenu" systemMenu="main" id="29">
             <items>
-                <menuItem title="Mangao" id="56">
-                    <menu key="submenu" title="Mangao" systemMenu="apple" id="2062"/>
+                <menuItem title="Mangao_Customized" id="56">
+                    <menu key="submenu" title="Mangao_Customized" systemMenu="apple" id="2062"/>
                 </menuItem>
             </items>
         </menu>
@@ -36,7 +36,7 @@
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="right" imageScaling="proportionallyUpOrDown" id="1489"/>
                     </imageView>
                     <imageView autoresizesSubviews="NO" focusRingType="none" id="1494" userLabel="imageRightField">
-                        <rect key="frame" x="293" y="0.0" width="293" height="402"/>
+                        <rect key="frame" x="293" y="-1.0000000528500803" width="293" height="402"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="left" imageScaling="proportionallyUpOrDown" id="1495"/>
                     </imageView>
@@ -45,19 +45,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="1698"/>
                     </imageView>
-                    <tokenField focusRingType="none" verticalHuggingPriority="750" id="5CK-TA-4nJ">
-                        <rect key="frame" x="-2" y="1" width="64" height="20"/>
+                    <tokenField focusRingType="none" verticalHuggingPriority="750" id="snr-5d-hDi">
+                        <rect key="frame" x="-2" y="0.0" width="64" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <tokenFieldCell key="cell" allowsUndo="NO" focusRingType="none" alignment="left" allowsEditingTextAttributes="YES" id="kZv-JO-ODb">
+                        <tokenFieldCell key="cell" allowsUndo="NO" focusRingType="none" alignment="left" allowsEditingTextAttributes="YES" id="j2D-CL-nPs">
                             <font key="font" size="12" name="Helvetica"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </tokenFieldCell>
                     </tokenField>
-                    <tokenField focusRingType="none" verticalHuggingPriority="750" id="vAf-9f-wzj">
-                        <rect key="frame" x="523" y="1" width="64" height="20"/>
+                    <tokenField focusRingType="none" verticalHuggingPriority="750" id="EfI-YZ-9aR">
+                        <rect key="frame" x="524" y="0.0" width="64" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <tokenFieldCell key="cell" allowsUndo="NO" focusRingType="none" alignment="right" placeholderString="" allowsEditingTextAttributes="YES" id="71x-E2-lri">
+                        <tokenFieldCell key="cell" allowsUndo="NO" focusRingType="none" alignment="right" placeholderString="" allowsEditingTextAttributes="YES" id="igf-Ez-qt2">
                             <font key="font" size="12" name="Helvetica"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -80,7 +80,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="2306">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
                         </buttonCell>
                         <connections>
                             <action selector="JumpPanelCancelButton:" target="494" id="2318"/>
@@ -91,7 +94,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Jump" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="2311">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                         </buttonCell>
                         <connections>
                             <action selector="JumpPanelJumpButton:" target="494" id="2317"/>
@@ -135,9 +141,8 @@
                 <outlet property="loupeWindow" destination="Gpf-Rn-LOS" id="cQn-wb-25N"/>
                 <outlet property="mainMenu" destination="29" id="vgK-I2-vFK"/>
                 <outlet property="mainMenuItem" destination="56" id="Xtz-MP-rDS"/>
-                <outlet property="pagenumberNext" destination="5CK-TA-4nJ" id="LRO-Ej-NeY"/>
-                <outlet property="pagenumberPrev" destination="vAf-9f-wzj" id="hvl-zx-omL"/>
-                <outlet property="sparkle" destination="2600" id="ULC-Rv-d5w"/>
+                <outlet property="pagenumberNext" destination="snr-5d-hDi" id="i0m-CO-euT"/>
+                <outlet property="pagenumberPrev" destination="EfI-YZ-9aR" id="kaq-ai-zHf"/>
                 <outlet property="thumbnailController" destination="5Rs-eM-ksS" id="w5g-2u-KVe"/>
                 <outlet property="thumbnailView" destination="Gzm-h2-eyn" id="tDP-HB-PFj"/>
                 <outlet property="thumbnailWindow" destination="OvK-YY-Gao" id="CkD-SD-Om9"/>
@@ -145,7 +150,6 @@
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
-        <customObject id="2600" userLabel="SUUpdater" customClass="SUUpdater"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Gpf-Rn-LOS" userLabel="loupeWindow" customClass="NSPanel">
             <windowStyleMask key="styleMask" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -187,6 +191,9 @@
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gZF-Eo-l9w">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
                         </buttonCell>
                         <connections>
                             <action selector="confirmPanelCancelButton:" target="494" id="aeW-0v-wYA"/>
@@ -198,6 +205,9 @@
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j1B-ES-crH">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                         </buttonCell>
                         <connections>
                             <action selector="confirmPanelOKButton:" target="494" id="gxR-29-Em5"/>
@@ -207,7 +217,7 @@
             </view>
         </window>
         <arrayController id="5Rs-eM-ksS" userLabel="thumbnailController"/>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="OvK-YY-Gao" userLabel="thumbnailWindow">
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="OvK-YY-Gao" userLabel="thumbnailWindow">
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="121" y="123" width="575" height="407"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1366" height="746"/>

@@ -1,6 +1,6 @@
 //
 //  DragAndDrop.h
-//  Mangao
+//  Mangao Kai
 //
 //  Created by Ryota Minami <RyotaMinami93@gmail.com> on 2013/11/22.
 //  Copyright (c) 2013 Ryota Minami. All rights reserved.

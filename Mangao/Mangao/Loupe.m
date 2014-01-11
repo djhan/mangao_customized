@@ -1,8 +1,8 @@
 //
 //  Loupe.m
-//  Mangao
+//  Mangao Kai
 //
-//  Created by Ryota Minami <RyotaMinami93@gmail.com> on 2013/12/05.
+//  Created by Ryota Minami <RyotaMinami93@gmail.com> on 2013/12/28.
 //  Copyright (c) 2013 Ryota Minami. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -124,17 +124,27 @@
     //大きいルーペの場合
     else if(witchLoupe == 2)
     {
-        //縦長画像の場合
+        //タテナガ画像の場合
         if(size_image_X < size_image_Y)
         {
-            //[画像の横幅×縦幅の2分の1]の範囲を拡大する
+            //[画像の横幅 × 画面サイズに対して最も多く取れる縦幅]の範囲を拡大する
             cutRect = CGRectMake(0,cursor_onImage_Y - (size_image_X/size_window_X*size_window_Y / 2),size_image_X,size_image_X/size_window_X*size_window_Y);
         }
-        //大きい画像の場合
+        //ヨコナガ画像の場合
         else
         {
-            //[画像の横幅×縦幅]の範囲を拡大する
-            cutRect = CGRectMake(0,0,size_image_X,size_image_Y);
+            //ウィンドウの左側にカーソルがある場合
+            if(cursor_onImageField_X < size_window_X/2)
+            {
+                //[画像の左半分 × 画面サイズに対して最も多く取れる縦幅]の範囲を拡大する
+                cutRect = CGRectMake(0,cursor_onImage_Y - (size_image_X/2/size_window_X*size_window_Y / 2),size_image_X/2,size_image_X/2/size_window_X*size_window_Y);
+            }
+            //ウィンドウの右側にカーソルがある場合
+            else
+            {
+                //[画像の右半分 × 画面サイズに対して最も多く取れる縦幅]の範囲を拡大する
+                cutRect = CGRectMake(size_image_X/2,cursor_onImage_Y - (size_image_X/2/size_window_X*size_window_Y / 2),size_image_X/2,size_image_X/2/size_window_X*size_window_Y);
+            }
         }
     }
     

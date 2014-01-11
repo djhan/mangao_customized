@@ -1,9 +1,9 @@
 //
-//  thumbnail.h
+//  SepiaTone.h
 //  Mangao Kai
 //
-//  Created by Ryota Minami <RyotaMinami93@gmail.com> on 2013/12/09.
-//  Copyright (c) 2013 Ryota Minami. All rights reserved.
+//  Created by DJ.HAN http://djhan.ddanzimovie.com/ .
+//  Copyright (c) 2013 DJ.HAN. All rights reserved.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -20,16 +20,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <quartz/Quartz.h>
+#import <Quartz/Quartz.h>
+#import <Quartzcore/CIFilter.h>
 
-@interface thumbnail : NSObject
+@interface SepiaTone : NSObject
 {
-	NSImage *thumbnailImage;
+    CIImage *ciImage;
+    NSCIImageRep *resultRep;
+    NSImage *result;
 }
 
-@property (nonatomic, retain) NSImage *thumbnailImage;
++ (NSImage*)SepiaTone:(NSImage*)srcImage;
 
-+ (thumbnail*)imageItemWithContentsOfNSImage:(NSImage*)image;
-- (id)initWithContentsOfNSImage:(NSImage*)image;
 
 @end

@@ -1,6 +1,6 @@
 //
 //  DragAndDrop.m
-//  Mangao
+//  Mangao Kai
 //
 //  Created by Ryota Minami <RyotaMinami93@gmail.com> on 2013/12/02.
 //  Copyright (c) 2013 Ryota Minami. All rights reserved.
@@ -40,7 +40,7 @@
     for(NSString *string in array)
     {
         //許可したファイル形式の場合
-        if([string hasSuffix:@".jpg"] || [string hasSuffix:@".jpeg"] || [string hasSuffix:@".png"] || [string hasSuffix:@".gif"] || [string hasSuffix:@".bmp"] || [string hasSuffix:@".tif"] || [string hasSuffix:@".tiff"] || [string hasSuffix:@".zip"] || [string hasSuffix:@".cbz"] || [string hasSuffix:@".rar"] || [string hasSuffix:@".cbr"] || [string hasSuffix:@".pdf"] || [string hasSuffix:@".cvbdl"] || [string hasSuffix:@".tc"] || [string hasSuffix:@".cbtc"] || [string hasSuffix:@".JPG"] || [string hasSuffix:@".JPEG"] || [string hasSuffix:@".PNG"] || [string hasSuffix:@".GIF"] || [string hasSuffix:@".BMP"] || [string hasSuffix:@".TIF"] || [string hasSuffix:@".TIFF"] || [string hasSuffix:@".ZIP"] || [string hasSuffix:@".CBZ"] || [string hasSuffix:@".RAR"] || [string hasSuffix:@".CBR"] || [string hasSuffix:@".PDF"] || [string hasSuffix:@".CVBDL"] || [string hasSuffix:@".TC"] || [string hasSuffix:@".CBTC"])
+        if([[string lowercaseString] hasSuffix:@".jpg"] || [[string lowercaseString] hasSuffix:@".jpeg"] || [[string lowercaseString] hasSuffix:@".png"] || [[string lowercaseString] hasSuffix:@".gif"] || [[string lowercaseString] hasSuffix:@".bmp"] || [[string lowercaseString] hasSuffix:@".tif"] || [[string lowercaseString] hasSuffix:@".tiff"] || [[string lowercaseString] hasSuffix:@".zip"] || [[string lowercaseString] hasSuffix:@".cbz"] || [[string lowercaseString] hasSuffix:@".rar"] || [[string lowercaseString] hasSuffix:@".cbr"] || [[string lowercaseString] hasSuffix:@".pdf"] || [[string lowercaseString] hasSuffix:@".cvbdl"] || [[string lowercaseString] hasSuffix:@".tc"] || [[string lowercaseString] hasSuffix:@".cbtc"])
         {
             //ファイルリストに追加する
             [allowedArray addObject:string];

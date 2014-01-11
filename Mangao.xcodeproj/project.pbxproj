@@ -51,41 +51,47 @@
 		6F56941917CF7E8C00308AAD /* RarFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F56941817CF7E8C00308AAD /* RarFile.mm */; };
 		6F56941B17CFA2C300308AAD /* README in Resources */ = {isa = PBXBuildFile; fileRef = 6F56941A17CFA2C200308AAD /* README */; };
 		CE16EB1417887A1C00B55438 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CE16EB1317887A1C00B55438 /* README */; };
+		CE17245C187FC42E007EFE59 /* AutoEnhance.m in Sources */ = {isa = PBXBuildFile; fileRef = CE172454187FC42E007EFE59 /* AutoEnhance.m */; };
+		CE17245D187FC42E007EFE59 /* BrightnessAndContrast.m in Sources */ = {isa = PBXBuildFile; fileRef = CE172456187FC42E007EFE59 /* BrightnessAndContrast.m */; };
+		CE17245E187FC42E007EFE59 /* Grayscale.m in Sources */ = {isa = PBXBuildFile; fileRef = CE172458187FC42E007EFE59 /* Grayscale.m */; };
+		CE17245F187FC42E007EFE59 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CE172459187FC42E007EFE59 /* LICENSE */; };
+		CE172460187FC42E007EFE59 /* SepiaTone.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17245B187FC42E007EFE59 /* SepiaTone.m */; };
 		CE3037841785633F000A33D9 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = CE30377C1785633F000A33D9 /* ioapi.c */; };
 		CE3037851785633F000A33D9 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = CE30377E1785633F000A33D9 /* mztools.c */; };
 		CE3037861785633F000A33D9 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE3037801785633F000A33D9 /* unzip.c */; };
 		CE3037871785633F000A33D9 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE3037821785633F000A33D9 /* zip.c */; };
 		CE30378D1785634C000A33D9 /* ZipFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30378B1785634C000A33D9 /* ZipFile.m */; };
 		CE31A97D17AF61B200BF844D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE31A97C17AF61B200BF844D /* Quartz.framework */; };
-		CE3301481846D3B200F0EFB2 /* mangao-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = CE3301471846D3B200F0EFB2 /* mangao-icon.icns */; };
 		CE33F60418534D3D00919D70 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8EE21F177B9E7E00F7AB80 /* AppKit.framework */; };
 		CE4DB5C81785408B0090E713 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4DB5C71785408B0090E713 /* libz.dylib */; };
 		CE58E84617F7307400CA3DD8 /* Loupe.m in Sources */ = {isa = PBXBuildFile; fileRef = CE58E84517F7307400CA3DD8 /* Loupe.m */; };
+		CE6F3E201875427A00BAE600 /* CantOpenThisArchive.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CE6F3E171875427A00BAE600 /* CantOpenThisArchive.tiff */; };
+		CE6F3E211875427A00BAE600 /* CantReadThisImage.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CE6F3E181875427A00BAE600 /* CantReadThisImage.tiff */; };
+		CE6F3E221875427A00BAE600 /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = CE6F3E191875427A00BAE600 /* COPYING */; };
+		CE6F3E231875427A00BAE600 /* COPYING.LESSER in Resources */ = {isa = PBXBuildFile; fileRef = CE6F3E1A1875427A00BAE600 /* COPYING.LESSER */; };
+		CE6F3E241875427A00BAE600 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = CE6F3E1B1875427A00BAE600 /* loading.gif */; };
+		CE6F3E251875427A00BAE600 /* PleaseInstallTrueCrypt.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CE6F3E1C1875427A00BAE600 /* PleaseInstallTrueCrypt.tiff */; };
+		CE6F3E261875427A00BAE600 /* PleasePressO.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CE6F3E1D1875427A00BAE600 /* PleasePressO.tiff */; };
+		CE6F3E271875427A00BAE600 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE6F3E1E1875427A00BAE600 /* readme.txt */; };
+		CE6F3E281875427A00BAE600 /* ThisArchiveHasNoImage.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CE6F3E1F1875427A00BAE600 /* ThisArchiveHasNoImage.tiff */; };
+		CE6F3E2A187542C100BAE600 /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = CE6F3E29187542C100BAE600 /* COPYING */; };
 		CE739B29185346A900A5876D /* thumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = CE739B28185346A900A5876D /* thumbnail.m */; };
 		CE809414182028DB00D9B820 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE809416182028DB00D9B820 /* Localizable.strings */; };
 		CE8EE21D177B9E7E00F7AB80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8EE21C177B9E7E00F7AB80 /* Cocoa.framework */; };
 		CE8EE229177B9E7E00F7AB80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EE228177B9E7E00F7AB80 /* main.m */; };
 		CE8EE233177B9E7E00F7AB80 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8EE231177B9E7E00F7AB80 /* MainMenu.xib */; };
 		CE93B8C717D0214900F90C7E /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE93B8C617D0214900F90C7E /* license.txt */; };
+		CEA4762F18647C01007CA2D4 /* 4color4.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA4762B18647C01007CA2D4 /* 4color4.png */; };
+		CEA4763018647C01007CA2D4 /* HTMangaColorize.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA4762D18647C01007CA2D4 /* HTMangaColorize.m */; };
+		CEA4763118647C01007CA2D4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEA4762E18647C01007CA2D4 /* README.md */; };
 		CEAD23C2183E3C850066759E /* DragAndDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAD23C0183E3C850066759E /* DragAndDrop.m */; };
+		CEBDF3761875417C0067A0B6 /* mangao-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = CEBDF3741875417C0067A0B6 /* mangao-icon.icns */; };
+		CEBDF3771875417C0067A0B6 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEBDF3751875417C0067A0B6 /* readme.txt */; };
+		CEC7D68A1872C0C8004985BA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEC7D6891872C0C8004985BA /* README.txt */; };
 		CED9573E178B257C00A2994D /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CED9573B178B257C00A2994D /* LICENSE */; };
 		CED9573F178B257C00A2994D /* Mangao.m in Sources */ = {isa = PBXBuildFile; fileRef = CED9573D178B257C00A2994D /* Mangao.m */; };
-		CEECAAEE1856022F0014E1DA /* HTMangaColorize.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECAAEC1856022F0014E1DA /* HTMangaColorize.m */; };
-		CEECAAEF1856022F0014E1DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEECAAED1856022F0014E1DA /* README.md */; };
-		CEECAAF1185602740014E1DA /* 4color4.png in Resources */ = {isa = PBXBuildFile; fileRef = CEECAAF0185602740014E1DA /* 4color4.png */; };
 		CEECAAF3185602C20014E1DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEECAAF2185602C20014E1DA /* QuartzCore.framework */; };
 		CEF4F10B1788B784007F6E4A /* MiniZip64_info.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEF4F10A1788B784007F6E4A /* MiniZip64_info.txt */; };
-		EE0076DD18596719008CE56D /* SepiaTone.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0076DC18596719008CE56D /* SepiaTone.m */; };
-		EE0076E2185973C0008CE56D /* Grayscale.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0076E1185973C0008CE56D /* Grayscale.m */; };
-		EE43A19B185DBEE900D98FBA /* BrightnessAndContrast.m in Sources */ = {isa = PBXBuildFile; fileRef = EE43A19A185DBEE900D98FBA /* BrightnessAndContrast.m */; };
-		EE910A0A1863C78A008AD5E6 /* XADMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE910A091863C78A008AD5E6 /* XADMaster.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		EE910A0C1863C810008AD5E6 /* XADMaster.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE910A0B1863C810008AD5E6 /* XADMaster.framework */; };
-		EEE9CD2C185EBB98007D226C /* CantOpenThisArchive.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EEE9CD27185EBB98007D226C /* CantOpenThisArchive.pdf */; };
-		EEE9CD2D185EBB98007D226C /* CantReadThisImage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EEE9CD28185EBB98007D226C /* CantReadThisImage.pdf */; };
-		EEE9CD2E185EBB98007D226C /* PleaseInstallTrueCrypt.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EEE9CD29185EBB98007D226C /* PleaseInstallTrueCrypt.pdf */; };
-		EEE9CD2F185EBB98007D226C /* PleasePressO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EEE9CD2A185EBB98007D226C /* PleasePressO.pdf */; };
-		EEE9CD30185EBB98007D226C /* ThisArchiveHasNoImage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EEE9CD2B185EBB98007D226C /* ThisArchiveHasNoImage.pdf */; };
-		EEF10258185934D600821F8F /* AutoEnhance.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF10257185934D600821F8F /* AutoEnhance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,7 +101,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EE910A0C1863C810008AD5E6 /* XADMaster.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +238,15 @@
 		CE0554F01820298500281F05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE0554F11820298D00281F05 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE16EB1317887A1C00B55438 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		CE172453187FC42E007EFE59 /* AutoEnhance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoEnhance.h; sourceTree = "<group>"; };
+		CE172454187FC42E007EFE59 /* AutoEnhance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoEnhance.m; sourceTree = "<group>"; };
+		CE172455187FC42E007EFE59 /* BrightnessAndContrast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrightnessAndContrast.h; sourceTree = "<group>"; };
+		CE172456187FC42E007EFE59 /* BrightnessAndContrast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrightnessAndContrast.m; sourceTree = "<group>"; };
+		CE172457187FC42E007EFE59 /* Grayscale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grayscale.h; sourceTree = "<group>"; };
+		CE172458187FC42E007EFE59 /* Grayscale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grayscale.m; sourceTree = "<group>"; };
+		CE172459187FC42E007EFE59 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		CE17245A187FC42E007EFE59 /* SepiaTone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SepiaTone.h; sourceTree = "<group>"; };
+		CE17245B187FC42E007EFE59 /* SepiaTone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SepiaTone.m; sourceTree = "<group>"; };
 		CE1D59D318524139003D86D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CE30377B1785633F000A33D9 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		CE30377C1785633F000A33D9 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
@@ -246,10 +260,19 @@
 		CE30378A1785634C000A33D9 /* ZipFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipFile.h; sourceTree = "<group>"; };
 		CE30378B1785634C000A33D9 /* ZipFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipFile.m; sourceTree = "<group>"; };
 		CE31A97C17AF61B200BF844D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
-		CE3301471846D3B200F0EFB2 /* mangao-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "mangao-icon.icns"; sourceTree = "<group>"; };
 		CE4DB5C71785408B0090E713 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CE58E84417F7307400CA3DD8 /* Loupe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loupe.h; sourceTree = "<group>"; };
 		CE58E84517F7307400CA3DD8 /* Loupe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loupe.m; sourceTree = "<group>"; };
+		CE6F3E171875427A00BAE600 /* CantOpenThisArchive.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = CantOpenThisArchive.tiff; sourceTree = "<group>"; };
+		CE6F3E181875427A00BAE600 /* CantReadThisImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = CantReadThisImage.tiff; sourceTree = "<group>"; };
+		CE6F3E191875427A00BAE600 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		CE6F3E1A1875427A00BAE600 /* COPYING.LESSER */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.LESSER; sourceTree = "<group>"; };
+		CE6F3E1B1875427A00BAE600 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		CE6F3E1C1875427A00BAE600 /* PleaseInstallTrueCrypt.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = PleaseInstallTrueCrypt.tiff; sourceTree = "<group>"; };
+		CE6F3E1D1875427A00BAE600 /* PleasePressO.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = PleasePressO.tiff; sourceTree = "<group>"; };
+		CE6F3E1E1875427A00BAE600 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		CE6F3E1F1875427A00BAE600 /* ThisArchiveHasNoImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = ThisArchiveHasNoImage.tiff; sourceTree = "<group>"; };
+		CE6F3E29187542C100BAE600 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		CE739B27185346A900A5876D /* thumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thumbnail.h; sourceTree = "<group>"; };
 		CE739B28185346A900A5876D /* thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thumbnail.m; sourceTree = "<group>"; };
 		CE7549051799904300A8578E /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -262,32 +285,20 @@
 		CE8EE228177B9E7E00F7AB80 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE8EE22A177B9E7E00F7AB80 /* Mangao-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mangao-Prefix.pch"; sourceTree = "<group>"; };
 		CE93B8C617D0214900F90C7E /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		CEA4762B18647C01007CA2D4 /* 4color4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4color4.png; sourceTree = "<group>"; };
+		CEA4762C18647C01007CA2D4 /* HTMangaColorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMangaColorize.h; sourceTree = "<group>"; };
+		CEA4762D18647C01007CA2D4 /* HTMangaColorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMangaColorize.m; sourceTree = "<group>"; };
+		CEA4762E18647C01007CA2D4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		CEAD23C0183E3C850066759E /* DragAndDrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragAndDrop.m; sourceTree = "<group>"; };
 		CEAD23C1183E3C850066759E /* DragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragAndDrop.h; sourceTree = "<group>"; };
+		CEBDF3741875417C0067A0B6 /* mangao-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "mangao-icon.icns"; sourceTree = "<group>"; };
+		CEBDF3751875417C0067A0B6 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		CEC7D6891872C0C8004985BA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		CED9573B178B257C00A2994D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CED9573C178B257C00A2994D /* Mangao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mangao.h; sourceTree = "<group>"; };
 		CED9573D178B257C00A2994D /* Mangao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mangao.m; sourceTree = "<group>"; };
-		CEECAAEB1856022F0014E1DA /* HTMangaColorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMangaColorize.h; sourceTree = "<group>"; };
-		CEECAAEC1856022F0014E1DA /* HTMangaColorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMangaColorize.m; sourceTree = "<group>"; };
-		CEECAAED1856022F0014E1DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		CEECAAF0185602740014E1DA /* 4color4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4color4.png; sourceTree = "<group>"; };
 		CEECAAF2185602C20014E1DA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEF4F10A1788B784007F6E4A /* MiniZip64_info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MiniZip64_info.txt; sourceTree = "<group>"; };
-		EE0076DA18593B05008CE56D /* AutoEnhance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoEnhance.h; sourceTree = "<group>"; };
-		EE0076DB1859670C008CE56D /* SepiaTone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SepiaTone.h; sourceTree = "<group>"; };
-		EE0076DC18596719008CE56D /* SepiaTone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SepiaTone.m; sourceTree = "<group>"; };
-		EE0076E0185973B8008CE56D /* Grayscale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grayscale.h; sourceTree = "<group>"; };
-		EE0076E1185973C0008CE56D /* Grayscale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grayscale.m; sourceTree = "<group>"; };
-		EE43A199185DBEE900D98FBA /* BrightnessAndContrast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrightnessAndContrast.h; sourceTree = "<group>"; };
-		EE43A19A185DBEE900D98FBA /* BrightnessAndContrast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrightnessAndContrast.m; sourceTree = "<group>"; };
-		EE910A091863C78A008AD5E6 /* XADMaster.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XADMaster.framework; path = Mangao/Frameworks/XADMaster.framework; sourceTree = "<group>"; };
-		EE910A0B1863C810008AD5E6 /* XADMaster.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XADMaster.framework; path = Mangao/Frameworks/XADMaster.framework; sourceTree = "<group>"; };
-		EEE9CD27185EBB98007D226C /* CantOpenThisArchive.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CantOpenThisArchive.pdf; sourceTree = "<group>"; };
-		EEE9CD28185EBB98007D226C /* CantReadThisImage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CantReadThisImage.pdf; sourceTree = "<group>"; };
-		EEE9CD29185EBB98007D226C /* PleaseInstallTrueCrypt.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PleaseInstallTrueCrypt.pdf; sourceTree = "<group>"; };
-		EEE9CD2A185EBB98007D226C /* PleasePressO.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PleasePressO.pdf; sourceTree = "<group>"; };
-		EEE9CD2B185EBB98007D226C /* ThisArchiveHasNoImage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ThisArchiveHasNoImage.pdf; sourceTree = "<group>"; };
-		EEF10257185934D600821F8F /* AutoEnhance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoEnhance.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,7 +310,6 @@
 				CE8EE21D177B9E7E00F7AB80 /* Cocoa.framework in Frameworks */,
 				CE33F60418534D3D00919D70 /* AppKit.framework in Frameworks */,
 				CE31A97D17AF61B200BF844D /* Quartz.framework in Frameworks */,
-				EE910A0A1863C78A008AD5E6 /* XADMaster.framework in Frameworks */,
 				CEECAAF3185602C20014E1DA /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +459,22 @@
 			path = RarFile;
 			sourceTree = "<group>";
 		};
+		CE172452187FC42E007EFE59 /* ImageEffects */ = {
+			isa = PBXGroup;
+			children = (
+				CE172459187FC42E007EFE59 /* LICENSE */,
+				CE172453187FC42E007EFE59 /* AutoEnhance.h */,
+				CE172454187FC42E007EFE59 /* AutoEnhance.m */,
+				CE172455187FC42E007EFE59 /* BrightnessAndContrast.h */,
+				CE172456187FC42E007EFE59 /* BrightnessAndContrast.m */,
+				CE172457187FC42E007EFE59 /* Grayscale.h */,
+				CE172458187FC42E007EFE59 /* Grayscale.m */,
+				CE17245A187FC42E007EFE59 /* SepiaTone.h */,
+				CE17245B187FC42E007EFE59 /* SepiaTone.m */,
+			);
+			path = ImageEffects;
+			sourceTree = "<group>";
+		};
 		CE30377A1785633F000A33D9 /* minizip */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,23 +502,27 @@
 			path = ZipFile;
 			sourceTree = "<group>";
 		};
-		CE368B7617AABF99005D4E3C /* errorMessage */ = {
+		CE6F3E161875427A00BAE600 /* mangao-message-illust */ = {
 			isa = PBXGroup;
 			children = (
-				EEE9CD27185EBB98007D226C /* CantOpenThisArchive.pdf */,
-				EEE9CD28185EBB98007D226C /* CantReadThisImage.pdf */,
-				EEE9CD29185EBB98007D226C /* PleaseInstallTrueCrypt.pdf */,
-				EEE9CD2A185EBB98007D226C /* PleasePressO.pdf */,
-				EEE9CD2B185EBB98007D226C /* ThisArchiveHasNoImage.pdf */,
+				CE6F3E171875427A00BAE600 /* CantOpenThisArchive.tiff */,
+				CE6F3E181875427A00BAE600 /* CantReadThisImage.tiff */,
+				CE6F3E191875427A00BAE600 /* COPYING */,
+				CE6F3E1A1875427A00BAE600 /* COPYING.LESSER */,
+				CE6F3E1B1875427A00BAE600 /* loading.gif */,
+				CE6F3E1C1875427A00BAE600 /* PleaseInstallTrueCrypt.tiff */,
+				CE6F3E1D1875427A00BAE600 /* PleasePressO.tiff */,
+				CE6F3E1E1875427A00BAE600 /* readme.txt */,
+				CE6F3E1F1875427A00BAE600 /* ThisArchiveHasNoImage.tiff */,
 			);
-			path = errorMessage;
+			path = "mangao-message-illust";
 			sourceTree = "<group>";
 		};
 		CE8EE210177B9E7E00F7AB80 = {
 			isa = PBXGroup;
 			children = (
-				EE910A0B1863C810008AD5E6 /* XADMaster.framework */,
-				CE3301471846D3B200F0EFB2 /* mangao-icon.icns */,
+				CEC7D6891872C0C8004985BA /* README.txt */,
+				CE6F3E29187542C100BAE600 /* COPYING */,
 				CE4DB5C71785408B0090E713 /* libz.dylib */,
 				CE8EE222177B9E7E00F7AB80 /* Mangao */,
 				CE8EE21B177B9E7E00F7AB80 /* Frameworks */,
@@ -523,7 +553,6 @@
 		CE8EE21E177B9E7E00F7AB80 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EE910A091863C78A008AD5E6 /* XADMaster.framework */,
 				CE8EE21F177B9E7E00F7AB80 /* AppKit.framework */,
 				CE8EE220177B9E7E00F7AB80 /* CoreData.framework */,
 				CE8EE221177B9E7E00F7AB80 /* Foundation.framework */,
@@ -540,7 +569,9 @@
 				CE3037881785634C000A33D9 /* ZipFile */,
 				6F56923217CF556000308AAD /* unrar */,
 				6F56941617CF7E4300308AAD /* RarFile */,
-				CEECAAEA1856022F0014E1DA /* HTMangaColorize */,
+				CEA4762A18647C01007CA2D4 /* HTMangaColorize */,
+				CEBDF3731875417C0067A0B6 /* mangao-icon */,
+				CE6F3E161875427A00BAE600 /* mangao-message-illust */,
 				CE8EE223177B9E7E00F7AB80 /* Supporting Files */,
 			);
 			path = Mangao;
@@ -557,6 +588,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CEA4762A18647C01007CA2D4 /* HTMangaColorize */ = {
+			isa = PBXGroup;
+			children = (
+				CEA4762B18647C01007CA2D4 /* 4color4.png */,
+				CEA4762C18647C01007CA2D4 /* HTMangaColorize.h */,
+				CEA4762D18647C01007CA2D4 /* HTMangaColorize.m */,
+				CEA4762E18647C01007CA2D4 /* README.md */,
+			);
+			path = HTMangaColorize;
+			sourceTree = "<group>";
+		};
+		CEBDF3731875417C0067A0B6 /* mangao-icon */ = {
+			isa = PBXGroup;
+			children = (
+				CEBDF3741875417C0067A0B6 /* mangao-icon.icns */,
+				CEBDF3751875417C0067A0B6 /* readme.txt */,
+			);
+			path = "mangao-icon";
+			sourceTree = "<group>";
+		};
 		CED9573A178B257C00A2994D /* Mangao */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,28 +620,9 @@
 				CE58E84517F7307400CA3DD8 /* Loupe.m */,
 				CE739B27185346A900A5876D /* thumbnail.h */,
 				CE739B28185346A900A5876D /* thumbnail.m */,
-				CE368B7617AABF99005D4E3C /* errorMessage */,
-				EE0076DA18593B05008CE56D /* AutoEnhance.h */,
-				EEF10257185934D600821F8F /* AutoEnhance.m */,
-				EE0076DB1859670C008CE56D /* SepiaTone.h */,
-				EE0076DC18596719008CE56D /* SepiaTone.m */,
-				EE0076E0185973B8008CE56D /* Grayscale.h */,
-				EE0076E1185973C0008CE56D /* Grayscale.m */,
-				EE43A199185DBEE900D98FBA /* BrightnessAndContrast.h */,
-				EE43A19A185DBEE900D98FBA /* BrightnessAndContrast.m */,
+				CE172452187FC42E007EFE59 /* ImageEffects */,
 			);
 			path = Mangao;
-			sourceTree = "<group>";
-		};
-		CEECAAEA1856022F0014E1DA /* HTMangaColorize */ = {
-			isa = PBXGroup;
-			children = (
-				CEECAAEB1856022F0014E1DA /* HTMangaColorize.h */,
-				CEECAAEC1856022F0014E1DA /* HTMangaColorize.m */,
-				CEECAAF0185602740014E1DA /* 4color4.png */,
-				CEECAAED1856022F0014E1DA /* README.md */,
-			);
-			path = HTMangaColorize;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,19 +681,27 @@
 			files = (
 				CE8EE233177B9E7E00F7AB80 /* MainMenu.xib in Resources */,
 				CE16EB1417887A1C00B55438 /* README in Resources */,
+				CEBDF3761875417C0067A0B6 /* mangao-icon.icns in Resources */,
 				CEF4F10B1788B784007F6E4A /* MiniZip64_info.txt in Resources */,
+				CE6F3E281875427A00BAE600 /* ThisArchiveHasNoImage.tiff in Resources */,
+				CE6F3E271875427A00BAE600 /* readme.txt in Resources */,
+				CE6F3E201875427A00BAE600 /* CantOpenThisArchive.tiff in Resources */,
+				CE6F3E261875427A00BAE600 /* PleasePressO.tiff in Resources */,
+				CEBDF3771875417C0067A0B6 /* readme.txt in Resources */,
 				CED9573E178B257C00A2994D /* LICENSE in Resources */,
-				EEE9CD2E185EBB98007D226C /* PleaseInstallTrueCrypt.pdf in Resources */,
-				CEECAAF1185602740014E1DA /* 4color4.png in Resources */,
-				CE3301481846D3B200F0EFB2 /* mangao-icon.icns in Resources */,
+				CEA4763118647C01007CA2D4 /* README.md in Resources */,
+				CEA4762F18647C01007CA2D4 /* 4color4.png in Resources */,
+				CE6F3E221875427A00BAE600 /* COPYING in Resources */,
+				CE6F3E211875427A00BAE600 /* CantReadThisImage.tiff in Resources */,
 				CE809414182028DB00D9B820 /* Localizable.strings in Resources */,
-				EEE9CD2D185EBB98007D226C /* CantReadThisImage.pdf in Resources */,
+				CE6F3E2A187542C100BAE600 /* COPYING in Resources */,
+				CE6F3E231875427A00BAE600 /* COPYING.LESSER in Resources */,
+				CE6F3E241875427A00BAE600 /* loading.gif in Resources */,
+				CE17245F187FC42E007EFE59 /* LICENSE in Resources */,
+				CEC7D68A1872C0C8004985BA /* README.txt in Resources */,
 				6F56941B17CFA2C300308AAD /* README in Resources */,
-				CEECAAEF1856022F0014E1DA /* README.md in Resources */,
+				CE6F3E251875427A00BAE600 /* PleaseInstallTrueCrypt.tiff in Resources */,
 				CE93B8C717D0214900F90C7E /* license.txt in Resources */,
-				EEE9CD30185EBB98007D226C /* ThisArchiveHasNoImage.pdf in Resources */,
-				EEE9CD2F185EBB98007D226C /* PleasePressO.pdf in Resources */,
-				EEE9CD2C185EBB98007D226C /* CantOpenThisArchive.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,19 +733,18 @@
 				6F5693E917CF7DA000308AAD /* extinfo.cpp in Sources */,
 				6F5693EA17CF7DA000308AAD /* extract.cpp in Sources */,
 				6F5693EB17CF7DA000308AAD /* filcreat.cpp in Sources */,
-				EE43A19B185DBEE900D98FBA /* BrightnessAndContrast.m in Sources */,
 				6F5693EC17CF7DA000308AAD /* file.cpp in Sources */,
 				6F5693ED17CF7DA000308AAD /* filefn.cpp in Sources */,
+				CE172460187FC42E007EFE59 /* SepiaTone.m in Sources */,
 				6F5693EE17CF7DA000308AAD /* filestr.cpp in Sources */,
 				6F5693EF17CF7DA000308AAD /* find.cpp in Sources */,
 				6F5693F017CF7DA000308AAD /* getbits.cpp in Sources */,
-				EE0076DD18596719008CE56D /* SepiaTone.m in Sources */,
 				6F5693F117CF7DA000308AAD /* global.cpp in Sources */,
 				6F5693F317CF7DA000308AAD /* hash.cpp in Sources */,
 				6F5693F417CF7DA000308AAD /* headers.cpp in Sources */,
 				6F5693F617CF7DA000308AAD /* match.cpp in Sources */,
 				6F5693F817CF7DA000308AAD /* options.cpp in Sources */,
-				EEF10258185934D600821F8F /* AutoEnhance.m in Sources */,
+				CE17245C187FC42E007EFE59 /* AutoEnhance.m in Sources */,
 				6F5693F917CF7DA000308AAD /* pathfn.cpp in Sources */,
 				6F5693FA17CF7DA000308AAD /* qopen.cpp in Sources */,
 				6F5693FB17CF7DA000308AAD /* rarvm.cpp in Sources */,
@@ -722,13 +761,14 @@
 				6F56940517CF7DA000308AAD /* strfn.cpp in Sources */,
 				6F56940617CF7DA000308AAD /* strlist.cpp in Sources */,
 				6F56940817CF7DA000308AAD /* system.cpp in Sources */,
-				EE0076E2185973C0008CE56D /* Grayscale.m in Sources */,
 				6F56940917CF7DA000308AAD /* timefn.cpp in Sources */,
+				CE17245E187FC42E007EFE59 /* Grayscale.m in Sources */,
 				6F56940B17CF7DA000308AAD /* unicode.cpp in Sources */,
-				CEECAAEE1856022F0014E1DA /* HTMangaColorize.m in Sources */,
+				CEA4763018647C01007CA2D4 /* HTMangaColorize.m in Sources */,
 				6F56940C17CF7DA000308AAD /* unpack.cpp in Sources */,
 				6F56941417CF7DA000308AAD /* volume.cpp in Sources */,
 				6F56941917CF7E8C00308AAD /* RarFile.mm in Sources */,
+				CE17245D187FC42E007EFE59 /* BrightnessAndContrast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,10 +872,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)",
-					"\\\"$(SRCROOT)/Mangao/Frameworks\\\"",
-					/Users/djhan/Documents/mangao_customized,
-					/Users/djhan/Documents/mangao_customized/Mangao/Frameworks,
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Mangao/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mangao/Mangao-Prefix.pch";
@@ -856,10 +894,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)",
-					"\\\"$(SRCROOT)/Mangao/Frameworks\\\"",
-					/Users/djhan/Documents/mangao_customized,
-					/Users/djhan/Documents/mangao_customized/Mangao/Frameworks,
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Mangao/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mangao/Mangao-Prefix.pch";
