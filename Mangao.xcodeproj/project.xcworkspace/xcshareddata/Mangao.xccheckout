@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>25BE8F22-B5DD-47C6-9787-2D98C5EDB067</string>
+	<string>507D7D19-6400-48F3-8224-AA558DAAEB5A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Mangao</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>A0CE6815-4DC8-4EF8-95F7-16213C8C011F</key>
-		<string>https://github.com/RyotaMinami93/Mangao.git</string>
+		<key>9BD1B033-AD6F-4B5C-8D67-B3CE19FAA330</key>
+		<string>https://github.com/djhan/mangao_customized.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Mangao.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>A0CE6815-4DC8-4EF8-95F7-16213C8C011F</key>
+		<key>9BD1B033-AD6F-4B5C-8D67-B3CE19FAA330</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/RyotaMinami93/Mangao.git</string>
+	<string>https://github.com/djhan/mangao_customized.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>A0CE6815-4DC8-4EF8-95F7-16213C8C011F</string>
+	<string>9BD1B033-AD6F-4B5C-8D67-B3CE19FAA330</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>A0CE6815-4DC8-4EF8-95F7-16213C8C011F</string>
+			<string>9BD1B033-AD6F-4B5C-8D67-B3CE19FAA330</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Mangao</string>
+			<string>mangao_customized</string>
 		</dict>
 	</array>
 </dict>

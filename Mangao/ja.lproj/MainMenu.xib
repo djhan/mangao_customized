@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1040" identifier="macosx"/>
+        <deployment defaultVersion="1050" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
         <plugIn identifier="com.apple.imagekit.ibplugin" version="3338"/>
     </dependencies>
@@ -36,7 +36,7 @@
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="right" imageScaling="proportionallyUpOrDown" id="1489"/>
                     </imageView>
                     <imageView autoresizesSubviews="NO" focusRingType="none" id="1494" userLabel="imageRightField">
-                        <rect key="frame" x="293" y="-1.0000000528500803" width="293" height="402"/>
+                        <rect key="frame" x="293" y="-1.0000000793739239" width="293" height="402"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="left" imageScaling="proportionallyUpOrDown" id="1495"/>
                     </imageView>
@@ -45,24 +45,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="1698"/>
                     </imageView>
-                    <tokenField focusRingType="none" verticalHuggingPriority="750" id="snr-5d-hDi">
-                        <rect key="frame" x="-2" y="0.0" width="64" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <tokenFieldCell key="cell" allowsUndo="NO" focusRingType="none" alignment="left" allowsEditingTextAttributes="YES" id="j2D-CL-nPs">
-                            <font key="font" size="12" name="Helvetica"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </tokenFieldCell>
-                    </tokenField>
-                    <tokenField focusRingType="none" verticalHuggingPriority="750" id="EfI-YZ-9aR">
-                        <rect key="frame" x="524" y="0.0" width="64" height="20"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" id="pEn-z6-wZb">
+                        <rect key="frame" x="545" y="1" width="40" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <tokenFieldCell key="cell" allowsUndo="NO" focusRingType="none" alignment="right" placeholderString="" allowsEditingTextAttributes="YES" id="igf-Ez-qt2">
-                            <font key="font" size="12" name="Helvetica"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </tokenFieldCell>
-                    </tokenField>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="center" drawsBackground="YES" id="imB-k8-95b" customClass="VerticallyCenteredTextFieldCell">
+                            <font key="font" size="12" name="LucidaGrande-Bold"/>
+                            <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField focusRingType="none" verticalHuggingPriority="750" id="9WM-xc-2lM">
+                        <rect key="frame" x="1" y="1" width="40" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="center" drawsBackground="YES" id="hNl-Nd-0Jy" customClass="VerticallyCenteredTextFieldCell">
+                            <font key="font" size="12" name="LucidaGrande-Bold"/>
+                            <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField hidden="YES" focusRingType="none" verticalHuggingPriority="750" id="Cwp-Hn-CEm">
+                        <rect key="frame" x="223" y="161" width="140" height="80"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="center" drawsBackground="YES" id="cmD-Th-2LB" customClass="VerticallyCenteredTextFieldCell">
+                            <font key="font" size="50" name="LucidaGrande-Bold"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
         </window>
@@ -80,7 +89,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="2306">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
+                            <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
 Gw
 </string>
@@ -94,7 +103,7 @@ Gw
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Jump" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="2311">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
+                            <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -141,9 +150,11 @@ DQ
                 <outlet property="loupeWindow" destination="Gpf-Rn-LOS" id="cQn-wb-25N"/>
                 <outlet property="mainMenu" destination="29" id="vgK-I2-vFK"/>
                 <outlet property="mainMenuItem" destination="56" id="Xtz-MP-rDS"/>
-                <outlet property="pagenumberNext" destination="snr-5d-hDi" id="i0m-CO-euT"/>
-                <outlet property="pagenumberPrev" destination="EfI-YZ-9aR" id="kaq-ai-zHf"/>
+                <outlet property="pagenumberNext" destination="9WM-xc-2lM" id="Hgs-fR-SeG"/>
+                <outlet property="pagenumberPrev" destination="pEn-z6-wZb" id="cod-kp-MXb"/>
                 <outlet property="thumbnailController" destination="5Rs-eM-ksS" id="w5g-2u-KVe"/>
+                <outlet property="thumbnailNumber" destination="Cwp-Hn-CEm" id="frQ-08-aoe"/>
+                <outlet property="thumbnailScrollView" destination="wKo-DN-teb" id="AI9-D9-jeS"/>
                 <outlet property="thumbnailView" destination="Gzm-h2-eyn" id="tDP-HB-PFj"/>
                 <outlet property="thumbnailWindow" destination="OvK-YY-Gao" id="CkD-SD-Om9"/>
                 <outlet property="viewWindow" destination="371" id="2181"/>
@@ -225,7 +236,7 @@ DQ
                 <rect key="frame" x="0.0" y="0.0" width="575" height="407"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView horizontalLineScroll="245" horizontalPageScroll="10" verticalLineScroll="245" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="wKo-DN-teb">
+                    <scrollView horizontalLineScroll="245" horizontalPageScroll="10" verticalLineScroll="245" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="light" id="wKo-DN-teb">
                         <rect key="frame" x="-1" y="-1" width="577" height="409"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="dQW-C0-7Sr">
@@ -248,8 +259,8 @@ DQ
                             <rect key="frame" x="1" y="392" width="575" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="wdZ-iu-giN">
-                            <rect key="frame" x="560" y="1" width="16" height="407"/>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="wdZ-iu-giN">
+                            <rect key="frame" x="-100" y="-100" width="16" height="407"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>

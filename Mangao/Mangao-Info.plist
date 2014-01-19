@@ -129,7 +129,7 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>Mangao</string>
+	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>mangao-icon</string>
 	<key>CFBundleIdentifier</key>
@@ -137,17 +137,17 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Mangao Kai</string>
+	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>1.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>100</string>
+	<string>110</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string>public.app-category.entertainment</string>
 	<key>LSTypeIsPackage</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>

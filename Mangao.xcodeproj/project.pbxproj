@@ -91,6 +91,7 @@
 		CED9573F178B257C00A2994D /* Mangao.m in Sources */ = {isa = PBXBuildFile; fileRef = CED9573D178B257C00A2994D /* Mangao.m */; };
 		CEECAAF3185602C20014E1DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEECAAF2185602C20014E1DA /* QuartzCore.framework */; };
 		CEF4F10B1788B784007F6E4A /* MiniZip64_info.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEF4F10A1788B784007F6E4A /* MiniZip64_info.txt */; };
+		EE93B0CE188769340083AEB2 /* VerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE93B0CD188769340083AEB2 /* VerticallyCenteredTextFieldCell.m */; };
 		EEE1ACA21881391900DF025B /* README(JP).txt in Resources */ = {isa = PBXBuildFile; fileRef = EEE1ACA11881391900DF025B /* README(JP).txt */; };
 		EEE1ACA41881391F00DF025B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEE1ACA31881391F00DF025B /* README.md */; };
 /* End PBXBuildFile section */
@@ -277,7 +278,7 @@
 		CE739B27185346A900A5876D /* thumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thumbnail.h; sourceTree = "<group>"; };
 		CE739B28185346A900A5876D /* thumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thumbnail.m; sourceTree = "<group>"; };
 		CE7549051799904300A8578E /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		CE8EE219177B9E7E00F7AB80 /* Mangao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mangao.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8EE219177B9E7E00F7AB80 /* Mangao Kai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mangao Kai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8EE21C177B9E7E00F7AB80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CE8EE21F177B9E7E00F7AB80 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		CE8EE220177B9E7E00F7AB80 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -299,6 +300,8 @@
 		CED9573D178B257C00A2994D /* Mangao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mangao.m; sourceTree = "<group>"; };
 		CEECAAF2185602C20014E1DA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEF4F10A1788B784007F6E4A /* MiniZip64_info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MiniZip64_info.txt; sourceTree = "<group>"; };
+		EE93B0CC1887692D0083AEB2 /* VerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
+		EE93B0CD188769340083AEB2 /* VerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
 		EEE1ACA11881391900DF025B /* README(JP).txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "README(JP).txt"; sourceTree = "<group>"; };
 		EEE1ACA31881391F00DF025B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -536,7 +539,7 @@
 		CE8EE21A177B9E7E00F7AB80 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE8EE219177B9E7E00F7AB80 /* Mangao.app */,
+				CE8EE219177B9E7E00F7AB80 /* Mangao Kai.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -624,6 +627,8 @@
 				CE739B27185346A900A5876D /* thumbnail.h */,
 				CE739B28185346A900A5876D /* thumbnail.m */,
 				CE172452187FC42E007EFE59 /* ImageEffects */,
+				EE93B0CC1887692D0083AEB2 /* VerticallyCenteredTextFieldCell.h */,
+				EE93B0CD188769340083AEB2 /* VerticallyCenteredTextFieldCell.m */,
 			);
 			path = Mangao;
 			sourceTree = "<group>";
@@ -631,9 +636,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE8EE218177B9E7E00F7AB80 /* Mangao */ = {
+		CE8EE218177B9E7E00F7AB80 /* Mangao Kai */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE8EE236177B9E7E00F7AB80 /* Build configuration list for PBXNativeTarget "Mangao" */;
+			buildConfigurationList = CE8EE236177B9E7E00F7AB80 /* Build configuration list for PBXNativeTarget "Mangao Kai" */;
 			buildPhases = (
 				CE8EE215177B9E7E00F7AB80 /* Sources */,
 				CE8EE216177B9E7E00F7AB80 /* Frameworks */,
@@ -644,9 +649,9 @@
 			);
 			dependencies = (
 			);
-			name = Mangao;
+			name = "Mangao Kai";
 			productName = Mangao;
-			productReference = CE8EE219177B9E7E00F7AB80 /* Mangao.app */;
+			productReference = CE8EE219177B9E7E00F7AB80 /* Mangao Kai.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -672,7 +677,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE8EE218177B9E7E00F7AB80 /* Mangao */,
+				CE8EE218177B9E7E00F7AB80 /* Mangao Kai */,
 			);
 		};
 /* End PBXProject section */
@@ -772,6 +777,7 @@
 				6F56940C17CF7DA000308AAD /* unpack.cpp in Sources */,
 				6F56941417CF7DA000308AAD /* volume.cpp in Sources */,
 				6F56941917CF7E8C00308AAD /* RarFile.mm in Sources */,
+				EE93B0CE188769340083AEB2 /* VerticallyCenteredTextFieldCell.m in Sources */,
 				CE17245D187FC42E007EFE59 /* BrightnessAndContrast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -883,6 +889,7 @@
 				GCC_PREFIX_HEADER = "Mangao/Mangao-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = USE_FILE32API;
 				INFOPLIST_FILE = "Mangao/Mangao-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = app;
@@ -905,6 +912,7 @@
 				GCC_PREFIX_HEADER = "Mangao/Mangao-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = USE_FILE32API;
 				INFOPLIST_FILE = "Mangao/Mangao-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = app;
@@ -923,7 +931,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE8EE236177B9E7E00F7AB80 /* Build configuration list for PBXNativeTarget "Mangao" */ = {
+		CE8EE236177B9E7E00F7AB80 /* Build configuration list for PBXNativeTarget "Mangao Kai" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE8EE237177B9E7E00F7AB80 /* Debug */,

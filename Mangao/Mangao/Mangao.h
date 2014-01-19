@@ -42,6 +42,7 @@
     int isCancelLoadingArchive;
     int isYokonaga;
     int isHidaribiraki;
+    int isHidaribirakiThumb;
     int isOnePage;
     int isSlideshow;
     int isFullscreenFor106;
@@ -78,9 +79,12 @@
     NSTextField *jumpPanel_listSize;
     NSPanel *confirmPanel;
     NSTextField *confirmPanel_text;
+    
     NSArrayController *thumbnailController;
     NSWindow *thumbnailWindow;
+    NSScrollView *thumbnailScrollView;
     IKImageBrowserView *thumbnailView;
+    NSTextField *thumbnailNumber;
     //pagenumber 추가
     NSTextField *pagenumberPrev;
     NSTextField *pagenumberNext;
@@ -100,6 +104,7 @@
 @property (nonatomic, assign) int isCancelLoadingArchive;
 @property (nonatomic, assign) int isYokonaga;
 @property (nonatomic, assign) int isHidaribiraki;
+@property (nonatomic, assign) int isHidaribirakiThumb;
 @property (nonatomic, assign) int isOnePage;
 @property (nonatomic, assign) int isSlideshow;
 @property (nonatomic, assign) int isFullscreenFor106;
@@ -136,9 +141,12 @@
 @property (assign) IBOutlet NSTextField *jumpPanel_listSize;
 @property (assign) IBOutlet NSPanel *confirmPanel;
 @property (assign) IBOutlet NSTextField *confirmPanel_text;
+
 @property (assign) IBOutlet NSArrayController *thumbnailController;
 @property (assign) IBOutlet NSWindow *thumbnailWindow;
+@property (assign) IBOutlet NSScrollView *thumbnailScrollView;
 @property (assign) IBOutlet IKImageBrowserView *thumbnailView;
+@property (assign) IBOutlet NSTextField *thumbnailNumber;
 
 //pagenumber 추가
 @property (assign) IBOutlet NSTextField *pagenumberPrev;

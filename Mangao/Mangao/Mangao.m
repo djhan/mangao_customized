@@ -76,6 +76,7 @@
 @synthesize confirmPanel_text;
 @synthesize thumbnailController;
 @synthesize thumbnailWindow;
+@synthesize thumbnailScrollView;
 @synthesize thumbnailView;
 //pagenumber 추가
 @synthesize pagenumberPrev;
@@ -121,6 +122,8 @@
 @synthesize isYokonaga;
 //開いているアーカイブが左開きかどうか
 @synthesize isHidaribiraki;
+//썸네일 뷰의 좌철/우철 상태를 저장
+@synthesize isHidaribirakiThumb;
 //開いているアーカイブが1画面かどうか
 @synthesize isOnePage;
 //現在スライドショーを実行しているかどうか
@@ -133,6 +136,8 @@
 @synthesize isLoupe;
 //最後にサムネイル一覧を実行した時のパス
 @synthesize thumbnailPath;
+//현재 썸네일 넘버
+@synthesize thumbnailNumber;
 //MangaoによってマウントしたTrueCryptボリュームの一覧
 @synthesize mountedTrueCryptVolume;
 //『フルスクリーン』実行前のウィンドウのNSRect
@@ -170,6 +175,9 @@
     app.defaults = [NSUserDefaults standardUserDefaults];
     app.plistKey = [[defaults objectForKey:@"key"]mutableCopy];
     app.plistValue = [[defaults objectForKey:@"value"]mutableCopy];
+    
+    //썸네일 펼쳐보기 방향을 메인 윈도우 좌철/우철 보기와 싱크
+    app.isHidaribirakiThumb = app.isHidaribiraki;
 
     //初回起動の場合
     if(!app.plistKey || !app.plistValue)
@@ -191,6 +199,17 @@
     //ImageCenterField上でのマウスカーソルの座標を取得
     app.cursor_onImageCenterField = [app.imageCenterField convertPoint:[[self viewWindow] convertScreenToBase:[NSEvent mouseLocation]] fromView:nil];
     
+    //썸네일 번호 텍스트필드 감추기
+    thumbnailNumber.hidden = 1;
+    //페이지넘버 텍스트필드 감추기
+    pagenumberPrev.hidden = 1;
+    pagenumberNext.hidden = 1;
+    
+    //메인 윈도우의 풀스크린 진입 체크
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidEnterFullScreen:) name:NSWindowDidEnterFullScreenNotification object:viewWindow];
+    //메인 윈도우의 풀스크린 해제 체크
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidExitFullScreen:) name:NSWindowDidExitFullScreenNotification object:viewWindow];
+    
     //クリック、スクロール、スワイプ、ピンチ、キー入力をした時に呼び出される
     //クリック、右クリックで進む・戻る
     //スクロールで進む・戻る
@@ -200,6 +219,7 @@
     //Escでフルスクリーンを解除
     //Shift+tabで10ページ戻る
     //tabで10ページ進む
+
     [NSEvent addLocalMonitorForEventsMatchingMask:(NSKeyDown | NSOtherMouseDownMask | NSScrollWheelMask | NSEventMaskSwipe | NSEventMaskMagnify | NSKeyDownMask)
                                           handler:^(NSEvent* event)
      {
@@ -408,6 +428,39 @@
                  //サムネイル一覧を終了
                  [self exitThumbnail];
              }
+             //휠 스크롤일 경우
+             else if([event type] == 22)
+             {
+                 //上スクロールなら進む
+                 if([event deltaY] < 0)
+                 {
+                     //二本指タップのタイムスタンプをリセット
+                     app.timestamp_tapWithTwoFingers = 0;
+                     if (app.isHidaribiraki)
+                     {
+                         [self thumbnailSelectNextItem];
+                     }
+                     else
+                     {
+                         [self thumbnailSelectPrevItem];
+                     }
+                     
+                 }
+                 //下スクロールなら戻る
+                 else if([event deltaY] > 0)
+                 {
+                     //二本指タップのタイムスタンプをリセット
+                     app.timestamp_tapWithTwoFingers = 0;
+                     if (app.isHidaribiraki)
+                     {
+                         [self thumbnailSelectPrevItem];
+                     }
+                     else
+                     {
+                         [self thumbnailSelectNextItem];
+                     }
+                 }
+             }
              
              //キー入力の場合
              if([event type] == 10)
@@ -415,36 +468,94 @@
                  //装飾キー無しの場合
                  if([event modifierFlags] == 10486016 || [event modifierFlags] == 256)
                  {
-                     //←,hが入力された場合
-                     if([event keyCode] == 123 || [event keyCode] == 4)
+                     //←가 입력된 경우 이전 아이템 선택, 우철(왼쪽 방향으로 보기)일 때는 다음 아이템 선택
+                     if([event keyCode] == 123)
                      {
                          //前のアイテムを選択
-                         [self thumbnailSelectPrevItem];
+                         //단일 입력만 받아들이는 건 일시 보류
+                         if (![event isARepeat])
+                         {
+                             app.timestamp_tapWithTwoFingers = 0;
+                             [self thumbnailSelectPrevItem];
+                         }
+                         //연속 입력시
+                         else
+                         {
+                             app.timestamp_tapWithTwoFingers = 0;
+                             [self thumbnailSelectRepeatPrevItem];
+                         }
                      }
-                     //→,lが入力された場合
-                     else if([event keyCode] == 124 || [event keyCode] == 37)
+                     //→이 입력된 경우, 다음 아이템 선택, 우철(왼쪽 방향으로 보기)일 때는 이전 아이템 선택
+                     else if([event keyCode] == 124)
                      {
                          //次のアイテムを選択
-                         [self thumbnailSelectNextItem];
+                         //단일 입력만 받아들이는 건 일시 보류
+                         if (![event isARepeat])
+                         {
+                             app.timestamp_tapWithTwoFingers = 0;
+                             [self thumbnailSelectNextItem];
+                         }
+                         //연속 입력시
+                         else
+                         {
+                             app.timestamp_tapWithTwoFingers = 0;
+                             [self thumbnailSelectRepeatNextItem];
+                         }
                      }
-                     //Tab,Spaceが入力された場合
-                     else if([event keyCode] == 48 || [event keyCode] == 49)
+                     //Tabが入力された場合
+                     else if([event keyCode] == 48)
                      {
                          //次のページのアイテムを選択
-                         [self thumbnailSelectNextPageItem];
+                         if (app.isHidaribiraki)
+                         {
+                             [self thumbnailSelectNextPageItem];
+                         }
+                         else
+                         {
+                             [self thumbnailSelectPrevPageItem];
+                         }
                      }
-                     //↑,kが入力された場合
-                     else if([event keyCode] == 126 || [event keyCode] == 40)
+                     //Space가 입력된 경우
+                     else if ([event keyCode] == 49)
                      {
-                         //上のアイテムを選択
-                         [self thumbnailSelectUpItem];
+                         //次のページのアイテムを選択
+                             [self thumbnailSelectSpacePrevPageItem];
                      }
-                     //↓,jが入力された場合
-                     else if([event keyCode] == 125 || [event keyCode] == 38)
+                     //j가 입력된 경우 이전 페이지로, 화살표 키와 분리 (이유는 중앙 포커스 때문)
+                     else if([event keyCode] == 38)
                      {
-                         //下のアイテムを選択
-                         [self thumbnailSelectDownItem];
+                             [self thumbnailSelectPrevItem];
                      }
+                     //k가 입력된 경우 다음 페이지로, 화살표 키와 분리 (이유는 중앙 포커스 때문)
+                     else if([event keyCode] == 40)
+                     {
+                         [self thumbnailSelectNextItem];
+                     }
+                     //↓키 입력시, 다음 페이지로, 우철일 때도.
+                     else if([event keyCode] == 125)
+                     {
+                         if (app.isHidaribiraki)
+                         {
+                             [self thumbnailSelectNextItem];
+                         }
+                         else
+                         {
+                             [self thumbnailSelectPrevItem];
+                         }
+                     }
+                     //↑키 입력시, 이전 페이지로, 우철일 때도.
+                     else if([event keyCode] == 126)
+                     {
+                         if (app.isHidaribiraki)
+                         {
+                             [self thumbnailSelectPrevItem];
+                         }
+                         else
+                         {
+                             [self thumbnailSelectNextItem];
+                         }
+                     }
+
                      //Enterが入力された場合
                      else if([event keyCode] == 36)
                      {
@@ -474,10 +585,30 @@
                  else if([event modifierFlags] == 131330)
                  {
                      //Tab,Spaceが入力された場合
-                     if([event keyCode] == 48 || [event keyCode] == 49)
+                     if([event keyCode] == 48)
                      {
-                         //前のページのアイテムを選択
-                         [self thumbnailSelectPrevPageItem];
+                         if (app.isHidaribiraki)
+                         {
+                             //前のページのアイテムを選択
+                             [self thumbnailSelectPrevPageItem];
+                         }
+                         else
+                         {
+                             [self thumbnailSelectNextPageItem];
+                         }
+                     }
+                     //Space가 입력된 경우
+                     else if ([event keyCode] == 49)
+                     {
+                         //次のページのアイテムを選択
+                         if (app.isHidaribiraki)
+                         {
+                             [self thumbnailSelectSpacePrevPageItem];
+                         }
+                         else
+                         {
+                             [self thumbnailSelectSpaceNextPageItem];
+                         }
                      }
                  }
              }
@@ -506,6 +637,7 @@
 }
 
 //最後のウィンドウを閉じた時、アプリケーションを完全に終了
+
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication
 {
     return YES;
@@ -1703,48 +1835,6 @@
                 }
             }
         }
-        
-        //풀스크린시 페이지 번호 표시
-        if(![NSMenu menuBarVisible])
-        {
-            //좌우로 긴 이미지일 때
-            if (app.isYokonaga)
-            {
-                if(app.isHidaribiraki)
-                {
-                    pagenumberPrev.hidden = 0;
-                    pagenumberNext.hidden = 1;
-                }
-                else
-                {
-                    pagenumberPrev.hidden = 1;
-                    pagenumberNext.hidden = 0;
-                }
-            }
-            //아닐 때
-            else if((app.isOnePage)&&(!app.isHidaribiraki))
-            {
-                pagenumberPrev.hidden = 1;
-                pagenumberNext.hidden = 0;
-                
-            }
-            else if((app.isOnePage)&&(app.isHidaribiraki))
-            {
-                pagenumberPrev.hidden = 0;
-                pagenumberNext.hidden = 1;
-            }
-            else
-            {
-                pagenumberPrev.hidden = 0;
-                pagenumberNext.hidden = 0;
-            }
-        }
-        else
-        {
-            //hide pagenumber
-            pagenumberPrev.hidden = 1;
-            pagenumberNext.hidden = 1;
-        }
     }
 }
 
@@ -2470,8 +2560,8 @@ end:app.selectionImageFilePath = NULL;
                 rarFile = [[[RarFile alloc] initWithFileAtPath:string] autorelease];
             }
             
-            //アーカイブが開けなかった場合(これがないとエラー)
-            if (![zipFile open] && ![rarFile open])
+            //アーカイブが開けた場合(これがないとエラー)
+            if([zipFile open] || [rarFile open])
             {
                 [self CwoCantOpen];
             }
@@ -2695,7 +2785,7 @@ end://左側の画像のIndexを最後に表示した画像として記録する
         PDFPage *page = [PDFArray objectAtIndex:app.index];
         
         NSRect bounds = [page boundsForBox:kPDFDisplayBoxMediaBox];
-        float dimension = 1400;
+        float dimension = 1600;
         float scale = 1 > (NSHeight(bounds) / NSWidth(bounds)) ? dimension / NSWidth(bounds) :  dimension / NSHeight(bounds);
         bounds.size = NSMakeSize(bounds.size.width*scale,bounds.size.height*scale);
         
@@ -4070,6 +4160,16 @@ end://左側の画像のIndexを最後に表示した画像として記録する
         
         //実際に適用する
         [self setBackgroundColor];
+        
+        //풀스크린 여부 판별
+        if(![NSMenu menuBarVisible])
+        {
+            //페이지 넘버를 감췄다가 다시 그린다
+            pagenumberPrev.hidden = 1;
+            pagenumberNext.hidden = 1;
+            [self showTextField:pagenumberPrev];
+            [self showTextField:pagenumberNext];
+        }
     }
 }
 
@@ -4093,10 +4193,94 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     }
 }
 
+//풀스크린 진입 확인, 페이지 넘버 표시
+- (void)windowDidEnterFullScreen:(NSNotification *)notification
+{
+    //NSLog(@"enter fullscreen");
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    //풀스크린시 페이지 번호 표시
+    //좌우로 긴 이미지일 때
+    if (app.isYokonaga)
+    {
+        if(app.isHidaribiraki)
+        {
+            [self showTextField:pagenumberPrev];
+            pagenumberNext.hidden = 1;
+        }
+        else
+        {
+            pagenumberPrev.hidden = 1;
+            [self showTextField:pagenumberNext];
+        }
+    }
+    //아닐 때
+    else if((app.isOnePage)&&(!app.isHidaribiraki))
+    {
+        pagenumberPrev.hidden = 1;
+        [self showTextField:pagenumberNext];
+    }
+    else if((app.isOnePage)&&(app.isHidaribiraki))
+    {
+        [self showTextField:pagenumberPrev];
+        pagenumberNext.hidden = 1;
+    }
+    else
+    {
+        [self showTextField:pagenumberPrev];
+        [self showTextField:pagenumberNext];
+    }
+}
+
+//풀스크린 해제, 페이지 넘버 감추기
+- (void)windowDidExitFullScreen:(NSNotification *)notification
+{
+    //NSLog(@"exit fullscreen");
+    [self hideTextField:pagenumberPrev];
+    [self hideTextField:pagenumberNext];
+}
+
+//메인 윈도우의 리사이징을 nsnotificatiocenter를 통해서 확인, 리스트 썸네일 뷰의 리사이징
+- (void)windowDidResize:(NSNotification *)notification {
+    [self setListThumbnailView];
+
+}
+
+//메인 윈도우의 움직임을 nsnotificatiocenter를 통해서 확인, 리스트 썸네일 뷰의 리사이징
+- (void)windowDidMove:(NSNotification *)notification {
+    [self setListThumbnailView];
+}
+
+- (void)setListThumbnailView
+{
+    NSRect windowRect = [[self viewWindow] frame];
+    //썸네일 이미지의 높이 설정
+    int thumbLength = windowRect.size.height / 5;
+    NSRect thumbFrame = NSMakeRect(windowRect.origin.x, windowRect.origin.y, windowRect.size.width, thumbLength + 24);
+    [thumbnailWindow setFrame:thumbFrame display:NO animate:YES];
+    [thumbnailScrollView setHasHorizontalScroller:NO];
+    [thumbnailScrollView setHorizontalScrollElasticity:1];
+    [thumbnailScrollView setScrollsDynamically:NO];
+    [thumbnailScrollView setVerticalLineScroll:0.0];
+    [thumbnailScrollView setVerticalPageScroll:0.0];
+    
+    [thumbnailView setValue:[NSColor clearColor] forKey:IKImageBrowserBackgroundColorKey];
+    [thumbnailView setContentResizingMask:NSViewWidthSizable];
+    NSSize thumbCellSize;
+    thumbCellSize.width = thumbLength;
+    thumbCellSize.height = thumbLength;
+    [thumbnailView setCellSize:thumbCellSize];
+    
+    [thumbnailWindow setAlphaValue:0.8];
+}
+
 //サムネイル一覧
 - (void)thumbnail
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    
+    //메인 윈도우의 리사이징 및 이동 여부를 체크
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidResize:) name:NSWindowDidResizeNotification object:viewWindow];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidMove:) name:NSWindowDidMoveNotification object:viewWindow];
     
     //空ではない場合
     if(app.listSize)
@@ -4107,71 +4291,59 @@ end://左側の画像のIndexを最後に表示した画像として記録する
             app.isThumbnail = 1;
             
             //ビューウィンドウを無効にする(thumbnailWindowはタイトルバーがないのでisKeyWindowがうまく動かない)
-            [[self viewWindow] orderOut:self];
+            //[[self viewWindow] orderOut:self];
+
             //サムネイルウィンドウを画面と同じ大きさにする
-            [thumbnailWindow setFrame:[[NSScreen mainScreen]frame]display:NO animate:NO];
+            //메인 윈도우를 리사이즈 불가로 놓는다, 움직이지 못하게 한다
+            //[[self viewWindow] setStyleMask:[[self viewWindow] styleMask] & ~NSResizableWindowMask & ~NSMiniaturizableWindowMask & ~NSClosableWindowMask];
+            //[[self viewWindow] setMovable:NO];
+            //[[[self viewWindow] standardWindowButton:NSWindowFullScreenButton] setHidden:YES];
+            /*
+            NSRect windowRect = [[self viewWindow] frame];
+            //썸네일 이미지의 높이 설정
+            int thumbLength = windowRect.size.height / 5;
+            NSRect thumbFrame = NSMakeRect(windowRect.origin.x, windowRect.origin.y, windowRect.size.width, thumbLength + 24);
+            [thumbnailWindow setFrame:thumbFrame display:NO animate:YES];
+             */
             //サムネイルビューの背景色をビューウィンドウと同じにする
-            if([[[app.plistValue objectAtIndex:0] objectAtIndex:9] intValue] == 2)
-            {
-                [thumbnailView setValue:[NSColor blackColor] forKey:IKImageBrowserBackgroundColorKey];
-            }
-            else if([[[app.plistValue objectAtIndex:0] objectAtIndex:9] intValue])
-            {
-                [thumbnailView setValue:[NSColor whiteColor] forKey:IKImageBrowserBackgroundColorKey];
-            }
-            else
-            {
-                [thumbnailView setValue:[NSColor colorWithDeviceRed:237/255.0f green:237/255.0f blue:237/255.0f alpha:1.0] forKey:IKImageBrowserBackgroundColorKey];
-            }
+            /*
+             if([[[app.plistValue objectAtIndex:0] objectAtIndex:9] intValue] == 2)
+             {
+             [thumbnailView setValue:[NSColor blackColor] forKey:IKImageBrowserBackgroundColorKey];
+             }
+             else if([[[app.plistValue objectAtIndex:0] objectAtIndex:9] intValue])
+             {
+             [thumbnailView setValue:[NSColor whiteColor] forKey:IKImageBrowserBackgroundColorKey];
+             }
+             else
+             {
+             [thumbnailView setValue:[NSColor colorWithDeviceRed:237/255.0f green:237/255.0f blue:237/255.0f alpha:1.0] forKey:IKImageBrowserBackgroundColorKey];
+             }
+             */
+            [self setListThumbnailView];
             //サムネイルウィンドウを有効にする
             [[self thumbnailWindow] makeKeyAndOrderFront:self];
             //メニューバーより手前に表示
             [thumbnailWindow setLevel: NSStatusWindowLevel];
+            
+            //NSLog(@"main hidaribiraki:%i", app.isHidaribiraki);
+            //NSLog(@"thumbnail hidaribiraki:%i", app.isHidaribirakiThumb);
             
             //最後にサムネイル一覧を実行した時と異なるアーカイブを開いている場合
             if(app.thumbnailPath != app.filePath)
             {
                 //現在のアーカイブのパスを最後にサムネイル一覧を実行した時のパスとして記録する
                 app.thumbnailPath = app.filePath;
-                
-                //サムネイル一覧の情報を初期化する
-                [thumbnailController init];
-                
-                //PDFを開いている場合
-                if([[app.filePath lowercaseString] hasSuffix:@".pdf"])
-                {
-                    for(PDFPage *page in PDFArray)
-                    {
-                        NSImage *thumbnailImage;
-                        
-                        NSRect bounds = [page boundsForBox:kPDFDisplayBoxMediaBox];
-                        float dimension = 1400;
-                        float scale = 1 > (NSHeight(bounds) / NSWidth(bounds)) ? dimension / NSWidth(bounds) :  dimension / NSHeight(bounds);
-                        bounds.size = NSMakeSize(bounds.size.width*scale,bounds.size.height*scale);
-                        
-                        thumbnailImage = [[[NSImage alloc] initWithSize: bounds.size] autorelease];
-                        [thumbnailImage lockFocus];
-                        [[NSColor whiteColor] set];
-                        NSRectFill(bounds );
-                        NSAffineTransform * scaleTransform = [NSAffineTransform transform];
-                        [scaleTransform scaleBy: scale];
-                        [scaleTransform concat];
-                        [page drawWithBox: kPDFDisplayBoxMediaBox];
-                        [thumbnailImage unlockFocus];
-                        
-                        thumbnail *thumbnailItem = [thumbnail imageItemWithContentsOfNSImage:thumbnailImage];
-                        [thumbnailController addObject:thumbnailItem];
-                    }
-                }
-                //PDF以外を開いている場合
-                else
-                {
-                    for(NSImage *thumbnailImage in imageArray)
-                    {
-                        thumbnail *thumbnailItem = [thumbnail imageItemWithContentsOfNSImage:thumbnailImage];
-                        [thumbnailController addObject:thumbnailItem];
-                    }
-                }
+                [self makeThumbnailController];
+                app.isHidaribirakiThumb = app.isHidaribiraki;
+            }
+
+            else if (app.isHidaribirakiThumb != app.isHidaribiraki)
+            {
+                //現在のアーカイブのパスを最後にサムネイル一覧を実行した時のパスとして記録する
+                app.thumbnailPath = app.filePath;
+                [self makeThumbnailController];
+                app.isHidaribirakiThumb = app.isHidaribiraki;
             }
             
             int itemIndex;
@@ -4186,8 +4358,13 @@ end://左側の画像のIndexを最後に表示した画像として記録する
                 itemIndex = app.index - 1;
             }
             //アイテムを選択する
-            [self thumbnailSelectItem:itemIndex];
+            //NSLog(@"self itemIndex:%d", itemIndex);
+            [self thumbnailSelectedItem:itemIndex];
+            
+            //썸네일 번호 표시
+            [self showTextField:thumbnailNumber];
         }
+        
         //サムネイル一覧を実行中の場合
         else
         {
@@ -4197,14 +4374,142 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     }
 }
 
+//썸네일 번호를 애니메이션으로 표시
+- (void)showTextField:(NSTextField*)TextField
+{
+    //썸네일 번호 텍스트필드 표시
+    [TextField setAlphaValue:0.0];
+    TextField.hidden = 0 ;
+    
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:1];
+    [[TextField animator] setAlphaValue:0.9];
+    [NSAnimationContext endGrouping];
+    
+    /* 자동 감추기 코드. 일단 하지 않음
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(hideThumbnailNumber)
+                                   userInfo:nil
+                                    repeats:NO];
+     */
+}
+
+//썸네일 번호를 애니메이션으로 감추기
+- (void)hideTextField:(NSTextField*)TextField
+{
+    //썸네일 번호 텍스트필드 감추기
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:1];
+    [[TextField animator] setAlphaValue:0.0];
+    [NSAnimationContext endGrouping];
+
+    //썸네일 넘버 감추기
+    if (TextField.alphaValue == 0.0)
+    {
+        TextField.hidden = 1;
+    }
+}
+
+
+- (void)makeThumbnailController
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+
+    //サムネイル一覧の情報を初期化する
+    [thumbnailController init];
+    
+    //PDFを開いている場合
+    if([[app.filePath lowercaseString] hasSuffix:@".pdf"])
+    {
+        //for(PDFPage *page in PDFArray)
+        if (app.isHidaribiraki)
+        {
+            for(int i = 0; i < app.listSize ; i++)
+            {
+                PDFPage *page = [PDFArray objectAtIndex:i];
+                NSImage *thumbnailImage = [self makePDFThumbnail:page];
+                thumbnail *thumbnailItem = [thumbnail imageItemWithContentsOfNSImage:thumbnailImage];
+                [thumbnailController addObject:thumbnailItem];
+            }
+        }
+        else
+        {
+            for(int i = app.listSize-1; i >= 0 ; i--)
+            {
+                PDFPage *page = [PDFArray objectAtIndex:i];
+                NSImage *thumbnailImage = [self makePDFThumbnail:page];
+                thumbnail *thumbnailItem = [thumbnail imageItemWithContentsOfNSImage:thumbnailImage];
+                [thumbnailController addObject:thumbnailItem];
+            }
+        }
+    }
+    //PDF以外を開いている場合
+    else
+    {
+        //우철(오른쪽넘기기)일 때 좌측 페이지 넘기기로
+        NSArray *thumbImageArray;
+        if (app.isHidaribiraki)
+        {
+            thumbImageArray = imageArray;
+        }
+        else
+        {
+            thumbImageArray = [[imageArray reverseObjectEnumerator] allObjects];
+        }
+        for(NSImage *thumbnailImage in thumbImageArray)
+        {
+            thumbnail *thumbnailItem = [thumbnail imageItemWithContentsOfNSImage:thumbnailImage];
+            [thumbnailController addObject:thumbnailItem];
+        }
+    }
+
+}
+
+//PDF 썸네일 만드는 부분을 함수로 분리
+- (NSImage*)makePDFThumbnail:(PDFPage*)PDFImage
+{
+    NSRect bounds = [PDFImage boundsForBox:kPDFDisplayBoxMediaBox];
+    float dimension = 1400;
+    float scale = 1 > (NSHeight(bounds) / NSWidth(bounds)) ? dimension / NSWidth(bounds) :  dimension / NSHeight(bounds);
+    bounds.size = NSMakeSize(bounds.size.width*scale,bounds.size.height*scale);
+    
+    NSImage *tempThumbnailImage = [[[NSImage alloc] initWithSize: bounds.size] autorelease];
+    [tempThumbnailImage lockFocus];
+    [[NSColor whiteColor] set];
+    NSRectFill(bounds );
+    NSAffineTransform * scaleTransform = [NSAffineTransform transform];
+    [scaleTransform scaleBy: scale];
+    [scaleTransform concat];
+    [PDFImage drawWithBox: kPDFDisplayBoxMediaBox];
+    [tempThumbnailImage unlockFocus];
+    return tempThumbnailImage;
+}
+
 //サムネイルビューの前のアイテムを選択する
 - (void)thumbnailSelectPrevItem
 {
+/*    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    //썸네일 인덱스 번호 재선언, 우철(왼쪽으로 넘기기)일 때는 전체 페이지 수에서 현재 아이템 수를 뺀다
+    long thumbIndex=0.0;
+    if (app.isHidaribiraki)
+    {
+        thumbIndex = app.listSize - [thumbnailView selectionIndexes].firstIndex;
+    }
+    else
+    {
+        thumbIndex = [thumbnailView selectionIndexes].firstIndex;
+    }
+    NSLog(@"select prev app list size : %d", app.listSize);
+    NSLog(@"select prev index number : %ld", (unsigned long)[thumbnailView selectionIndexes].firstIndex);
+    NSLog(@"select prev thumbIndex : %ld", thumbIndex);
+*/
+    long thumbIndex = [thumbnailView selectionIndexes].firstIndex;
     //現在、最初のアイテムを選択中ではない場合
-    if([thumbnailView selectionIndexes].firstIndex != 0)
+    if(thumbIndex != 0)
     {
         //前のアイテムを選択
-        long itemIndex = [thumbnailView selectionIndexes].firstIndex - 1;
+        long itemIndex = thumbIndex - 1;
         
         //アイテムを選択する
         [self thumbnailSelectItem:itemIndex];
@@ -4214,55 +4519,108 @@ end://左側の画像のIndexを最後に表示した画像として記録する
 //サムネイルビューの次のアイテムを選択する
 - (void)thumbnailSelectNextItem
 {
+/*    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    //썸네일 인덱스 번호 재선언, 우철(왼쪽으로 넘기기)일 때는 전체 페이지 수에서 현재 아이템 수를 뺀다
+    long thumbIndex=0.0;
+    if (app.isHidaribiraki)
+    {
+        thumbIndex = app.listSize - [thumbnailView selectionIndexes].firstIndex;
+    }
+    else
+    {
+        thumbIndex = [thumbnailView selectionIndexes].firstIndex;
+    }
+    NSLog(@"select next app list size : %d", app.listSize);
+    NSLog(@"select next index number : %ld", (unsigned long)[thumbnailView selectionIndexes].firstIndex);
+    NSLog(@"select next thumbIndex : %ld", thumbIndex);
+ */
+    long thumbIndex = [thumbnailView selectionIndexes].firstIndex;
     //現在最後のアイテムを選択中でない場合
-    if([thumbnailView selectionIndexes].firstIndex < [[thumbnailController arrangedObjects]count] - 1)
+    if(thumbIndex < [[thumbnailController arrangedObjects]count] - 1.0)
     {
         //次のアイテムを選択する
-        long itemIndex = [thumbnailView selectionIndexes].firstIndex + 1;
+        long itemIndex = thumbIndex + 1;
         
         //アイテムを選択する
         [self thumbnailSelectItem:itemIndex];
     }
 }
 
-//サムネイルビューの上のアイテムを選択する
-- (void)thumbnailSelectUpItem
+//커서 키 관련 이벤트
+
+//커서 키를 연속으로 눌러 이전 아이템 썸네일 선택시
+- (void)thumbnailSelectRepeatPrevItem
 {
+    long thumbIndex = [thumbnailView selectionIndexes].firstIndex;
     //現在、最初のアイテムを選択中ではない場合
-    if([thumbnailView selectionIndexes].firstIndex != 0)
+    if(thumbIndex != 0)
     {
-        //上のアイテムを選択する
-        long itemIndex = [thumbnailView selectionIndexes].firstIndex - [thumbnailView numberOfColumns];
-        
-        //範囲外の場合、最初のアイテムを選択
-        if(itemIndex < 0)
-        {
-            itemIndex = 0;
-        }
+        //前のアイテムを選択
+        long toIndex = thumbIndex - 1;
         
         //アイテムを選択する
-        [self thumbnailSelectItem:itemIndex];
+        [self thumbnailSelectRepeatItem:thumbIndex to:toIndex];
     }
 }
 
-//サムネイルビューの下のアイテムを選択する
-- (void)thumbnailSelectDownItem
+//커서 키로 다음 아이템 썸네일 선택시
+- (void)thumbnailSelectRepeatNextItem
 {
+    long thumbIndex = [thumbnailView selectionIndexes].firstIndex;
     //現在最後のアイテムを選択中でない場合
-    if([thumbnailView selectionIndexes].firstIndex < [[thumbnailController arrangedObjects]count] - 1)
+    if(thumbIndex < [[thumbnailController arrangedObjects]count] - 1.0)
     {
-        //下のアイテムを選択する
-        long itemIndex = [thumbnailView selectionIndexes].firstIndex + [thumbnailView numberOfColumns];
-        
-        //範囲外の場合、最後のアイテムを選択
-        if(itemIndex >= [[thumbnailController arrangedObjects]count])
-        {
-            itemIndex = [[thumbnailController arrangedObjects]count] - 1;
-        }
+        //次のアイテムを選択する
+        long toIndex = thumbIndex + 1;
         
         //アイテムを選択する
-        [self thumbnailSelectItem:itemIndex];
+        [self thumbnailSelectRepeatItem:thumbIndex to:toIndex];
     }
+}
+
+//커서 키로 이동시 썸네일 스크롤
+- (void)thumbnailSelectRepeatItem:(long)beforeIndex to:(long)itemIndex
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    [thumbnailView setSelectionIndexes:[NSIndexSet indexSetWithIndex:itemIndex] byExtendingSelection:NO];
+    //アイテムが表示される位置にスクロールする
+    //썸네일 인덱스 번호 재선언, 우철(왼쪽으로 넘기기)일 때는 전체 페이지 수에서 현재 아이템 수를 뺀다
+    unsigned long thumbFinalIndex;
+    if (app.isHidaribiraki)
+    {
+        thumbFinalIndex = itemIndex;
+    }
+    else
+    {
+        thumbFinalIndex = [[thumbnailController arrangedObjects]count] - itemIndex - 1;
+    }
+    
+    //현재 썸네일 넘버 입력, 표시
+    [thumbnailNumber setStringValue:[NSString stringWithFormat:@"%lu",thumbFinalIndex + 1]];
+    int halfNumberOfItem = ([self viewWindow].frame.size.width / [thumbnailView cellSize].width) / 2;
+    
+    //finalIndex 1차 정의
+    long finalIndex;
+    if (beforeIndex < itemIndex)
+    {
+        finalIndex = itemIndex + halfNumberOfItem;
+    }
+    else
+    {
+        finalIndex = itemIndex - halfNumberOfItem;
+    }
+
+    //finalIndex 2차 정의
+    if (finalIndex < halfNumberOfItem)
+    {
+        finalIndex = 0;
+    }
+    else if (finalIndex > [[thumbnailController arrangedObjects]count])
+    {
+        finalIndex = [[thumbnailController arrangedObjects]count] - 1;
+    }
+    
+    [thumbnailView scrollIndexToVisible:finalIndex];
 }
 
 //サムネイルビューの前のページのアイテムを選択する
@@ -4271,28 +4629,11 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     //現在、最初のアイテムを選択中ではない場合
     if([thumbnailView selectionIndexes].firstIndex != 0)
     {
-        //サムネイルビューに表示できる行の最大数を取得
-        int numberOfVisibleRows = [[NSScreen mainScreen]frame].size.height/[thumbnailView cellSize].height;
-        
-        //現在選択されているアイテムのサムネイルビュー内での座標を取得
-        NSRect itemFrame = [thumbnailView itemFrameAtIndex:[thumbnailView selectionIndexes].firstIndex];
-        itemFrame = [thumbnailView convertRectToBase:itemFrame];
-        
-        //現在選択されているアイテムの下に何個表示されている行が存在するか取得
-        int numberOfVisibleRowsUnderSelectionItem = itemFrame.origin.y/[thumbnailView cellSize].height;
-        //現在選択されているアイテムの上に何個表示されている行が存在するか取得
-        int numberOfVisibleRowsUpperSelectionItem = numberOfVisibleRows - numberOfVisibleRowsUnderSelectionItem - 1;
-        //現在表示されている一番上の行のアイテムを選択
-        for(int i = 0;i < numberOfVisibleRowsUpperSelectionItem;i++)
-        {
-            [self thumbnailSelectUpItem];
-        }
+        //컬럼에 표시되는 아이템 갯수 확인
+        int numberOfItemInColumn = [self viewWindow].frame.size.width / [thumbnailView cellSize].width;
+        //NSLog(@"number of item in columm:%i", numberOfItemInColumn);
 
-        //サムネイルビューに表示できるアイテムの最大数を取得
-        int numberOfVisibleItems = numberOfVisibleRows*(int)[thumbnailView numberOfColumns];
-        
-        //前のページのアイテムを選択する
-        long itemIndex = [thumbnailView selectionIndexes].firstIndex - numberOfVisibleItems;
+        long itemIndex = [thumbnailView selectionIndexes].firstIndex - numberOfItemInColumn;
         
         //範囲外の場合、最初のアイテムを選択
         if(itemIndex < 0)
@@ -4311,26 +4652,11 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     //現在最後のアイテムを選択中でない場合
     if([thumbnailView selectionIndexes].firstIndex < [[thumbnailController arrangedObjects]count] - 1)
     {
-        //サムネイルビューに表示できる行の最大数を取得
-        int numberOfVisibleRows = [[NSScreen mainScreen]frame].size.height/[thumbnailView cellSize].height;
+        //컬럼에 표시되는 아이템 갯수 확인
+        int numberOfItemInColumn = [self viewWindow].frame.size.width / [thumbnailView cellSize].width;
+        //NSLog(@"number of item in columm:%i", numberOfItemInColumn);
         
-        //現在選択されているアイテムのサムネイルビュー内での座標を取得
-        NSRect itemFrame = [thumbnailView itemFrameAtIndex:[thumbnailView selectionIndexes].firstIndex];
-        itemFrame = [thumbnailView convertRectToBase:itemFrame];
-        
-        //現在選択されているアイテムの下に何個表示されている行が存在するか取得
-        int numberOfVisibleRowsUnderSelectionItem = itemFrame.origin.y/[thumbnailView cellSize].height;
-        //現在表示されている一番下の行のアイテムを選択
-        for(int i = 0;i < numberOfVisibleRowsUnderSelectionItem;i++)
-        {
-            [self thumbnailSelectDownItem];
-        }
-        
-        //サムネイルビューに表示できるアイテムの最大数を取得
-        int numberOfVisibleItems = numberOfVisibleRows*(int)[thumbnailView numberOfColumns];
-        
-        //次のページのアイテムを選択する
-        long itemIndex = [thumbnailView selectionIndexes].firstIndex + numberOfVisibleItems;
+        long itemIndex = [thumbnailView selectionIndexes].firstIndex + numberOfItemInColumn;
         
         //範囲外の場合、最後のアイテムを選択
         if(itemIndex >= [[thumbnailController arrangedObjects]count])
@@ -4340,6 +4666,54 @@ end://左側の画像のIndexを最後に表示した画像として記録する
         
         //アイテムを選択する
         [self thumbnailSelectItem:itemIndex];
+    }
+}
+
+//스페이스바로 이전 썸네일 목록 화면 이동시
+- (void)thumbnailSelectSpacePrevPageItem
+{
+    //現在、最初のアイテムを選択中ではない場合
+    if([thumbnailView selectionIndexes].firstIndex != 0)
+    {
+        //컬럼에 표시되는 아이템 갯수 확인
+        int numberOfItemInColumn = [self viewWindow].frame.size.width / [thumbnailView cellSize].width;
+        //NSLog(@"number of item in columm:%i", numberOfItemInColumn);
+        
+        long thumbIndex = [thumbnailView selectionIndexes].firstIndex;
+        long itemIndex = [thumbnailView selectionIndexes].firstIndex - numberOfItemInColumn;
+        
+        //範囲外の場合、最初のアイテムを選択
+        if(itemIndex < 0)
+        {
+            itemIndex = 0;
+        }
+        
+        //アイテムを選択する
+        [self thumbnailSelectRepeatItem:thumbIndex to:itemIndex];
+    }
+}
+
+//스페이스바로 다음 썸네일 목록 화면 이동시
+- (void)thumbnailSelectSpaceNextPageItem
+{
+    //現在最後のアイテムを選択中でない場合
+    if([thumbnailView selectionIndexes].firstIndex < [[thumbnailController arrangedObjects]count] - 1)
+    {
+        //컬럼에 표시되는 아이템 갯수 확인
+        int numberOfItemInColumn = [self viewWindow].frame.size.width / [thumbnailView cellSize].width;
+        //NSLog(@"number of item in columm:%i", numberOfItemInColumn);
+
+        long thumbIndex = [thumbnailView selectionIndexes].firstIndex;
+        long itemIndex = [thumbnailView selectionIndexes].firstIndex + numberOfItemInColumn;
+        
+        //範囲外の場合、最後のアイテムを選択
+        if(itemIndex >= [[thumbnailController arrangedObjects]count])
+        {
+            itemIndex = [[thumbnailController arrangedObjects]count] - 1;
+        }
+        
+        //アイテムを選択する
+        [self thumbnailSelectRepeatItem:thumbIndex to:itemIndex];
     }
 }
 
@@ -4371,21 +4745,130 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     }
 }
 
-//サムネイルビューのアイテムを選択する
+//썸네일 뷰 아이템 선택시 썸네일 스크롤
 - (void)thumbnailSelectItem:(long)itemIndex
 {
-    //アイテムを選択する
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
     [thumbnailView setSelectionIndexes:[NSIndexSet indexSetWithIndex:itemIndex] byExtendingSelection:NO];
     //アイテムが表示される位置にスクロールする
-    [thumbnailView scrollIndexToVisible:itemIndex];
+    //썸네일 인덱스 번호 재선언, 우철(왼쪽으로 넘기기)일 때는 전체 페이지 수에서 현재 아이템 수를 뺀다
+    unsigned long thumbIndex;
+    if (app.isHidaribiraki)
+    {
+        thumbIndex = itemIndex;
+    }
+    else
+    {
+        thumbIndex = [[thumbnailController arrangedObjects]count] - itemIndex - 1;
+    }
+    
+    //현재 썸네일 넘버 입력, 표시
+    [thumbnailNumber setStringValue:[NSString stringWithFormat:@"%lu",thumbIndex + 1]];
+
+    //스크롤 좌표 계산
+    NSPoint oldScrollOrigin;
+    NSPoint newScrollOrigin;
+    float numberOfItem = [self viewWindow].frame.size.width / [thumbnailView cellSize].width;
+    //현재 선택된 아이템의 좌표 확인 (oldScrollOrigin)
+    if (app.isHidaribiraki)
+    {
+        //scrollPoint = (thumbnailView.frame.size.width * thumbIndex / [[thumbnailController arrangedObjects]count]) - (numberOfItem / 2 * [thumbnailView cellSize].width) + ([thumbnailView cellSize].width / 2);
+        oldScrollOrigin = [thumbnailView itemFrameAtIndex:thumbIndex].origin;
+    }
+    else
+    {
+        //scrollPoint = (thumbnailView.frame.size.width * itemIndex / [[thumbnailController arrangedObjects]count]) - (numberOfItem / 2 * [thumbnailView cellSize].width) + ([thumbnailView cellSize].width / 2);
+        //선택된 아이템의 좌표 확인
+        oldScrollOrigin = [thumbnailView itemFrameAtIndex:itemIndex].origin;
+    }
+    //NSLog(@"old origin x: %f", oldScrollOrigin.x);
+    
+    //신규 스크롤 좌표 계산
+    float scrollPoint = oldScrollOrigin.x - (numberOfItem / 2 * [thumbnailView cellSize].width) + ([thumbnailView cellSize].width /2 );
+    newScrollOrigin = NSMakePoint(scrollPoint, 0.0);
+    [[thumbnailScrollView documentView] scrollPoint:newScrollOrigin];
+
+    //NSLog(@"itemIndex : %lu", itemIndex);
+    //NSLog(@"thumbIndex : %lu", thumbIndex);
+    //NSLog(@"viewwindow frame : %f", thumbnailView.frame.size.width);
+    //NSLog(@"cell width : %f", [thumbnailView cellSize].width);
+    //NSLog(@"new select scrollpoint : %f", scrollPoint);
+    
+    //컨텐트뷰 좌표 계산, 포기
+    /*
+    NSPoint currentScrollPostion = [[thumbnailScrollView contentView] bounds].origin;
+    NSSize currentScrollViewSize = [[thumbnailScrollView documentView] bounds].size;
+    float documentCellSize = [[thumbnailScrollView documentView] bounds].size.width / [[thumbnailController arrangedObjects]count];
+    NSLog(@"content view bounds scrollpoint: %f", currentScrollPostion.x);
+    //NSLog(@"content view bounds width: %f", currentScrollViewSize.width);
+    NSLog(@"document Cell Size: %f", documentCellSize);
+    
+    float newScrollPositionX = (itemIndex - numberOfItem / 2 ) * documentCellSize;
+    //float newScrollPosistionX = [[thumbnailController arrangedObjects]count] * [thumbnailView cellSize].width;
+    NSLog(@"content view bounds new scrollpoint: %f", newScrollPositionX);
+    NSPoint newScrollPostion = NSMakePoint(newScrollPositionX, 0.0);
+    
+    //アイテムが表示される位置にスクロールする
+    //[thumbnailView scrollIndexToVisible:thumbIndex];
+     */
+}
+
+//썸네일 뷰 표시시 썸네일 스크롤
+- (void)thumbnailSelectedItem:(long)itemIndex
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    //때때로 올바른 번호로 이동하지 않는 버그 때문에 일부러 NSLog 를 남겨놓음
+    NSLog(@"item index:%ld", itemIndex);
+    //썸네일 인덱스 번호 재선언, 우철(왼쪽으로 넘기기)일 때는 전체 페이지 수에서 현재 아이템 수를 뺀다
+    unsigned long thumbIndex;
+    if (app.isHidaribiraki)
+    {
+        thumbIndex = itemIndex;
+    }
+    else
+    {
+        thumbIndex = [[thumbnailController arrangedObjects]count] - itemIndex - 1;
+    }
+    //NSLog(@"app list size : %d", app.listSize);
+    //NSLog(@"selectedItem index number : %ld", itemIndex);
+    //NSLog(@"selectedItem thumbIndex : %ld", thumbIndex);
+    
+    //썸네일 넘버 표시
+    [thumbnailNumber setStringValue:[NSString stringWithFormat:@"%lu",itemIndex + 1]];
+
+    [thumbnailView setSelectionIndexes:[NSIndexSet indexSetWithIndex:thumbIndex] byExtendingSelection:NO];
+    
+    //스크롤 좌표 계산
+    NSPoint oldScrollOrigin;
+    NSPoint newScrollOrigin;
+    float numberOfItem = [self viewWindow].frame.size.width / [thumbnailView cellSize].width;
+    oldScrollOrigin = [thumbnailView itemFrameAtIndex:thumbIndex].origin;
+    float scrollPoint = oldScrollOrigin.x - (numberOfItem / 2 * [thumbnailView cellSize].width) + ([thumbnailView cellSize].width /2 );
+    //float scrollPoint = (thumbnailView.frame.size.width * thumbIndex / [[thumbnailController arrangedObjects]count]) - (numberOfItem / 2 * [thumbnailView cellSize].width) + ([thumbnailView cellSize].width / 2);
+    //NSLog(@"viewwindow frame : %f", thumbnailView.frame.size.width);
+    //NSLog(@"selected scrollpoint : %f", scrollPoint);
+    newScrollOrigin = NSMakePoint(scrollPoint, 0.0);
+    //アイテムが表示される位置にスクロールする
+    //
+    [[thumbnailScrollView documentView] scrollPoint:newScrollOrigin];
 }
 
 //サムネイルビューの選択されているアイテムを開く
 - (void)thumbnailOpenSelectedItem
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
-    
     app.index = [thumbnailView selectionIndexes].firstIndex;
+    if (app.isHidaribiraki)
+    {
+        app.index = app.index;
+    }
+    else
+    {
+        app.index = [[thumbnailController arrangedObjects]count] - app.index;
+    }
+    
+    //NSLog(@"open Selected Item app.index : %ld", app.index);
+    
     [self setImage];
     
     //サムネイル一覧を終了する
@@ -4412,6 +4895,22 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     [[self thumbnailWindow] orderOut:self];
     //ビューウィンドウを有効にする
     [[self viewWindow] makeKeyAndOrderFront:self];
+    //메인 윈도우를 원래 상태대로 복귀시킨다
+    [[self viewWindow] setStyleMask:[[self viewWindow] styleMask] | NSResizableWindowMask | NSMiniaturizableWindowMask | NSClosableWindowMask];
+    [[self viewWindow] setMovable:YES];
+    [[[self viewWindow] standardWindowButton:NSWindowFullScreenButton] setHidden:NO];
+    //썸네일 넘버 감추기 애니메이션
+    [self hideTextField:thumbnailNumber];
+
+    //썸네일 넘버 초기화
+    if (thumbnailNumber.alphaValue == 0)
+    {
+        [thumbnailNumber setStringValue:@""];
+    }
+    
+    //메인 윈도우의 라이브 리사이징 체크 및 이동 여부 체크를 중단
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidResizeNotification object:viewWindow];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidMoveNotification object:viewWindow];
 }
 
 //小さいルーペ
