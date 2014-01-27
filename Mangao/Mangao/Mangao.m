@@ -49,13 +49,16 @@
 #import "Mangao.h"
 #import "Loupe.h"
 #import "thumbnail.h"
-#import "ZipFile.h"
-#import "RarFile.h"
+//#import "ZipFile.h"
+//#import "RarFile.h"
 #import "HTMangaColorize.h"
 #import "AutoEnhance.h"
 #import "BrightnessAndContrast.h"
 #import "Grayscale.h"
 #import "SepiaTone.h"
+#import "AutoLevel.h"
+//xadMaster
+#import <XADMaster/XADArchive.h>
 
 @implementation Mangao
 
@@ -81,6 +84,16 @@
 //pagenumber 추가
 @synthesize pagenumberPrev;
 @synthesize pagenumberNext;
+//xadarchive 관련 추가
+//압축 파일의 종류
+@synthesize archiveFileType;
+//패스워드 선언
+@synthesize password;
+@synthesize passwordNotice;
+@synthesize passwordField;
+@synthesize passwordPanel;
+@synthesize isPassword;
+//@synthesize rightExtract;
 
 //許可する画像の種類
 @synthesize imageFileType;
@@ -129,7 +142,7 @@
 //現在スライドショーを実行しているかどうか
 @synthesize isSlideshow;
 //現在フルスクリーンfor10.6を実行しているかどうか
-@synthesize isFullscreenFor106;
+@synthesize isFitToScreen;
 //現在サムネイル一覧を実行しているかどうか
 @synthesize isThumbnail;
 //現在ルーペを使用しているかどうか(1==小さい,2==大きい)
@@ -160,7 +173,6 @@
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
-    
     //メインメニューを構成
     [self buildMainMenu];
     
@@ -190,7 +202,10 @@
     
     //許可する画像の種類をセット
     app.imageFileType = [NSArray arrayWithObjects:@"jpg",@"JPG",@"jpeg",@"JPEG",@"png",@"PNG",@"gif",@"GIF",@"bmp",@"BMP",@"tif",@"TIF",@"tiff",@"TIFF",nil];
-    
+
+    //사용 가능한 압축 파일 종류 세팅
+    app.archiveFileType = [NSArray arrayWithObjects:@"zip",@"cbz",@"rar",@"cbr",@"7z",@"cb7",@"lzh",@"lha",nil];
+
     //左開きに設定
     imageLeftFieldxxx = imageLeftField;
     imageRightFieldxxx = imageRightField;
@@ -383,8 +398,13 @@
          //Escが入力された場合
          if([event type] == 10 && [event keyCode] == 53)
          {
+             //패스워드 창이 표시중일 때
+             if(app.isPassword)
+             {
+                 [[NSApplication sharedApplication] endSheet:passwordPanel returnCode:NSOKButton];
+             }
              //アーカイブ読み込み中
-             if(app.isLoadingArchive)
+             else if(app.isLoadingArchive)
              {
                  //キーコードが残っているとフルスクリーンが解除されるのでeventをクリアする
                  event = NULL;
@@ -670,7 +690,24 @@
         }
     }
     
+    //압축 파일 안의 압축 파일을 열기 위한 Temporary 파일의 확인 및 삭제
+    [self deleteTempFiles];
+    
     return YES;
+}
+
+//압축 파일 안의 압축 파일을 열기 위한 Temporary 파일의 확인 및 삭제하는 함수 (새로운 파일 오픈시, 종료시 실행하도록 지정)
+- (void)deleteTempFiles
+{
+    NSString *tempFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"/archivetemp"];
+    if ([[NSFileManager defaultManager] contentsOfDirectoryAtPath:tempFilePath error:nil])
+    {
+        NSArray* tempFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:tempFilePath error:NULL];
+        //NSLog(@"there is temp file");
+        for (NSString *filename in tempFiles) {
+            [[NSFileManager defaultManager] removeItemAtPath:[tempFilePath stringByAppendingPathComponent:filename] error:NULL];
+        }
+    }
 }
 
 - (void)buildMainMenu
@@ -704,8 +741,9 @@
     
     if([mainMenu numberOfItems] != 4)
     {
-        for(int i=0;i<31;i++)
+    for(int i=0;i<32;i++)
         {
+            //NSLog(@"removed item:%@", [mainMenu itemAtIndex:4]);
             [mainMenu removeItemAtIndex:4];
         }
     }
@@ -953,6 +991,7 @@
     [Preference addItem:NSMenuItemDefaultHidaribiraki];
     [Preference addItem:NSMenuItemDefaultOnePageDisplay];
     [[Preference addItemWithTitle:NSLocalizedString(@"背景色を変更",@"") action:@selector(changeBackgroundColor) keyEquivalent:@"c"] setKeyEquivalentModifierMask:0];
+    /*
     NSMenuItem	*CharacterEncodingItem = [[[NSMenuItem alloc] init] autorelease];
     NSMenu *CharacterEncoding = [[[NSMenu alloc] init] autorelease];
     [CharacterEncodingItem setTitle:NSLocalizedString(@"文字コード",@"")];
@@ -988,7 +1027,7 @@
     [CharacterEncoding addItem: NSMenuItemCharacterEncodingKo];
     [CharacterEncodingItem setSubmenu: CharacterEncoding];
     [Preference addItem: CharacterEncodingItem];
-    
+    */
     [PreferenceItem setSubmenu: Preference];
     [mainMenu addItem: PreferenceItem];
     
@@ -1000,6 +1039,8 @@
     NSMenuItem *NSMenuItemNone  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"効果なし",@"") action:@selector(SetImageEffectsOff) keyEquivalent:@"n"];
     NSMenuItem *NSMenuItemAutoColorize  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"自動着色",@"") action:@selector(SetImageEffectsAutoColorize) keyEquivalent:@"a"];
     NSMenuItem *NSMenuItemAutoImageEnhance  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"自動イメージ補訂",@"") action:@selector(SetImageEffectsAutoImageEnhance) keyEquivalent:@"i"];
+    NSMenuItem *NSMenuItemAutoLevelNormal  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"自動コントラスト(普通に)",@"") action:@selector(SetImageEffectsAutoLevelNormal) keyEquivalent:@"c"];
+    NSMenuItem *NSMenuItemAutoLevelStrong  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"自動コントラスト(強く)",@"") action:@selector(SetImageEffectsAutoLevelStrong) keyEquivalent:@"C"];
     NSMenuItem *NSMenuItemSepiaTone  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"セピアトーン",@"") action:@selector(SetImageEffectsSepiaTone) keyEquivalent:@"e"];
     NSMenuItem *NSMenuItemGrayscale  = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"グレースケール",@"") action:@selector(SetImageEffectsGrayscale) keyEquivalent:@"g"];
     
@@ -1007,30 +1048,43 @@
     //0==None
     //1==Auto Colorize
     //2==Auto Image Enchancement
-    //3==Sepia Tone
-    //4==Grayscale
+    //3==Auto Contrast
+    //4==Auto Contrast (Strong)
+    //5==Sepia Tone
+    //6==Grayscale
     [NSMenuItemNone setState:NSOffState];
     [NSMenuItemAutoColorize setState:NSOffState];
     [NSMenuItemAutoImageEnhance setState:NSOffState];
+    [NSMenuItemAutoLevelNormal setState:NSOffState];
+    [NSMenuItemAutoLevelStrong setState:NSOffState];
     [NSMenuItemSepiaTone setState:NSOffState];
     [NSMenuItemGrayscale setState:NSOffState];
-    if([[[plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 0)
+    
+    if([[[app.plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 0)
     {
         [NSMenuItemNone setState:NSOnState];
     }
-    else if([[[plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 1)
+    else if([[[app.plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 1)
     {
         [NSMenuItemAutoColorize setState:NSOnState];
     }
-    else if([[[plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 2)
+    else if([[[app.plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 2)
     {
         [NSMenuItemAutoImageEnhance setState:NSOnState];
     }
-    else if([[[plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 3)
+    else if([[[app.plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 3)
+    {
+        [NSMenuItemAutoLevelNormal setState:NSOnState];
+    }
+    else if([[[app.plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 4)
+    {
+        [NSMenuItemAutoLevelStrong setState:NSOnState];
+    }
+    else if([[[app.plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 5)
     {
         [NSMenuItemSepiaTone setState:NSOnState];
     }
-    else if([[[plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 4)
+    else if([[[app.plistValue objectAtIndex:0] objectAtIndex:4] intValue] == 6)
     {
         [NSMenuItemGrayscale setState:NSOnState];
     }
@@ -1038,6 +1092,8 @@
     [ImageEffects addItem:NSMenuItemNone];
     [ImageEffects addItem:NSMenuItemAutoColorize];
     [ImageEffects addItem:NSMenuItemAutoImageEnhance];
+    [ImageEffects addItem:NSMenuItemAutoLevelNormal];
+    [ImageEffects addItem:NSMenuItemAutoLevelStrong];
     [ImageEffects addItem:NSMenuItemSepiaTone];
     [ImageEffects addItem:NSMenuItemGrayscale];
     [ImageEffectsItem setSubmenu: ImageEffects];
@@ -1117,9 +1173,11 @@
     [BookmarkItem setTitle:NSLocalizedString(@"ブックマーク",@"")];
     [Bookmark setTitle: NSLocalizedString(@"ブックマーク",@"")];
     //ブックマークが空ではない場合
-    if([[app.plistValue objectAtIndex:app.plistKeyIndex] objectAtIndex:4] != [NSNumber numberWithInteger:0])
+    //파일이 열리지 않았을 때 메뉴 변경이 일어나면 죽는 문제를 해결하기 위해서 app.filepath를 체크
+    if(([[app.plistValue objectAtIndex:app.plistKeyIndex] objectAtIndex:4] != [NSNumber numberWithInteger:0])&& (app.filePath != nil))
     {
         //ブックマークをソート
+        //NSLog(@"bookmark:%@",[[app.plistValue objectAtIndex:app.plistKeyIndex] objectAtIndex:4]);
         NSArray *sortedArray = [[[app.plistValue objectAtIndex:app.plistKeyIndex] objectAtIndex:4] sortedArrayUsingSelector:@selector(compare:)];
         [[app.plistValue objectAtIndex:app.plistKeyIndex] replaceObjectAtIndex:4 withObject:[sortedArray mutableCopy]];
         
@@ -1155,6 +1213,7 @@
     
     [[mainMenu addItemWithTitle:NSLocalizedString(@"フルスクリーンにする",@"") action:@selector(fullscreen) keyEquivalent:@"f"] setKeyEquivalentModifierMask:NSCommandKeyMask|NSControlKeyMask];
     [[mainMenu addItemWithTitle:NSLocalizedString(@"",@"") action:@selector(fullscreen) keyEquivalent:@"↩"] setKeyEquivalentModifierMask:0];
+    [[mainMenu addItemWithTitle:NSLocalizedString(@"画面にフィットする",@"") action:@selector(fitToScreen) keyEquivalent:@"f"] setKeyEquivalentModifierMask:NSCommandKeyMask|NSShiftKeyMask];
     
     [mainMenu addItem: [NSMenuItem separatorItem]];
     
@@ -1167,7 +1226,7 @@
     [mainMenu addItemWithTitle:NSLocalizedString(@"",@"") action:@selector(quit) keyEquivalent:@"w"];
     [[mainMenu addItemWithTitle:NSLocalizedString(@"",@"") action:@selector(quit) keyEquivalent:@"q"] setKeyEquivalentModifierMask:0];
 }
-
+/*
 //文字コードを日本語に設定
 - (void)SetcharacterEncodingJa
 {
@@ -1237,7 +1296,7 @@
             }
         }
     }
-}
+}*/
 
 //모든 이미지 효과를 끄기
 - (void)SetImageEffectsOff
@@ -1261,12 +1320,28 @@
     [self SetImageEffects:2];
 }
 
+//자동 콘트라스트(보통)으로 설정
+- (void)SetImageEffectsAutoLevelNormal
+{
+    [self SetBrightness:0.0];
+    [self SetContrast:1.0];
+    [self SetImageEffects:3];
+}
+
+//자동 콘트라스트(강하게)로 설정
+- (void)SetImageEffectsAutoLevelStrong
+{
+    [self SetBrightness:0.0];
+    [self SetContrast:1.0];
+    [self SetImageEffects:4];
+}
+
 //세피아 톤으로 설정
 - (void)SetImageEffectsSepiaTone
 {
     [self SetBrightness:0.0];
     [self SetContrast:1.0];
-    [self SetImageEffects:3];
+    [self SetImageEffects:5];
 }
 
 //그레이스케일로 설정
@@ -1274,7 +1349,7 @@
 {
     [self SetBrightness:0.0];
     [self SetContrast:1.0];
-    [self SetImageEffects:4];
+    [self SetImageEffects:6];
 }
 
 //이미지 효과 설정
@@ -1285,7 +1360,7 @@
     //アーカイブ読み込み中もしくはサムネイル一覧実行中ではない場合
     if(!app.isLoadingArchive && !app.isThumbnail)
     {
-        //효과 없음, 자동 채색, 자동 이미지 보정, 세피아톤, 그레이스케일
+        //효과 없음, 자동 채색, 자동 이미지 보정, 자동 콘트라스트(보통), 자동 콘트라스트(강하게), 세피아톤, 그레이스케일
         [[plistValue objectAtIndex:0] replaceObjectAtIndex:4 withObject:[NSNumber numberWithInteger:witch]];
         
         //メインメニューを再構成
@@ -1311,14 +1386,14 @@
 - (void)SetPlusBrightness
 {
     [self SetImageEffects:0];
-    [self SetBrightness:0.05];
+    [self SetBrightness:0.02];
 }
 
 //밝기 어둡게
 - (void)SetMinusBrightness
 {
     [self SetImageEffects:0];
-    [self SetBrightness:-0.05];
+    [self SetBrightness:-0.02];
 }
 
 //밝기 설정
@@ -1369,14 +1444,14 @@
 - (void)SetPlusContrast
 {
     [self SetImageEffects:0];
-    [self SetContrast:0.05];
+    [self SetContrast:0.02];
 }
 
 //콘트라스트 낮게
 - (void)SetMinusContrast
 {
     [self SetImageEffects:0];
-    [self SetContrast:-0.05];
+    [self SetContrast:-0.02];
 }
 
 //콘트라스트 설정
@@ -1574,6 +1649,69 @@
     }
 }
 
+- (IBAction)fitToScreen:(id)sender
+{
+    [self fitToScreen];
+}
+
+
+//화면에 꽉 채우기 (10.6 스타일의 풀스크린)
+- (void)fitToScreen
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+
+        if(!app.isFitToScreen)
+        {
+            app.isFitToScreen = 1;
+            
+            //ウィンドウのサイズ・位置を取得
+            app.windowRectBeforeFullscreen = viewWindow.frame;
+            
+            //メニューバーを隠す
+            [NSMenu setMenuBarVisible:NO];
+            //タイトルバーを隠す
+            [viewWindow setStyleMask:NSBorderlessWindowMask];
+            
+            //ウィンドウを画面と同じ大きさにする
+            [viewWindow setFrame:[[NSScreen mainScreen]frame]display:YES animate:YES];
+            
+             //페이지 넘버를 감췄다가 다시 그린다
+             pagenumberPrev.hidden = 1;
+             pagenumberNext.hidden = 1;
+             [self showTextField:pagenumberPrev];
+             [self showTextField:pagenumberNext];
+        }
+        //フルスクリーンの場合
+        else
+        {
+            app.isFitToScreen = 0;
+            
+            //タイトルバーを表示する
+            [viewWindow setStyleMask:NSTitledWindowMask | NSClosableWindowMask | NSResizableWindowMask | NSMiniaturizableWindowMask];
+            //何かアーカイブを開いている場合
+            if(app.listSize)
+            {
+                //ウィンドウタイトルを再取得する
+                [self setWindowTitle];
+            }
+            //何もアーカイブを開いていない場合
+            else
+            {
+                //初期状態にする
+                [self resetMangao];
+            }
+            //メニューバーを表示する
+            [NSMenu setMenuBarVisible:YES];
+            
+            //ウィンドウをフルスクリーン以前のサイズ・位置にする
+            [viewWindow setFrame:app.windowRectBeforeFullscreen display:YES animate:YES];
+
+            //페이지 넘버를 감춘다
+            [self hideTextField:pagenumberPrev];
+            [self hideTextField:pagenumberNext];
+        }
+}
+
 //フルスクリーン
 - (void)fullscreen
 {
@@ -1591,47 +1729,7 @@
         //〜10.6の場合
         if([version floatValue] < fullscreenVersion)
         {
-            //フルスクリーンではない場合
-            if(!app.isFullscreenFor106)
-            {
-                app.isFullscreenFor106 = 1;
-                
-                //ウィンドウのサイズ・位置を取得
-                app.windowRectBeforeFullscreen = viewWindow.frame;
-                
-                //メニューバーを隠す
-                [NSMenu setMenuBarVisible:NO];
-                //タイトルバーを隠す
-                [viewWindow setStyleMask:NSBorderlessWindowMask];
-                
-                //ウィンドウを画面と同じ大きさにする
-                [viewWindow setFrame:[[NSScreen mainScreen]frame]display:YES animate:YES];
-            }
-            //フルスクリーンの場合
-            else
-            {
-                app.isFullscreenFor106 = 0;
-                
-                //タイトルバーを表示する
-                [viewWindow setStyleMask:NSTitledWindowMask | NSClosableWindowMask | NSResizableWindowMask | NSMiniaturizableWindowMask];
-                //何かアーカイブを開いている場合
-                if(app.listSize)
-                {
-                    //ウィンドウタイトルを再取得する
-                    [self setWindowTitle];
-                }
-                //何もアーカイブを開いていない場合
-                else
-                {
-                    //初期状態にする
-                    [self resetMangao];
-                }
-                //メニューバーを表示する
-                [NSMenu setMenuBarVisible:YES];
-                
-                //ウィンドウをフルスクリーン以前のサイズ・位置にする
-                [viewWindow setFrame:app.windowRectBeforeFullscreen display:YES animate:YES];
-            }
+            [self fitToScreen];
         }
         //10.7〜の場合
         else
@@ -2029,7 +2127,7 @@
         NSOpenPanel *openPanel = [NSOpenPanel openPanel];
         
         //許可するファイル拡張子を設定
-        NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"jpg",@"jpeg",@"png",@"gif",@"bmp",@"tif",@"tiff",@"zip",@"cbz",@"rar",@"cbr",@"pdf",@"cvbdl",@"tc",@"cbtc",nil];
+        NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"jpg",@"jpeg",@"png",@"gif",@"bmp",@"tif",@"tiff",@"zip",@"cbz",@"rar",@"cbr",@"7z",@"cb7",@"lha",@"lzh",@"pdf",@"cvbdl",@"tc",@"cbtc",nil];
         [openPanel setAllowedFileTypes:allowedFileTypes];
         
         //フォルダを選択可能にする
@@ -2110,6 +2208,9 @@
         
         [self loadArchive];
     }
+    
+    //압축 파일 안의 압축 파일을 열기 위한 Temporary 파일의 확인 및 삭제
+    [self deleteTempFiles];
 }
 
 //アーカイブ読み込みを別スレッドで実行する
@@ -2138,8 +2239,8 @@
         [self.viewWindow setTitle:[NSString stringWithFormat:@"%@ [Loading...]",[[app.filePath lastPathComponent] stringByDeletingPathExtension]]];
     }
     
-    //1秒後にCをLoading
-    [self performSelector:@selector(CwoLoading:) withObject:app.filePath afterDelay:1];
+    //0.5秒後にCをLoading
+    [self performSelector:@selector(CwoLoading:) withObject:app.filePath afterDelay:0.5];
 }
 
 //アーカイブ読み込みをキャンセルする
@@ -2189,15 +2290,10 @@
     //メインメニューを再構成
     [self reloadMainMenu];
     
-    //選択したのがZIP・CBZファイルの場合
-    if([[app.filePath lowercaseString] hasSuffix:@".zip"] || [[app.filePath lowercaseString] hasSuffix:@".cbz"])
+    //選択したのがZIP・CBZファイルの場合 @"zip",@"cbz",@"rar",@"cbr",@"7z",@"cb7",@"lha",@"lzh"
+    if([[app.filePath lowercaseString] hasSuffix:@".zip"] || [[app.filePath lowercaseString] hasSuffix:@".cbz"] || [[app.filePath lowercaseString] hasSuffix:@".rar"] || [[app.filePath lowercaseString] hasSuffix:@".cbr"] || [[app.filePath lowercaseString] hasSuffix:@".7z"] || [[app.filePath lowercaseString] hasSuffix:@".cb7"] || [[app.filePath lowercaseString] hasSuffix:@".lha"] || [[app.filePath lowercaseString] hasSuffix:@".lzh"])
     {
-        [self ZIP_RAR:0];
-    }
-    //選択したのがRAR・CBRファイルの場合
-    else if([[app.filePath lowercaseString] hasSuffix:@".rar"] || [[app.filePath lowercaseString] hasSuffix:@".cbr"])
-    {
-        [self ZIP_RAR:1];
+        [self unarchiveFile];
     }
     //選択したのがPDFファイルの場合
     else if([[app.filePath lowercaseString] hasSuffix:@".pdf"])
@@ -2237,7 +2333,7 @@ end:app.isLoadingArchive = 0;
         NSString *fullPathString = [app.folderPath stringByAppendingPathComponent:string];
         
         //アーカイブの場合
-        if([[fullPathString lowercaseString] hasSuffix:@".zip"] || [[fullPathString lowercaseString] hasSuffix:@".cbz"] || [[fullPathString lowercaseString] hasSuffix:@".rar"] || [[fullPathString lowercaseString] hasSuffix:@".cbr"] || [[fullPathString lowercaseString] hasSuffix:@".pdf"] || [[fullPathString lowercaseString] hasSuffix:@".cvbdl"])
+        if([[fullPathString lowercaseString] hasSuffix:@".zip"] || [[fullPathString lowercaseString] hasSuffix:@".cbz"] || [[fullPathString lowercaseString] hasSuffix:@".rar"] || [[fullPathString lowercaseString] hasSuffix:@".cbr"] || [[fullPathString lowercaseString] hasSuffix:@".7z"] || [[fullPathString lowercaseString] hasSuffix:@".cb7"] || [[fullPathString lowercaseString] hasSuffix:@".lha"] || [[fullPathString lowercaseString] hasSuffix:@".lzh"] || [[fullPathString lowercaseString] hasSuffix:@".pdf"] || [[fullPathString lowercaseString] hasSuffix:@".cvbdl"])
         {
             //リストに追加する
             [app.fileListFullPathOfArchive addObject:fullPathString];
@@ -2255,97 +2351,237 @@ end:app.isLoadingArchive = 0;
     app.listSizeOfArchive = [app.fileListFullPathOfArchive count];
 }
 
-//ZIP・RAR
-//witchが0ならZIP、1ならRAR
-- (void)ZIP_RAR:(int)witch
+/* 패스워드 다이얼로그 박스 */
+//패스워드가 필요한 아카이브의 경우
+-(void)archiveNeedsPassword:(XADArchive *)archive
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    //패스워드 값 리셋
+    app.password = nil;
+
+    //NSLog(@"need password");
     
-    //アーカイブを開く
-    ZipFile *zipFile = nil;
-    RarFile *rarFile = nil;
-    if(!witch)
+    [self passwordForArchive];
+    
+    [archive setPassword:app.password];
+}
+
+//패스워드 확인 루틴, 모달 쉬트로 띄운다
+//모달 쉬트 표시
+-(void)passwordForArchive
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    //패스워드 창 변수 1로 설정 (패스워드 창이 현재 표시중이란 뜻)
+    app.isPassword = 1;
+
+    //텍스트필드 리셋
+    [passwordField setStringValue:@""];
+    
+    [passwordNotice setStringValue:NSLocalizedString(@"アーカイブファイルのパスワードの入力してください。",@"")];
+
+    //패스워드 창을 쉬트로 표시
+    [[NSApplication sharedApplication]
+     beginSheet:passwordPanel
+     modalForWindow:viewWindow
+     modalDelegate:self
+     didEndSelector:@selector(passwordPanelClose:returnCode:)
+     contextInfo:NULL];
+
+    //모달 시작, 값이 입력되거나 취소될 때까지 백그라운드 작업을 일시 중지
+    [[NSApplication sharedApplication] runModalForWindow:passwordPanel];
+}
+
+- (IBAction)passwordPanel_CancelButton:(id)sender
+{
+    [[NSApplication sharedApplication] endSheet:passwordPanel returnCode:NSCancelButton];
+}
+
+- (IBAction)passwordPanel_OKButton:(id)sender
+{
+    [[NSApplication sharedApplication] endSheet:passwordPanel returnCode:NSOKButton];
+}
+
+- (IBAction)passwordPanel_Enter:(id)sender
+{
+    [[NSApplication sharedApplication] endSheet:passwordPanel returnCode:NSOKButton];
+}
+
+//패스워드 패널을 닫을 때 : 취소시에 대한 대처 필요
+- (void)passwordPanelClose:(NSWindow*)panel returnCode:(int)returnCode
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    if(returnCode == NSOKButton)
     {
-        zipFile = [[[ZipFile alloc] initWithFileAtPath:app.filePath] autorelease];
-    }
-    else
-    {
-        rarFile = [[[RarFile alloc] initWithFileAtPath:app.filePath] autorelease];
+        app.password = [passwordField stringValue];
     }
     
-    //アーカイブが開けなかった場合(これがないとエラー)
-    if (![zipFile open] && ![rarFile open])
+    //캔슬 버튼을 누른 경우
+    else if(returnCode == NSCancelButton)
     {
         [self CwoCantOpen];
     }
+    // 모달 종료
+    [[NSApplication sharedApplication] stopModal];
+    [passwordPanel orderOut:self];
+    //패스워드창 표시중 변수 0으로 설정
+    app.isPassword = 0;
+}
+
+//아카이브 파일 Path로부터 이미지 파일만 추출, MutableArray로 반환하는 함수
+//재귀함수로 작동하며, 압축 파일 안에 압축 파일이 있는 경우 계속해서 추가한다
+- (NSMutableArray*)imageArrayFromArchive:(NSString*)archivePath
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    
+    //아카이브 패스의 출력
+    //NSLog(@"filename: %@", archivePath);
+    
+    //필요한 변수 선언
+    NSData *xadFileData;
+    NSMutableArray *xadFileTempList = [[NSMutableArray alloc] init];
+    NSString *fileName = nil;
+    NSArray *xadFileList;
+    NSMutableDictionary *xadRawFileDict = [[NSMutableDictionary alloc] init];
+
+    //xadarchive로 아카이브 변수 archive 선언
+    XADArchive * archive = [[XADArchive alloc] initWithFile:archivePath delegate:self error:NULL];
+
+    //counter 변수와 archivedFilesCount 변수 = archive의 파일 갯수와 동일
+ 	int counter, archivedFilesCount = [archive numberOfEntries];
+    
+    for (counter = 0; counter < archivedFilesCount; ++counter)
+    {
+        fileName = [archive nameOfEntry: counter];
+        if (fileName)
+        {
+            [xadFileTempList addObject:fileName];
+        }
+        else
+        {
+            break;
+        }
+        
+        xadFileData = [archive contentsOfEntry: counter];
+        if (xadFileData)
+        {
+            [xadRawFileDict setObject:xadFileData forKey:fileName];
+        }
+        else
+        {
+            break;
+        }
+        
+        if(app.isCancelLoadingArchive)
+        {
+            break;
+        }
+    }
+    
+    //sortedarray1로 사용가능한 이미지 파일 네임을 걸러낸다
+    xadFileList = [NSArray arrayWithArray:xadFileTempList];
+    
+    NSArray *allowedFileList = [xadFileList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pathExtension IN %@",app.imageFileType]];
+    NSArray *allowedArray = [allowedFileList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"not self BEGINSWITH '__MACOSX'"]];
+    NSArray *sortedArray = [allowedArray sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
+    
+    NSMutableArray *finalImageArray = [[NSMutableArray alloc]init];
+
+    //sortedarray2로 사용가능한 압축파일 네임을 걸러낸다
+    NSArray *allowedArchiveList = [xadFileList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pathExtension IN %@",app.archiveFileType]];
+    
+    //압축파일이 있는 경우
+    if ([allowedArchiveList count] > 0)
+    {
+        NSArray *array2 = [allowedArchiveList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"not self BEGINSWITH '__MACOSX'"]];
+        NSArray *sortedArray2 = [array2 sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
+        NSData *archiveFileData;
+        
+        NSString *archivePath = nil;
+        NSFileManager * fileManager = [NSFileManager defaultManager];
+        int collision = 0;
+        
+        //포함된 압축파일 개수 확인 로그
+        //NSLog(@"archive files number in archive :%lu", (unsigned long)[sortedArray2 count]);
+        
+        for(NSString *string in sortedArray2)
+        {
+            archiveFileData = [[[NSData alloc] initWithData:[xadRawFileDict objectForKey:string]] autorelease];
+            //archiveFileName 출력
+            //NSLog(@"archive file name : %@", string);
+            
+            do {
+                archivePath = [NSString stringWithFormat: @"/archivetemp/%i-%@", collision, string];
+                archivePath = [NSTemporaryDirectory() stringByAppendingPathComponent: archivePath];
+                ++collision;
+            }
+            while ([fileManager fileExistsAtPath: archivePath]);
+            
+            //archivePath 출력
+            NSLog(@"archive Path at : %@", archivePath);
+            
+            [[NSFileManager defaultManager] createDirectoryAtPath: [archivePath stringByDeletingLastPathComponent]
+                                      withIntermediateDirectories: YES
+                                                       attributes: nil
+                                                            error: NULL];
+            [[NSFileManager defaultManager] createFileAtPath: archivePath contents: archiveFileData attributes: nil];
+            
+            NSMutableArray *archiveInArchiveArray = [self imageArrayFromArchive:archivePath];
+            for (int i = 0; i < [archiveInArchiveArray count]; ++i)
+            {
+                [finalImageArray addObject:[archiveInArchiveArray objectAtIndex:i]];
+            }
+        }
+    }
+
+    for(NSString *string in sortedArray)
+    {
+        //NSLog(@"string : %@", string);
+        //NSLog(@"image: %@", [xadRawFileDict objectForKey:string]);
+        NSImage *xadImage = [[[NSImage alloc] initWithData:[xadRawFileDict objectForKey:string]] autorelease];
+        
+        // 이미지가 없을 때, 읽을 수 없다는 이미지 삽입, 모든 이미지가 NULL인 경우를 판별
+        if(xadImage == NULL)
+        {
+            xadImage = [NSImage imageNamed:@"CantReadThisImage"];
+        }
+        
+        [finalImageArray addObject:xadImage];
+        //NSLog(@"xadImage:%@", xadImage);
+    }
+    
+    app.listSize = app.listSize + [sortedArray count];
+    //NSLog(@"archive files number in archive :%lu / app.listsize : %i", (unsigned long)[sortedArray count], app.listSize);
+
+    //그 외의 경우, 즉 정상적으로 이미지를 읽었을 때에는 값을 리턴
+    return finalImageArray;
+}
+
+//unarchiveFile 파일인 경우의 압축 해제
+- (void)unarchiveFile
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+
+    //listsize의 초기화
+    app.listSize = 0;
+    
+    NSMutableArray *imageArray1 = [self imageArrayFromArchive:app.filePath];
+
+    //NSLog(@"app.listsize:%i // imagearray1 count:%lu", app.listSize, (unsigned long)[imageArray1 count]);
+    //ESC 키로 취소 요청이 들어왔을 때
+    if(app.isCancelLoadingArchive)
+    {
+        goto end;
+    }
+    //무언가의 문제로 리스트 사이즈와 imagearray의 파일 숫자가 다른 경우
+    else if (app.listSize != [imageArray1 count])
+    {
+        goto end;
+    }
+    //그 외의 경우, 즉 정상적으로 이미지를 읽었을 때
     else
     {
-        //アーカイブ内のファイルのリストを作る
-        NSArray *fileList;
-        if(!witch)
-        {
-            fileList = [zipFile fileNames:[[[app.plistValue objectAtIndex:0] objectAtIndex:7]intValue]];
-        }
-        else
-        {
-            fileList = [rarFile fileNames];
-        }
-        
-        //許可した種類の画像のみのリストにする
-        NSArray *allowedFileList = [fileList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pathExtension IN %@",app.imageFileType]];
-        
-        //リソースフォークを取り除く
-        //ZIP内のファイルへのフルパスはfogefoge.zipなら、"fogefoge/001.jpg"となるのでfolderPathをaddしない
-        NSArray *array = [allowedFileList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"not self BEGINSWITH '__MACOSX'"]];
-        
-        //数値順でソート
-        NSArray *sortedArray1 = [array sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
-        
-        //ディレクトリ内の要素数を取得
-        app.listSize = [sortedArray1 count];
-        
-        //アーカイブ内の画像をapp.imageArrayに入れる
-        app.imageArray = [NSMutableArray array];
-        //ZIP
-        if(!witch)
-        {
-            for(NSString *string in sortedArray1)
-            {
-                //アーカイブ読み込みがキャンセルされた場合
-                if(app.isCancelLoadingArchive)
-                {
-                    goto end;
-                }
-                
-                NSImage *image = [[[NSImage alloc] initWithData:[zipFile readWithFileName:string  maxLength:10000 * 10000 characterEncoding:[[[app.plistValue objectAtIndex:0] objectAtIndex:7]intValue]]] autorelease];
-                //画像が読めなかった場合
-                if(image == NULL)
-                {
-                    image = [NSImage imageNamed:@"CantReadThisImage"];
-                }
-                [app.imageArray addObject:image];
-            }
-        }
-        //RAR
-        else
-        {
-            for(NSString *string in sortedArray1)
-            {
-                //アーカイブ読み込みがキャンセルされた場合
-                if(app.isCancelLoadingArchive)
-                {
-                    goto end;
-                }
-                
-                NSImage *image = [[[NSImage alloc] initWithData:[rarFile readWithFileName:string  maxLength:10000 * 10000]] autorelease];
-                //画像が読めなかった場合
-                if(image == NULL)
-                {
-                    image = [NSImage imageNamed:@"CantReadThisImage"];
-                }
-                [app.imageArray addObject:image];
-            }
-        }
+        //이미지 배열 추가
+        app.imageArray = [NSMutableArray arrayWithArray:imageArray1];
         
         //アーカイブが空の場合
         if(!app.listSize)
@@ -2354,19 +2590,17 @@ end:app.isLoadingArchive = 0;
         }
         else
         {
+            //NSLog(@"image array index1:%@", [app.imageArray objectAtIndex:1]);
             [self setImage];
         }
-        
-    end:
-        //アーカイブを閉じる
-        if(!witch)
-        {
-            [zipFile close];
-        }
-        else
-        {
-            [rarFile close];
-        }
+    }
+    return;
+    
+    //로딩 중단시의 화면 리셋
+end:
+    {
+        [self resetMangao];
+        [[[NSApplication sharedApplication] dockTile]setShowsApplicationBadge:NO];
     }
 }
 
@@ -2488,6 +2722,9 @@ end:app.selectionImageFilePath = NULL;
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
     
+    //listsize의 초기화
+    app.listSize = 0;
+
     app.imageArray = [NSMutableArray array];
     
     //フォルダ・cvbdl以下のすべてのファイルリストを取得
@@ -2531,141 +2768,34 @@ end:app.selectionImageFilePath = NULL;
             
             //app.imageArrayに追加
             [app.imageArray addObject:image];
+
+            //app.listsize는 현재의 app.imagearray 배열의 객체 숫자와 동일
+            app.listSize = [app.imageArray count];
         }
-        //ZIP・RARの場合
-        else if([[string lowercaseString] hasSuffix:@".zip"] || [[string lowercaseString] hasSuffix:@".cbz"] || [[string lowercaseString] hasSuffix:@".rar"] || [[string lowercaseString] hasSuffix:@".cbr"])
+        //Archiveの場合
+        else if([[string lowercaseString] hasSuffix:@".zip"] || [[string lowercaseString] hasSuffix:@".cbz"] || [[string lowercaseString] hasSuffix:@".rar"] || [[string lowercaseString] hasSuffix:@".cbr"] || [[string lowercaseString] hasSuffix:@".7z"] || [[string lowercaseString] hasSuffix:@".cb7"] || [[string lowercaseString] hasSuffix:@".lha"] || [[string lowercaseString] hasSuffix:@".lzh"])
         {
-            int witch;
-            
-            //ZIP
-            if([[string lowercaseString] hasSuffix:@".zip"] || [[string lowercaseString] hasSuffix:@".cbz"])
+            //imageArray 배열 선언
+            NSMutableArray *imageArray1 = [self imageArrayFromArchive:string];
+
+            //리스트 사이즈 추가
+            //app.listSize = app.listSize + [sortedArray1 count];
+
+            if(app.isCancelLoadingArchive)
             {
-                witch = 0;
-            }
-            //RAR
-            else
-            {
-                witch = 1;
-            }
-            
-            //アーカイブを開く
-            ZipFile *zipFile = nil;
-            RarFile *rarFile = nil;
-            if(!witch)
-            {
-                zipFile = [[[ZipFile alloc] initWithFileAtPath:string] autorelease];
+                goto end;
             }
             else
             {
-                rarFile = [[[RarFile alloc] initWithFileAtPath:string] autorelease];
-            }
-            
-            //アーカイブが開けた場合(これがないとエラー)
-            if([zipFile open] || [rarFile open])
-            {
-                [self CwoCantOpen];
-            }
-            else
-            {
-                //アーカイブ内のファイルのリストを作る
-                NSArray *fileList;
-                if(!witch)
-                {
-                    fileList = [zipFile fileNames:[[[app.plistValue objectAtIndex:0] objectAtIndex:7]intValue]];
-                }
-                else
-                {
-                    fileList = [rarFile fileNames];
-                }
-                
-                //許可した種類の画像のみのリストにする
-                NSArray *allowedFileList = [fileList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pathExtension IN %@",app.imageFileType]];
-                
-                //リソースフォークを取り除く
-                //ZIP内のファイルへのフルパスはfogefoge.zipなら、"fogefoge/001.jpg"となるのでfolderPathをaddしない
-                NSArray *array = [allowedFileList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"not self BEGINSWITH '__MACOSX'"]];
-                
-                //数値順でソート
-                NSArray *sortedArray1 = [array sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
-                
-                //ディレクトリ内の要素数を取得
-                app.listSize = [sortedArray1 count];
-                
-                //アーカイブ内の画像をapp.imageArrayに入れる
-                //ZIP
-                if(!witch)
-                {
-                    for(NSString *string in sortedArray1)
-                    {
-                        //アーカイブ読み込みがキャンセルされた場合
-                        if(app.isCancelLoadingArchive)
-                        {
-                            goto closeArchive;
-                        }
-                        
-                        NSImage *image = [[[NSImage alloc] initWithData:[zipFile readWithFileName:string  maxLength:10000 * 10000 characterEncoding:[[[app.plistValue objectAtIndex:0] objectAtIndex:7]intValue]]] autorelease];
-                        //画像が読めなかった場合
-                        if(image == NULL)
-                        {
-                            image = [NSImage imageNamed:@"CantReadThisImage"];
-                        }
-                        [app.imageArray addObject:image];
-                    }
-                }
-                //RAR
-                else
-                {
-                    for(NSString *string in sortedArray1)
-                    {
-                        //アーカイブ読み込みがキャンセルされた場合
-                        if(app.isCancelLoadingArchive)
-                        {
-                            goto closeArchive;
-                        }
-                        
-                        NSImage *image = [[[NSImage alloc] initWithData:[rarFile readWithFileName:string  maxLength:10000 * 10000]] autorelease];
-                        //画像が読めなかった場合
-                        if(image == NULL)
-                        {
-                            image = [NSImage imageNamed:@"CantReadThisImage"];
-                        }
-                        [app.imageArray addObject:image];
-                    }
-                }
-                
-                //アーカイブを閉じる
-                if(!witch)
-                {
-                    [zipFile close];
-                }
-                else
-                {
-                    [rarFile close];
-                }
-                
-                //アーカイブを閉じる(アーカイブ読み込みがキャンセルされたとき用)
-                if(0)
-                {
-                closeArchive:
-                    
-                    if(!witch)
-                    {
-                        [zipFile close];
-                    }
-                    else
-                    {
-                        [rarFile close];
-                    }
-                    
-                    goto end;
-                }
+                //이미지 배열을 기존 imagearray 배열에 추가
+                [app.imageArray addObjectsFromArray:imageArray1];
             }
         }
     }
-    
-    //要素数を取得
-    app.listSize = [app.imageArray count];
-    
+
+    //app.listsize 출력
+    //NSLog(@"app.listsize: %i", app.listSize);
+
     //フォルダが空の場合
     if(!app.listSize)
     {
@@ -2676,7 +2806,12 @@ end:app.selectionImageFilePath = NULL;
         [self setImage];
     }
     
-end:app.index = app.index;
+    return;
+    
+    //중단시의 조치
+end:
+    app.index = app.index;
+    [[[NSApplication sharedApplication] dockTile]setShowsApplicationBadge:NO];
 }
 
 //現在のindexの画像をフィールドにセットする
@@ -2801,6 +2936,7 @@ end://左側の画像のIndexを最後に表示した画像として記録する
 		[page drawWithBox: kPDFDisplayBoxMediaBox];
         [image unlockFocus];
     }
+
     //現在ZIP・RAR・cvbdl・画像フォルダを開いている場合
     else
     {
@@ -2943,12 +3079,22 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     }
     else if(EffectNumber == 3)
     {
+        //자동 콘트라스트 (보통)
+        image = [AutoLevel AutoLevel:image black:0.5 white:1 gamma:0.5];
+    }
+    else if(EffectNumber == 4)
+    {
+        //자동 콘트라스트 (강하게)
+        image = [AutoLevel AutoLevel:image black:1 white:1 gamma:0.8];
+    }
+    else if(EffectNumber == 5)
+    {
         //세피아톤
         image = [SepiaTone SepiaTone:image];
     }
     
     //그레이스케일
-    else if(EffectNumber == 4)
+    else if(EffectNumber == 6)
     {
         image = [Grayscale Grayscale:image];
     }
@@ -3618,6 +3764,9 @@ end://左側の画像のIndexを最後に表示した画像として記録する
         title = [[app.filePath lastPathComponent] stringByDeletingPathExtension];
     }
     
+    //list size 확인
+    //NSLog(@"list size: %i", app.listSize);
+    
     NSString *nowIndex;
     //페이지넘버
     NSString *nowpagenumberPrev;
@@ -3678,7 +3827,12 @@ end://左側の画像のIndexを最後に表示した画像として記録する
         title_index_bookmark = title_index;
     }
     
+    //타이틀 바에 경로 추가 (파일명 및 페이지 번호 추가보다 앞으로 오면 크래쉬 발생)
+    //[self.viewWindow setRepresentedFilename: app.filePath];
+    //타이틀 바에 파일명 및 페이지 번호 추가
     [self.viewWindow setTitle:title_index_bookmark];
+    //타이틀 바에 파일 패스 추가
+    [self.viewWindow setRepresentedURL:[NSURL fileURLWithPath:app.filePath]];
     
     //ルーペが起動中の場合
     if(app.isLoupe)
@@ -4546,8 +4700,7 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     }
 }
 
-//커서 키 관련 이벤트
-
+/* 썸네일 뷰에서의 커서 키 관련 이벤트들  */
 //커서 키를 연속으로 눌러 이전 아이템 썸네일 선택시
 - (void)thumbnailSelectRepeatPrevItem
 {
@@ -4578,6 +4731,15 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     }
 }
 
+//썸네일 번호 입력 및 표시
+- (void)setThumbnailIndex:(unsigned long)indexNumber
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    [thumbnailNumber setStringValue:[NSString stringWithFormat:@"%lu/%d", indexNumber, app.listSize]];
+    //썸네일 번호와 전체 페이지 번호 길이에 맞춰 텍스트 필드 길이 변화
+    [thumbnailNumber sizeToFit];
+}
+
 //커서 키로 이동시 썸네일 스크롤
 - (void)thumbnailSelectRepeatItem:(long)beforeIndex to:(long)itemIndex
 {
@@ -4596,7 +4758,8 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     }
     
     //현재 썸네일 넘버 입력, 표시
-    [thumbnailNumber setStringValue:[NSString stringWithFormat:@"%lu",thumbFinalIndex + 1]];
+    //[thumbnailNumber setStringValue:[NSString stringWithFormat:@"%lu", thumbFinalIndex + 1]];
+    [self setThumbnailIndex:(thumbFinalIndex -1)];
     int halfNumberOfItem = ([self viewWindow].frame.size.width / [thumbnailView cellSize].width) / 2;
     
     //finalIndex 1차 정의
@@ -4763,7 +4926,8 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     }
     
     //현재 썸네일 넘버 입력, 표시
-    [thumbnailNumber setStringValue:[NSString stringWithFormat:@"%lu",thumbIndex + 1]];
+    //[thumbnailNumber setStringValue:[NSString stringWithFormat:@"%lu",thumbIndex + 1]];
+    [self setThumbnailIndex:(thumbIndex + 1)];
 
     //스크롤 좌표 계산
     NSPoint oldScrollOrigin;
@@ -4818,7 +4982,7 @@ end://左側の画像のIndexを最後に表示した画像として記録する
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
     //때때로 올바른 번호로 이동하지 않는 버그 때문에 일부러 NSLog 를 남겨놓음
-    NSLog(@"item index:%ld", itemIndex);
+    //NSLog(@"item index:%ld", itemIndex);
     //썸네일 인덱스 번호 재선언, 우철(왼쪽으로 넘기기)일 때는 전체 페이지 수에서 현재 아이템 수를 뺀다
     unsigned long thumbIndex;
     if (app.isHidaribiraki)
@@ -4834,7 +4998,8 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     //NSLog(@"selectedItem thumbIndex : %ld", thumbIndex);
     
     //썸네일 넘버 표시
-    [thumbnailNumber setStringValue:[NSString stringWithFormat:@"%lu",itemIndex + 1]];
+    //[thumbnailNumber setStringValue:[NSString stringWithFormat:@"%lu",itemIndex + 1]];
+    [self setThumbnailIndex:(itemIndex + 1)];
 
     [thumbnailView setSelectionIndexes:[NSIndexSet indexSetWithIndex:thumbIndex] byExtendingSelection:NO];
     

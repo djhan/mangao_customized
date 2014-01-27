@@ -127,13 +127,61 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>7z</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>mangao-icon</string>
+			<key>CFBundleTypeName</key>
+			<string>7-zip Archive</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>cb7</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>mangao-icon</string>
+			<key>CFBundleTypeName</key>
+			<string>ComicBook 7-zip Archive</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>lha</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>mangao-icon</string>
+			<key>CFBundleTypeName</key>
+			<string>LHA Archive</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>lzh</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>mangao-icon</string>
+			<key>CFBundleTypeName</key>
+			<string>LZH Archive</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>mangao-icon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.djhan.Mangao_Kai</string>
+	<string>com.djhan.MangaoKai</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -141,11 +189,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>110</string>
+	<string>130</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.entertainment</string>
 	<key>LSTypeIsPackage</key>

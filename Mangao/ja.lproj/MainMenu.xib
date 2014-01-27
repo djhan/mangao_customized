@@ -36,7 +36,7 @@
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="right" imageScaling="proportionallyUpOrDown" id="1489"/>
                     </imageView>
                     <imageView autoresizesSubviews="NO" focusRingType="none" id="1494" userLabel="imageRightField">
-                        <rect key="frame" x="293" y="-1.0000000793739239" width="293" height="402"/>
+                        <rect key="frame" x="293" y="-1" width="293" height="401.99999989403602"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="left" imageScaling="proportionallyUpOrDown" id="1495"/>
                     </imageView>
@@ -64,7 +64,7 @@
                         </textFieldCell>
                     </textField>
                     <textField hidden="YES" focusRingType="none" verticalHuggingPriority="750" id="Cwp-Hn-CEm">
-                        <rect key="frame" x="223" y="161" width="140" height="80"/>
+                        <rect key="frame" x="218" y="161" width="150" height="80"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="center" drawsBackground="YES" id="cmD-Th-2LB" customClass="VerticallyCenteredTextFieldCell">
                             <font key="font" size="50" name="LucidaGrande-Bold"/>
@@ -152,6 +152,9 @@ DQ
                 <outlet property="mainMenuItem" destination="56" id="Xtz-MP-rDS"/>
                 <outlet property="pagenumberNext" destination="9WM-xc-2lM" id="Hgs-fR-SeG"/>
                 <outlet property="pagenumberPrev" destination="pEn-z6-wZb" id="cod-kp-MXb"/>
+                <outlet property="passwordField" destination="ppJ-0e-qnm" id="jqw-1H-D49"/>
+                <outlet property="passwordNotice" destination="Xc0-S8-OUW" id="4Vs-Bt-8s7"/>
+                <outlet property="passwordPanel" destination="Rr4-GE-NlO" id="vSo-gU-Gcu"/>
                 <outlet property="thumbnailController" destination="5Rs-eM-ksS" id="w5g-2u-KVe"/>
                 <outlet property="thumbnailNumber" destination="Cwp-Hn-CEm" id="frQ-08-aoe"/>
                 <outlet property="thumbnailScrollView" destination="wKo-DN-teb" id="AI9-D9-jeS"/>
@@ -264,6 +267,79 @@ DQ
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                </subviews>
+            </view>
+        </window>
+        <window title="Password" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Rr4-GE-NlO" userLabel="Password" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="272" y="172" width="277" height="142"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <view key="contentView" id="ebv-qX-2g0">
+                <rect key="frame" x="0.0" y="0.0" width="277" height="142"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <secureTextField verticalHuggingPriority="750" id="ppJ-0e-qnm">
+                        <rect key="frame" x="91" y="54" width="171" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="6lb-uj-U9f">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <allowedInputSourceLocales>
+                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                            </allowedInputSourceLocales>
+                        </secureTextFieldCell>
+                        <connections>
+                            <action selector="passwordPanel_Enter:" target="494" id="Ic6-JJ-NJF"/>
+                        </connections>
+                    </secureTextField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="6Wy-bf-pgX">
+                        <rect key="frame" x="14" y="56" width="71" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Password :" id="Bxx-kU-bOz">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" id="y2d-Sx-rcf">
+                        <rect key="frame" x="209" y="13" width="59" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RJE-5Z-VnB">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="passwordPanel_OKButton:" target="494" id="VY1-OI-haz"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" id="RJ2-0c-yJp">
+                        <rect key="frame" x="10" y="13" width="82" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XuW-SU-88d">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="passwordPanel_CancelButton:" target="494" id="P0X-EK-nIn"/>
+                        </connections>
+                    </button>
+                    <textField focusRingType="none" verticalHuggingPriority="750" id="Xc0-S8-OUW">
+                        <rect key="frame" x="14" y="84" width="250" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="center" id="WdB-FM-dDd">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
         </window>

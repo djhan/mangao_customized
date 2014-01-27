@@ -42,8 +42,6 @@
 {
     NSData *tiffData = [srcImage TIFFRepresentation];
     CIImage *ciImage = [CIImage imageWithData:tiffData];
-    [tiffData release];
-    
     CIFilter *filter = [CIFilter filterWithName:@"CISepiaTone"
                                     keysAndValues:kCIInputImageKey, ciImage,
                           @"inputIntensity", [NSNumber numberWithFloat:0.8],
@@ -62,10 +60,13 @@
     NSImage* result=[[NSImage alloc]initWithData:[resultRep TIFFRepresentation]];
 
     return result;
-    
+
+    [tiffData release];
     [ciImage release];
     [resultRep release];
     [result autorelease];
 }
+
+
 
 @end

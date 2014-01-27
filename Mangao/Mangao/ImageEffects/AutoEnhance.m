@@ -50,7 +50,6 @@
 //                                                     options:contextOptions];
     
     CIImage *ciImage = [CIImage imageWithData:tiffData];
-    [tiffData release];
 
     NSArray* adjustments = [ciImage autoAdjustmentFiltersWithOptions:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:false] forKey:kCIImageAutoAdjustRedEye]];
     
@@ -79,6 +78,7 @@
     return result;
 
     [adjustments release];
+    [tiffData release];
     [ciImage release];
     [resultRep release];
     [result autorelease];

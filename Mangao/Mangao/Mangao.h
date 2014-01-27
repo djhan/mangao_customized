@@ -45,7 +45,7 @@
     int isHidaribirakiThumb;
     int isOnePage;
     int isSlideshow;
-    int isFullscreenFor106;
+    int isFitToScreen;
     int isThumbnail;
     int isLoupe;
     NSString *thumbnailPath;
@@ -88,6 +88,17 @@
     //pagenumber 추가
     NSTextField *pagenumberPrev;
     NSTextField *pagenumberNext;
+    
+    //xadarchive 관련 추가
+    NSArray *archiveFileType;
+    //xadarchive 패스워드 관련
+    NSPanel *passwordPanel;
+    NSTextField *passwordNotice;
+    NSTextField *passwordField;
+    NSString *password;
+    int isPassword;
+    //압축 해제의 정합성 전역 변수(취소, 패스워드가 틀렸는지 여부를 확인)
+    //int rightExtract;
 }
 
 @property (nonatomic, retain) NSArray *imageFileType;
@@ -107,7 +118,7 @@
 @property (nonatomic, assign) int isHidaribirakiThumb;
 @property (nonatomic, assign) int isOnePage;
 @property (nonatomic, assign) int isSlideshow;
-@property (nonatomic, assign) int isFullscreenFor106;
+@property (nonatomic, assign) int isFitToScreen;
 @property (nonatomic, assign) int isThumbnail;
 @property (nonatomic, assign) int isLoupe;
 @property (nonatomic, retain) NSString *thumbnailPath;
@@ -152,6 +163,19 @@
 @property (assign) IBOutlet NSTextField *pagenumberPrev;
 @property (assign) IBOutlet NSTextField *pagenumberNext;
 
+//xadarchive 관련 추가
+@property (nonatomic, retain) NSArray *archiveFileType;
+//xadarchive 패스워드 관련
+@property (nonatomic, retain) NSString *password;
+@property (assign) IBOutlet NSPanel *passwordPanel;
+@property (assign) IBOutlet NSTextField *passwordNotice;
+@property (assign) IBOutlet NSTextField *passwordField;
+//압축 해제의 정합성 확인
+//@property (nonatomic, assign) int rightExtract;
+//archive 파일의 password 창 표시 여부
+@property (nonatomic, assign) int isPassword;
+
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename;
 
 @end
+
