@@ -103,13 +103,10 @@
     //오디오 인풋 패널
     NSPanel *audioInputPanel;
     int     isAudioInput;
-<<<<<<< HEAD
     
     //PDFview
     PDFView *leftPdfView;
     PDFView *rightPdfView;
-=======
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
 }
 
 @property (nonatomic, retain) NSArray *imageFileType;
@@ -190,13 +187,10 @@
 @property (assign) IBOutlet NSPanel *audioInputPanel;
 @property (assign) int isAudioInput;
 
-<<<<<<< HEAD
 //PDFview
 @property (nonatomic, retain) PDFView *leftPdfView;
 @property (nonatomic, retain) PDFView *rightPdfView;
 
-=======
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename;
 
 //사운드 인풋이 일정 레벨 이상 넘었다는 걸 인지하는 notification 선언

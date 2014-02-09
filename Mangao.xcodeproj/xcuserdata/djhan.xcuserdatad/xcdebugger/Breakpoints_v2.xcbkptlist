@@ -31,13 +31,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5109"
             endingLineNumber = "5109"
-<<<<<<< HEAD
             landmarkName = "-thumbnailOpenSelectedItem"
             landmarkType = "5">
-=======
-            landmarkName = "@implementation Mangao"
-            landmarkType = "3">
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -84,11 +79,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5106"
             endingLineNumber = "5106"
-<<<<<<< HEAD
             landmarkName = "-thumbnailOpenSelectedItem"
-=======
-            landmarkName = "-thumbnailSelectedItem:"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -136,13 +127,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4707"
             endingLineNumber = "4707"
-<<<<<<< HEAD
             landmarkName = "@implementation Mangao"
             landmarkType = "3">
-=======
-            landmarkName = "-makeThumbnailController"
-            landmarkType = "5">
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -157,11 +143,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4875"
             endingLineNumber = "4875"
-<<<<<<< HEAD
             landmarkName = "-thumbnailSelectPrevPageItem"
-=======
-            landmarkName = "-thumbnailSelectRepeatItem:to:"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -321,13 +303,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4640"
             endingLineNumber = "4640"
-<<<<<<< HEAD
             landmarkName = "-hideTextField:"
             landmarkType = "5">
-=======
-            landmarkName = "@implementation Mangao"
-            landmarkType = "3">
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -500,13 +477,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4710"
             endingLineNumber = "4710"
-<<<<<<< HEAD
             landmarkName = "-makePDFThumbnail:"
             landmarkType = "5">
-=======
-            landmarkName = "@implementation Mangao"
-            landmarkType = "3">
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -613,7 +585,6 @@
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
             timestampString = "413216716.882847"
-<<<<<<< HEAD
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "776"
@@ -634,12 +605,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "781"
             endingLineNumber = "781"
-=======
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "776"
-            endingLineNumber = "776"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkName = "-reloadMainMenu"
             landmarkType = "5">
          </BreakpointContent>
@@ -654,13 +619,8 @@
             timestampString = "413216716.882847"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "787"
             endingLineNumber = "787"
-=======
-            startingLineNumber = "781"
-            endingLineNumber = "781"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkName = "-reloadMainMenu"
             landmarkType = "5">
          </BreakpointContent>
@@ -672,40 +632,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mangao/Mangao/Mangao.m"
-            timestampString = "413216716.882847"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "788"
-            endingLineNumber = "788"
-=======
-            startingLineNumber = "787"
-            endingLineNumber = "787"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
-            landmarkName = "-reloadMainMenu"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mangao/Mangao/Mangao.m"
-<<<<<<< HEAD
-            timestampString = "413261739.851808"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1060"
-            endingLineNumber = "1060"
-=======
             timestampString = "413216716.882847"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "788"
             endingLineNumber = "788"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkName = "-reloadMainMenu"
             landmarkType = "5">
          </BreakpointContent>
@@ -720,13 +651,8 @@
             timestampString = "413261739.851808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "1056"
-            endingLineNumber = "1056"
-=======
             startingLineNumber = "1060"
             endingLineNumber = "1060"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkName = "-reloadMainMenu"
             landmarkType = "5">
          </BreakpointContent>
@@ -741,13 +667,8 @@
             timestampString = "413261739.851808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "1084"
-            endingLineNumber = "1084"
-=======
             startingLineNumber = "1056"
             endingLineNumber = "1056"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkName = "-reloadMainMenu"
             landmarkType = "5">
          </BreakpointContent>
@@ -762,13 +683,8 @@
             timestampString = "413261739.851808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-            startingLineNumber = "1088"
-            endingLineNumber = "1088"
-=======
             startingLineNumber = "1084"
             endingLineNumber = "1084"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkName = "-reloadMainMenu"
             landmarkType = "5">
          </BreakpointContent>
@@ -783,8 +699,6 @@
             timestampString = "413261739.851808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-=======
             startingLineNumber = "1088"
             endingLineNumber = "1088"
             landmarkName = "-reloadMainMenu"
@@ -801,7 +715,6 @@
             timestampString = "413261739.851808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             startingLineNumber = "1092"
             endingLineNumber = "1092"
             landmarkName = "-reloadMainMenu"
@@ -1186,11 +1099,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3596"
             endingLineNumber = "3596"
-<<<<<<< HEAD
             landmarkName = "-jumpPanel_enter:"
-=======
-            landmarkName = "-JumpPanelJumpButton:"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1206,11 +1115,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3602"
             endingLineNumber = "3602"
-<<<<<<< HEAD
             landmarkName = "-JumpPanelCancelButton:"
-=======
-            landmarkName = "-jumpPanel_enter:"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1226,11 +1131,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3681"
             endingLineNumber = "3681"
-<<<<<<< HEAD
             landmarkName = "-JumpPanelCancelButton"
-=======
-            landmarkName = "-JumpPanelJumpButton"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1246,11 +1147,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3687"
             endingLineNumber = "3687"
-<<<<<<< HEAD
             landmarkName = "-panelClose:returnCode:contextInfo:"
-=======
-            landmarkName = "-JumpPanelCancelButton"
->>>>>>> 8d263e9f06f6b849d02f0e644a7f2913cfdf00f5
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
