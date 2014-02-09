@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1050" identifier="macosx"/>
+        <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
         <plugIn identifier="com.apple.imagekit.ibplugin" version="3338"/>
     </dependencies>
@@ -15,8 +15,8 @@
         <customObject id="-3" userLabel="Application"/>
         <menu title="AMainMenu" systemMenu="main" id="29">
             <items>
-                <menuItem title="Mangao_Customized" id="56">
-                    <menu key="submenu" title="Mangao_Customized" systemMenu="apple" id="2062"/>
+                <menuItem title="Mangao Kai" id="56">
+                    <menu key="submenu" title="Mangao Kai" systemMenu="apple" id="2062"/>
                 </menuItem>
             </items>
         </menu>
@@ -30,20 +30,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="586" height="402"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView autoresizesSubviews="NO" focusRingType="none" id="1488" userLabel="imageLeftField">
+                    <imageView identifier="leftView" autoresizesSubviews="NO" focusRingType="none" id="1488" userLabel="imageLeftField" customClass="DragAndDrop">
                         <rect key="frame" x="0.0" y="0.0" width="293" height="402"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="right" imageScaling="proportionallyUpOrDown" id="1489"/>
                     </imageView>
-                    <imageView autoresizesSubviews="NO" focusRingType="none" id="1494" userLabel="imageRightField">
-                        <rect key="frame" x="293" y="-1" width="293" height="401.99999989403602"/>
+                    <imageView identifier="rightView" autoresizesSubviews="NO" focusRingType="none" id="1494" userLabel="imageRightField" customClass="DragAndDrop">
+                        <rect key="frame" x="293" y="-1.0000000263921245" width="293" height="402"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="left" imageScaling="proportionallyUpOrDown" id="1495"/>
                     </imageView>
-                    <imageView autoresizesSubviews="NO" focusRingType="none" id="1695" userLabel="imageCenterField" customClass="DragAndDrop">
+                    <imageView identifier="centerView" autoresizesSubviews="NO" focusRingType="none" id="1695" userLabel="imageCenterField" customClass="DragAndDrop">
                         <rect key="frame" x="0.0" y="0.0" width="586" height="402"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="1698"/>
+                        <connections>
+                            <accessibilityConnection property="title" destination="u2l-vE-ylr" id="pcv-wj-lkG"/>
+                        </connections>
                     </imageView>
                     <textField focusRingType="none" verticalHuggingPriority="750" id="pEn-z6-wZb">
                         <rect key="frame" x="545" y="1" width="40" height="20"/>
@@ -138,6 +141,7 @@ DQ
         </window>
         <customObject id="494" customClass="Mangao">
             <connections>
+                <outlet property="audioInputPanel" destination="ZJi-Jy-nNN" id="Mcb-Uw-3R9"/>
                 <outlet property="confirmPanel" destination="9Bt-gh-RzF" id="x4b-0q-Wc8"/>
                 <outlet property="confirmPanel_text" destination="sq2-pQ-uEa" id="7U3-3F-jdH"/>
                 <outlet property="imageCenterField" destination="1695" id="2184"/>
@@ -168,7 +172,7 @@ DQ
             <windowStyleMask key="styleMask" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="130" y="59" width="300" height="300"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1366" height="746"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="aku-2W-VXH">
                 <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -230,7 +234,7 @@ DQ
                 </subviews>
             </view>
         </window>
-        <arrayController id="5Rs-eM-ksS" userLabel="thumbnailController"/>
+        <customObject id="ctk-4s-nuw" userLabel="SUUpdater" customClass="SUUpdater"/>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="OvK-YY-Gao" userLabel="thumbnailWindow">
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="121" y="123" width="575" height="407"/>
@@ -239,18 +243,18 @@ DQ
                 <rect key="frame" x="0.0" y="0.0" width="575" height="407"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView horizontalLineScroll="245" horizontalPageScroll="10" verticalLineScroll="245" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="light" id="wKo-DN-teb">
+                    <scrollView horizontalLineScroll="255" horizontalPageScroll="10" verticalLineScroll="255" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="light" id="wKo-DN-teb">
                         <rect key="frame" x="-1" y="-1" width="577" height="409"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="dQW-C0-7Sr">
-                            <rect key="frame" x="1" y="1" width="575" height="407"/>
+                            <rect key="frame" x="1" y="1" width="575" height="392"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <ikImageBrowserView autoresizesSubviews="NO" zoomValue="0.74817562103271484" allowsMultipleSelection="NO" allowsEmptySelection="NO" animates="YES" id="Gzm-h2-eyn">
-                                    <rect key="frame" x="0.0" y="0.0" width="575" height="407"/>
+                                <ikImageBrowserView autoresizesSubviews="NO" zoomValue="0.7610967755317688" allowsMultipleSelection="NO" allowsEmptySelection="NO" animates="YES" id="Gzm-h2-eyn">
+                                    <rect key="frame" x="0.0" y="0.0" width="575" height="392"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <autoresizingMask key="contentResizingMask" heightSizable="YES"/>
-                                    <size key="cellSize" width="236" height="236"/>
+                                    <size key="cellSize" width="234" height="234"/>
                                     <connections>
                                         <binding destination="5Rs-eM-ksS" name="content" keyPath="arrangedObjects" id="uVf-bc-aud"/>
                                         <outlet property="delegate" destination="494" id="GuO-UF-gCp"/>
@@ -259,7 +263,7 @@ DQ
                             </subviews>
                         </clipView>
                         <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="iyw-06-gJj">
-                            <rect key="frame" x="1" y="392" width="575" height="16"/>
+                            <rect key="frame" x="1" y="393" width="575" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="wdZ-iu-giN">
@@ -343,5 +347,87 @@ Gw
                 </subviews>
             </view>
         </window>
+        <window title="Audio Input" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="ZJi-Jy-nNN" userLabel="Audio Input" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" topStrut="YES"/>
+            <rect key="contentRect" x="900" y="957" width="276" height="163"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <view key="contentView" id="e7h-N6-wy4">
+                <rect key="frame" x="0.0" y="0.0" width="276" height="163"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <slider verticalHuggingPriority="750" id="yP4-xQ-LC9">
+                        <rect key="frame" x="119" y="88" width="139" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <sliderCell key="cell" state="on" alignment="left" maxValue="20" doubleValue="4" tickMarkPosition="above" sliderType="linear" id="Ayq-5U-Mbf"/>
+                        <connections>
+                            <action selector="volumeLimiterSliderMover:" target="g29-m8-Kfn" id="lDv-6v-c4M"/>
+                            <binding destination="g29-m8-Kfn" name="value" keyPath="volumeLimiter" id="brS-G8-wlr"/>
+                        </connections>
+                    </slider>
+                    <levelIndicator verticalHuggingPriority="750" id="eZB-vR-XxW">
+                        <rect key="frame" x="121" y="61" width="135" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <levelIndicatorCell key="cell" alignment="left" doubleValue="2" maxValue="20" warningValue="12" criticalValue="18" id="PbD-2N-8pM"/>
+                    </levelIndicator>
+                    <popUpButton verticalHuggingPriority="750" id="naj-NH-AET">
+                        <rect key="frame" x="18" y="58" width="98" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="j0Q-jB-BLA">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="11" name="LucidaGrande"/>
+                            <menu key="menu" title="OtherViews" id="SeJ-do-SWT">
+                                <items>
+                                    <menuItem id="NHl-d3-Enp"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <binding destination="g29-m8-Kfn" name="content" keyPath="audioDevices" id="YML-Fp-Pot"/>
+                            <binding destination="g29-m8-Kfn" name="contentValues" keyPath="audioDevices.localizedName" previousBinding="YML-Fp-Pot" id="Lld-BS-fdZ"/>
+                            <binding destination="g29-m8-Kfn" name="selectedObject" keyPath="selectedAudioDevice" previousBinding="Lld-BS-fdZ" id="qox-x0-Ldu"/>
+                        </connections>
+                    </popUpButton>
+                    <button verticalHuggingPriority="750" id="u2l-vE-ylr">
+                        <rect key="frame" x="90" y="13" width="97" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="2hg-b7-ZNI">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="OnOffAudioInput:" target="g29-m8-Kfn" id="kc9-zG-qTK"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="y4T-6Y-72b">
+                        <rect key="frame" x="18" y="88" width="97" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Limit :" id="anQ-lo-lJN">
+                            <font key="font" size="12" name="AppleSDGothicNeo-Regular"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BuQ-SF-CJg">
+                        <rect key="frame" x="18" y="115" width="240" height="35"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="hs7-ns-qrm">
+                            <font key="font" size="11" name="LucidaGrande"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+            </view>
+        </window>
+        <arrayController id="5Rs-eM-ksS" userLabel="thumbnailController"/>
+        <userDefaultsController representsSharedInstance="YES" id="YNf-y4-FzG"/>
+        <customObject id="g29-m8-Kfn" userLabel="AudioInput" customClass="AudioInput">
+            <connections>
+                <outlet property="audioInput_comment" destination="BuQ-SF-CJg" id="Guc-br-eIo"/>
+                <outlet property="audioLevelMeter" destination="eZB-vR-XxW" id="FoF-6c-498"/>
+                <outlet property="onOffButton" destination="u2l-vE-ylr" id="LXH-Au-w8b"/>
+            </connections>
+        </customObject>
     </objects>
 </document>

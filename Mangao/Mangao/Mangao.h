@@ -99,6 +99,14 @@
     int isPassword;
     //압축 해제의 정합성 전역 변수(취소, 패스워드가 틀렸는지 여부를 확인)
     //int rightExtract;
+    
+    //오디오 인풋 패널
+    NSPanel *audioInputPanel;
+    int     isAudioInput;
+    
+    //PDFview
+    PDFView *leftPdfView;
+    PDFView *rightPdfView;
 }
 
 @property (nonatomic, retain) NSArray *imageFileType;
@@ -175,7 +183,18 @@
 //archive 파일의 password 창 표시 여부
 @property (nonatomic, assign) int isPassword;
 
+//오디오 인풋 패널
+@property (assign) IBOutlet NSPanel *audioInputPanel;
+@property (assign) int isAudioInput;
+
+//PDFview
+@property (nonatomic, retain) PDFView *leftPdfView;
+@property (nonatomic, retain) PDFView *rightPdfView;
+
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename;
+
+//사운드 인풋이 일정 레벨 이상 넘었다는 걸 인지하는 notification 선언
+- (void)acceptSound:(NSNotification*)notification;
 
 @end
 
