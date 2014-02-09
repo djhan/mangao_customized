@@ -42,7 +42,18 @@
 		CEECAAF3185602C20014E1DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEECAAF2185602C20014E1DA /* QuartzCore.framework */; };
 		EE025A4C188C9FA100EDB7D1 /* AutoLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE025A4B188C9FA100EDB7D1 /* AutoLevel.m */; };
 		EE11DE941892BFC700E7AEC4 /* XADMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE11DE931892BFC700E7AEC4 /* XADMaster.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		EE476ED5189D31000047AD8E /* AudioInput.m in Sources */ = {isa = PBXBuildFile; fileRef = EE476ED4189D31000047AD8E /* AudioInput.m */; };
+		EE5D0BCC189F37C20054F3BC /* DeleteTempFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5D0BCB189F37C20054F3BC /* DeleteTempFile.m */; };
+		EE659FD618A0CB1D00747017 /* importPDFPageArrayFromPDF.m in Sources */ = {isa = PBXBuildFile; fileRef = EE659FD518A0CB1D00747017 /* importPDFPageArrayFromPDF.m */; };
+		EE884059189A7FDD0055A477 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE884058189A7FDD0055A477 /* AudioToolbox.framework */; };
+		EE88405B189A7FE50055A477 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE88405A189A7FE50055A477 /* AVFoundation.framework */; };
 		EE93B0CE188769340083AEB2 /* VerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE93B0CD188769340083AEB2 /* VerticallyCenteredTextFieldCell.m */; };
+		EE94CC71189FB9FB0052B631 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94CC70189FB9FB0052B631 /* Sparkle.framework */; };
+		EE94CC73189FBA010052B631 /* UniversalDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94CC72189FBA010052B631 /* UniversalDetector.framework */; };
+		EE94CC74189FBA0E0052B631 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE94CC70189FB9FB0052B631 /* Sparkle.framework */; };
+		EE94CC75189FBA140052B631 /* UniversalDetector.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE94CC72189FBA010052B631 /* UniversalDetector.framework */; };
+		EE9A2552189A2B13006FE02D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = EE9A2551189A2B13006FE02D /* dsa_pub.pem */; };
+		EE9AF61918991ACB00CD2728 /* PDFPageToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9AF61818991ACB00CD2728 /* PDFPageToImage.m */; };
 		EECEFEAA1893502D002B39E1 /* XADMaster.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE11DE931892BFC700E7AEC4 /* XADMaster.framework */; };
 		EEE1ACA21881391900DF025B /* README for Mangao Kai(JP).txt in Resources */ = {isa = PBXBuildFile; fileRef = EEE1ACA11881391900DF025B /* README for Mangao Kai(JP).txt */; };
 		EEE1ACA41881391F00DF025B /* README for Mangao Kai.md in Resources */ = {isa = PBXBuildFile; fileRef = EEE1ACA31881391F00DF025B /* README for Mangao Kai.md */; };
@@ -55,6 +66,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				EE94CC75189FBA140052B631 /* UniversalDetector.framework in CopyFiles */,
+				EE94CC74189FBA0E0052B631 /* Sparkle.framework in CopyFiles */,
 				EECEFEAA1893502D002B39E1 /* XADMaster.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,8 +128,21 @@
 		EE025A4A188C9F9900EDB7D1 /* AutoLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLevel.h; sourceTree = "<group>"; };
 		EE025A4B188C9FA100EDB7D1 /* AutoLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLevel.m; sourceTree = "<group>"; };
 		EE11DE931892BFC700E7AEC4 /* XADMaster.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XADMaster.framework; path = Mangao/Frameworks/XADMaster.framework; sourceTree = "<group>"; };
+		EE476ED3189D30F90047AD8E /* AudioInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioInput.h; sourceTree = "<group>"; };
+		EE476ED4189D31000047AD8E /* AudioInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioInput.m; sourceTree = "<group>"; };
+		EE5D0BCA189F37B60054F3BC /* DeleteTempFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteTempFile.h; sourceTree = "<group>"; };
+		EE5D0BCB189F37C20054F3BC /* DeleteTempFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteTempFile.m; sourceTree = "<group>"; };
+		EE659FD418A0CB1D00747017 /* importPDFPageArrayFromPDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = importPDFPageArrayFromPDF.h; sourceTree = "<group>"; };
+		EE659FD518A0CB1D00747017 /* importPDFPageArrayFromPDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = importPDFPageArrayFromPDF.m; sourceTree = "<group>"; };
+		EE884058189A7FDD0055A477 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EE88405A189A7FE50055A477 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EE93B0CC1887692D0083AEB2 /* VerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
 		EE93B0CD188769340083AEB2 /* VerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
+		EE94CC70189FB9FB0052B631 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Mangao/Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		EE94CC72189FBA010052B631 /* UniversalDetector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniversalDetector.framework; path = Mangao/Frameworks/UniversalDetector.framework; sourceTree = "<group>"; };
+		EE9A2551189A2B13006FE02D /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		EE9AF61718991AC000CD2728 /* PDFPageToImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPageToImage.h; sourceTree = "<group>"; };
+		EE9AF61818991ACB00CD2728 /* PDFPageToImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageToImage.m; sourceTree = "<group>"; };
 		EEE1ACA11881391900DF025B /* README for Mangao Kai(JP).txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "README for Mangao Kai(JP).txt"; sourceTree = "<group>"; };
 		EEE1ACA31881391F00DF025B /* README for Mangao Kai.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "README for Mangao Kai.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,11 +152,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE88405B189A7FE50055A477 /* AVFoundation.framework in Frameworks */,
+				EE884059189A7FDD0055A477 /* AudioToolbox.framework in Frameworks */,
 				CE4DB5C81785408B0090E713 /* libz.dylib in Frameworks */,
-				CE8EE21D177B9E7E00F7AB80 /* Cocoa.framework in Frameworks */,
 				EE11DE941892BFC700E7AEC4 /* XADMaster.framework in Frameworks */,
+				EE94CC71189FB9FB0052B631 /* Sparkle.framework in Frameworks */,
+				CE8EE21D177B9E7E00F7AB80 /* Cocoa.framework in Frameworks */,
 				CE33F60418534D3D00919D70 /* AppKit.framework in Frameworks */,
 				CE31A97D17AF61B200BF844D /* Quartz.framework in Frameworks */,
+				EE94CC73189FBA010052B631 /* UniversalDetector.framework in Frameworks */,
 				CEECAAF3185602C20014E1DA /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +226,10 @@
 		CE8EE21B177B9E7E00F7AB80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE94CC72189FBA010052B631 /* UniversalDetector.framework */,
+				EE94CC70189FB9FB0052B631 /* Sparkle.framework */,
+				EE88405A189A7FE50055A477 /* AVFoundation.framework */,
+				EE884058189A7FDD0055A477 /* AudioToolbox.framework */,
 				EE11DE931892BFC700E7AEC4 /* XADMaster.framework */,
 				CEECAAF2185602C20014E1DA /* QuartzCore.framework */,
 				CE1D59D318524139003D86D5 /* CoreGraphics.framework */,
@@ -221,10 +255,8 @@
 			children = (
 				CE8EE231177B9E7E00F7AB80 /* MainMenu.xib */,
 				CED9573A178B257C00A2994D /* Mangao */,
-				CEA4762A18647C01007CA2D4 /* HTMangaColorize */,
 				CEBDF3731875417C0067A0B6 /* mangao-icon */,
 				CE6F3E161875427A00BAE600 /* mangao-message-illust */,
-				CE8EE223177B9E7E00F7AB80 /* Supporting Files */,
 			);
 			path = Mangao;
 			sourceTree = "<group>";
@@ -232,12 +264,14 @@
 		CE8EE223177B9E7E00F7AB80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EE9A2551189A2B13006FE02D /* dsa_pub.pem */,
 				CE8EE224177B9E7E00F7AB80 /* Mangao-Info.plist */,
 				CE809416182028DB00D9B820 /* Localizable.strings */,
 				CE8EE228177B9E7E00F7AB80 /* main.m */,
 				CE8EE22A177B9E7E00F7AB80 /* Mangao-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		CEA4762A18647C01007CA2D4 /* HTMangaColorize */ = {
@@ -248,7 +282,8 @@
 				CEA4762D18647C01007CA2D4 /* HTMangaColorize.m */,
 				CEA4762E18647C01007CA2D4 /* README.md */,
 			);
-			path = HTMangaColorize;
+			name = HTMangaColorize;
+			path = ../HTMangaColorize;
 			sourceTree = "<group>";
 		};
 		CEBDF3731875417C0067A0B6 /* mangao-icon */ = {
@@ -263,7 +298,13 @@
 		CED9573A178B257C00A2994D /* Mangao */ = {
 			isa = PBXGroup;
 			children = (
-				CED9573B178B257C00A2994D /* LICENSE for Mangao Kai */,
+				EE659FD318A0CB0400747017 /* Import */,
+				EE9AF61618991A8D00CD2728 /* Convert */,
+				EE03171A18A0807F0064C9DE /* Utility */,
+				EE476ED2189D30EC0047AD8E /* Audio */,
+				CE172452187FC42E007EFE59 /* ImageEffects */,
+				CEA4762A18647C01007CA2D4 /* HTMangaColorize */,
+				CE8EE223177B9E7E00F7AB80 /* Supporting Files */,
 				CED9573C178B257C00A2994D /* Mangao.h */,
 				CED9573D178B257C00A2994D /* Mangao.m */,
 				CEAD23C1183E3C850066759E /* DragAndDrop.h */,
@@ -272,11 +313,48 @@
 				CE58E84517F7307400CA3DD8 /* Loupe.m */,
 				CE739B27185346A900A5876D /* thumbnail.h */,
 				CE739B28185346A900A5876D /* thumbnail.m */,
-				CE172452187FC42E007EFE59 /* ImageEffects */,
-				EE93B0CC1887692D0083AEB2 /* VerticallyCenteredTextFieldCell.h */,
-				EE93B0CD188769340083AEB2 /* VerticallyCenteredTextFieldCell.m */,
+				CED9573B178B257C00A2994D /* LICENSE for Mangao Kai */,
 			);
 			path = Mangao;
+			sourceTree = "<group>";
+		};
+		EE03171A18A0807F0064C9DE /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EE93B0CC1887692D0083AEB2 /* VerticallyCenteredTextFieldCell.h */,
+				EE93B0CD188769340083AEB2 /* VerticallyCenteredTextFieldCell.m */,
+				EE5D0BCA189F37B60054F3BC /* DeleteTempFile.h */,
+				EE5D0BCB189F37C20054F3BC /* DeleteTempFile.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		EE476ED2189D30EC0047AD8E /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				EE476ED3189D30F90047AD8E /* AudioInput.h */,
+				EE476ED4189D31000047AD8E /* AudioInput.m */,
+			);
+			name = Audio;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		EE659FD318A0CB0400747017 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				EE659FD418A0CB1D00747017 /* importPDFPageArrayFromPDF.h */,
+				EE659FD518A0CB1D00747017 /* importPDFPageArrayFromPDF.m */,
+			);
+			name = Import;
+			sourceTree = "<group>";
+		};
+		EE9AF61618991A8D00CD2728 /* Convert */ = {
+			isa = PBXGroup;
+			children = (
+				EE9AF61718991AC000CD2728 /* PDFPageToImage.h */,
+				EE9AF61818991ACB00CD2728 /* PDFPageToImage.m */,
+			);
+			name = Convert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +418,7 @@
 				EEE1ACA41881391F00DF025B /* README for Mangao Kai.md in Resources */,
 				CE6F3E201875427A00BAE600 /* CantOpenThisArchive.tiff in Resources */,
 				CE6F3E261875427A00BAE600 /* PleasePressO.tiff in Resources */,
+				EE9A2552189A2B13006FE02D /* dsa_pub.pem in Resources */,
 				CEBDF3771875417C0067A0B6 /* readme.txt in Resources */,
 				CED9573E178B257C00A2994D /* LICENSE for Mangao Kai in Resources */,
 				CEA4763118647C01007CA2D4 /* README.md in Resources */,
@@ -363,11 +442,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE5D0BCC189F37C20054F3BC /* DeleteTempFile.m in Sources */,
 				CE8EE229177B9E7E00F7AB80 /* main.m in Sources */,
 				CE58E84617F7307400CA3DD8 /* Loupe.m in Sources */,
 				CED9573F178B257C00A2994D /* Mangao.m in Sources */,
 				CE172460187FC42E007EFE59 /* SepiaTone.m in Sources */,
 				EE025A4C188C9FA100EDB7D1 /* AutoLevel.m in Sources */,
+				EE476ED5189D31000047AD8E /* AudioInput.m in Sources */,
+				EE659FD618A0CB1D00747017 /* importPDFPageArrayFromPDF.m in Sources */,
 				CE17245C187FC42E007EFE59 /* AutoEnhance.m in Sources */,
 				CE739B29185346A900A5876D /* thumbnail.m in Sources */,
 				CEAD23C2183E3C850066759E /* DragAndDrop.m in Sources */,
@@ -375,6 +457,7 @@
 				CEA4763018647C01007CA2D4 /* HTMangaColorize.m in Sources */,
 				EE93B0CE188769340083AEB2 /* VerticallyCenteredTextFieldCell.m in Sources */,
 				CE17245D187FC42E007EFE59 /* BrightnessAndContrast.m in Sources */,
+				EE9AF61918991ACB00CD2728 /* PDFPageToImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +561,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
 					"\"$(SRCROOT)/Mangao/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -486,7 +569,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = USE_FILE32API;
 				INFOPLIST_FILE = "Mangao/Mangao-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = app;
@@ -502,7 +585,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
 					"\"$(SRCROOT)/Mangao/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -510,7 +593,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = USE_FILE32API;
 				INFOPLIST_FILE = "Mangao/Mangao-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = app;

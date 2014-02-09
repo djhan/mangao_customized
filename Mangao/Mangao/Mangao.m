@@ -49,8 +49,6 @@
 #import "Mangao.h"
 #import "Loupe.h"
 #import "thumbnail.h"
-//#import "ZipFile.h"
-//#import "RarFile.h"
 #import "HTMangaColorize.h"
 #import "AutoEnhance.h"
 #import "BrightnessAndContrast.h"
@@ -59,6 +57,19 @@
 #import "AutoLevel.h"
 //xadMaster
 #import <XADMaster/XADArchive.h>
+//audio 관련 coreaudio, avfoundation 임포트
+#import <AVFoundation/AVFoundation.h>
+#import <CoreAudio/CoreAudioTypes.h>
+//convert 함수 임포트
+#import "PDFPageToImage.h"
+//sparkle
+#import <Sparkle/Sparkle.h>
+//AudioInput
+//#import "AudioInput.h"
+//임시 파일 삭제 함수
+#import "DeleteTempFile.h"
+//pdfpage to imagearray 함수 도입
+#import "importPDFPageArrayFromPDF.h"
 
 @implementation Mangao
 
@@ -159,10 +170,15 @@
 @synthesize cursor_onImageCenterField;
 //最後に二本指ダブルタップをした時間
 @synthesize timestamp_tapWithTwoFingers;
+//환경설정 변수
 @synthesize defaults;
 @synthesize plistKey;
 @synthesize plistValue;
 @synthesize plistKeyIndex;
+
+//오디오 인풋 패널 설정
+@synthesize audioInputPanel;
+@synthesize isAudioInput;
 
 - (void)dealloc
 {
@@ -188,6 +204,9 @@
     app.plistKey = [[defaults objectForKey:@"key"]mutableCopy];
     app.plistValue = [[defaults objectForKey:@"value"]mutableCopy];
     
+    //버그 회피를 위해 메뉴를 한 번 더 로딩한다
+    [self reloadMainMenu];
+    
     //썸네일 펼쳐보기 방향을 메인 윈도우 좌철/우철 보기와 싱크
     app.isHidaribirakiThumb = app.isHidaribiraki;
 
@@ -195,7 +214,7 @@
     if(!app.plistKey || !app.plistValue)
     {
         //plistKeyに@"00000000000000000000000000000000"を追加
-        //plistValueに(デフォルトで左開きフラグ,デフォルトで1画面フラグ,デフォルトで右回転,デフォルトで左回転,자동 채색 / 이미지 보정 / 세피아톤 / 그레이스케일 설정에 따라 체크 유무 설정,밝기,대비,文字コード,予約,背景色)を追加
+        //plistValueに(0.넘기기 구분(좌철/우철), 1.기본으로 1장씩 열어보기, 2.기본으로 오른쪽 회전, 3.기본으로 왼쪽 회전, 4.자동 채색 / 이미지 보정 / 세피아톤 / 그레이스케일 설정에 따라 체크 유무 설정, 5.밝기, 6.대비, 7.오디오 인풋 볼륨,8.항상 처음부터 읽기 On/Off, 9.배경색)を追加
         app.plistKey = [NSMutableArray arrayWithObject:@"00000000000000000000000000000000"];
         app.plistValue = [NSMutableArray arrayWithObject:[NSMutableArray arrayWithObjects:[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:1],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],[NSNumber numberWithInteger:0],nil]];
     }
@@ -204,7 +223,7 @@
     app.imageFileType = [NSArray arrayWithObjects:@"jpg",@"JPG",@"jpeg",@"JPEG",@"png",@"PNG",@"gif",@"GIF",@"bmp",@"BMP",@"tif",@"TIF",@"tiff",@"TIFF",nil];
 
     //사용 가능한 압축 파일 종류 세팅
-    app.archiveFileType = [NSArray arrayWithObjects:@"zip",@"cbz",@"rar",@"cbr",@"7z",@"cb7",@"lzh",@"lha",nil];
+    app.archiveFileType = [NSArray arrayWithObjects:@"zip",@"cbz",@"rar",@"cbr",@"7z",@"cb7",@"lzh",@"lha",@"tar",@"gz",@"bz2",@"xz",@"cab",nil];
 
     //左開きに設定
     imageLeftFieldxxx = imageLeftField;
@@ -224,6 +243,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidEnterFullScreen:) name:NSWindowDidEnterFullScreenNotification object:viewWindow];
     //메인 윈도우의 풀스크린 해제 체크
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidExitFullScreen:) name:NSWindowDidExitFullScreenNotification object:viewWindow];
+    //입력 볼륨이 일정 이상 넘었을 경우 발생하는 notification을 체크
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acceptSound:) name:@"NCacceptSound" object:nil];
+    //오디오 인풋 패널을 닫으라는 notification을 체크
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeAudioInputPanel:) name:@"NCcloseAudioInputPnael" object:nil];
     
     //クリック、スクロール、スワイプ、ピンチ、キー入力をした時に呼び出される
     //クリック、右クリックで進む・戻る
@@ -691,13 +714,14 @@
     }
     
     //압축 파일 안의 압축 파일을 열기 위한 Temporary 파일의 확인 및 삭제
-    [self deleteTempFiles];
+    NSString *deletedTempFolder = [NSString stringWithFormat:@"archivetemp"];
+    [DeleteTempFile deleteTempFile:deletedTempFolder];
     
     return YES;
 }
 
 //압축 파일 안의 압축 파일을 열기 위한 Temporary 파일의 확인 및 삭제하는 함수 (새로운 파일 오픈시, 종료시 실행하도록 지정)
-- (void)deleteTempFiles
+/*- (void)deleteTempFiles
 {
     NSString *tempFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"/archivetemp"];
     if ([[NSFileManager defaultManager] contentsOfDirectoryAtPath:tempFilePath error:nil])
@@ -708,7 +732,9 @@
             [[NSFileManager defaultManager] removeItemAtPath:[tempFilePath stringByAppendingPathComponent:filename] error:NULL];
         }
     }
-}
+    //디렉토리까지 삭제
+    [[NSFileManager defaultManager] removeItemAtPath:tempFilePath error:NULL];
+}*/
 
 - (void)buildMainMenu
 {
@@ -971,7 +997,19 @@
     [Preference setTitle: NSLocalizedString(@"環境設定",@"")];
     NSMenuItem *NSMenuItemDefaultHidaribiraki = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"デフォルトで左開き",@"") action:@selector(defaultHidaribiraki) keyEquivalent:@""];
     NSMenuItem *NSMenuItemDefaultOnePageDisplay = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"デフォルトで1画面",@"") action:@selector(defaultOnePageDisplay) keyEquivalent:@""];
-    //デフォルトで左開き・1画面がオン・オフに応じてメニューアイテムにチェックを付け消しする
+    NSMenuItem *NSMenuItemDefaultReadFromFirstPage = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"いつも最初から読む",@"") action:@selector(defaultReadFromFirstPage) keyEquivalent:@"p"];
+    [NSMenuItemDefaultReadFromFirstPage setKeyEquivalentModifierMask:NSAlternateKeyMask|NSCommandKeyMask];
+    [NSMenuItemDefaultReadFromFirstPage setKeyEquivalentModifierMask:NSAlternateKeyMask|NSCommandKeyMask];
+    //오디오 인풋 메뉴 추가
+    NSMenuItem *NSMenuItemShowAudioInputPanel = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Audio Input",@"") action:@selector(showAudioInputPanel) keyEquivalent:@"a"];
+    [NSMenuItemShowAudioInputPanel setKeyEquivalentModifierMask:NSAlternateKeyMask|NSCommandKeyMask];
+    
+    //업데이트 메뉴 추가
+    SUUpdater *suUpdater = [SUUpdater updaterForBundle:[NSBundle mainBundle]];
+    NSMenuItem *NSMenuItemCheckUpdate = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"Check for update...",@"") action:@selector(checkForUpdates:) keyEquivalent:@""];
+    [NSMenuItemCheckUpdate setTarget:suUpdater];
+
+    //좌우 넘겨보기(좌철, 우철 구분), 1화면으로 보기, 항상 처음부터 읽기의 체크 유무 설정
     if([[[app.plistValue objectAtIndex:0] objectAtIndex:0] intValue])
     {
         [NSMenuItemDefaultHidaribiraki setState:NSOnState];
@@ -988,46 +1026,30 @@
     {
         [NSMenuItemDefaultOnePageDisplay setState:NSOffState];
     }
+    if([[[app.plistValue objectAtIndex:0] objectAtIndex:8] intValue])
+    {
+        [NSMenuItemDefaultReadFromFirstPage setState:NSOnState];
+    }
+    else
+    {
+        [NSMenuItemDefaultReadFromFirstPage setState:NSOffState];
+    }
+    //오디오 인풋의 체크 유무 설정. 환경설정 대신 전역변수 isAudioInput의 값으로 체크
+    if(isAudioInput)
+    {
+        [NSMenuItemShowAudioInputPanel setState:NSOnState];
+    }
+    else
+    {
+        [NSMenuItemShowAudioInputPanel setState:NSOffState];
+    }
     [Preference addItem:NSMenuItemDefaultHidaribiraki];
     [Preference addItem:NSMenuItemDefaultOnePageDisplay];
+    [Preference addItem:NSMenuItemDefaultReadFromFirstPage];
+    [Preference addItem:NSMenuItemShowAudioInputPanel];
+    [Preference addItem:NSMenuItemCheckUpdate];
+    
     [[Preference addItemWithTitle:NSLocalizedString(@"背景色を変更",@"") action:@selector(changeBackgroundColor) keyEquivalent:@"c"] setKeyEquivalentModifierMask:0];
-    /*
-    NSMenuItem	*CharacterEncodingItem = [[[NSMenuItem alloc] init] autorelease];
-    NSMenu *CharacterEncoding = [[[NSMenu alloc] init] autorelease];
-    [CharacterEncodingItem setTitle:NSLocalizedString(@"文字コード",@"")];
-    [CharacterEncoding setTitle: NSLocalizedString(@"文字コード",@"")];
-    NSMenuItem *NSMenuItemCharacterEncodingJa = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"日本語",@"") action:@selector(SetcharacterEncodingJa) keyEquivalent:@"j"];
-    NSMenuItem *NSMenuItemCharacterEncodingCh = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"中国語",@"") action:@selector(SetcharacterEncodingCh) keyEquivalent:@"c"];
-    NSMenuItem *NSMenuItemCharacterEncodingKo = [[NSMenuItem alloc]initWithTitle:NSLocalizedString(@"韓国語",@"") action:@selector(SetcharacterEncodingKo) keyEquivalent:@"k"];
-    [NSMenuItemCharacterEncodingJa setKeyEquivalentModifierMask:NSAlternateKeyMask|NSCommandKeyMask];
-    [NSMenuItemCharacterEncodingCh setKeyEquivalentModifierMask:NSAlternateKeyMask|NSCommandKeyMask];
-    [NSMenuItemCharacterEncodingKo setKeyEquivalentModifierMask:NSAlternateKeyMask|NSCommandKeyMask];
-    //選択されている文字コードに応じてチェックを付け消しする
-    if([[[app.plistValue objectAtIndex:0] objectAtIndex:7] intValue] == 0)
-    {
-        [NSMenuItemCharacterEncodingJa setState:NSOnState];
-        [NSMenuItemCharacterEncodingCh setState:NSOffState];
-        [NSMenuItemCharacterEncodingKo setState:NSOffState];
-        
-    }
-    else if([[[app.plistValue objectAtIndex:0] objectAtIndex:7] intValue] == 1)
-    {
-        [NSMenuItemCharacterEncodingJa setState:NSOffState];
-        [NSMenuItemCharacterEncodingCh setState:NSOnState];
-        [NSMenuItemCharacterEncodingKo setState:NSOffState];
-    }
-    else if([[[app.plistValue objectAtIndex:0] objectAtIndex:7] intValue] == 2)
-    {
-        [NSMenuItemCharacterEncodingJa setState:NSOffState];
-        [NSMenuItemCharacterEncodingCh setState:NSOffState];
-        [NSMenuItemCharacterEncodingKo setState:NSOnState];
-    }
-    [CharacterEncoding addItem: NSMenuItemCharacterEncodingJa];
-    [CharacterEncoding addItem: NSMenuItemCharacterEncodingCh];
-    [CharacterEncoding addItem: NSMenuItemCharacterEncodingKo];
-    [CharacterEncodingItem setSubmenu: CharacterEncoding];
-    [Preference addItem: CharacterEncodingItem];
-    */
     [PreferenceItem setSubmenu: Preference];
     [mainMenu addItem: PreferenceItem];
     
@@ -1226,77 +1248,6 @@
     [mainMenu addItemWithTitle:NSLocalizedString(@"",@"") action:@selector(quit) keyEquivalent:@"w"];
     [[mainMenu addItemWithTitle:NSLocalizedString(@"",@"") action:@selector(quit) keyEquivalent:@"q"] setKeyEquivalentModifierMask:0];
 }
-/*
-//文字コードを日本語に設定
-- (void)SetcharacterEncodingJa
-{
-    [self SetcharacterEncoding:0];
-}
-
-//文字コードを中国語に設定
-- (void)SetcharacterEncodingCh
-{
-    [self SetcharacterEncoding:1];
-}
-
-//文字コードを韓国語に設定
-- (void)SetcharacterEncodingKo
-{
-    [self SetcharacterEncoding:2];
-}
-
-//文字コードを設定
-- (void)SetcharacterEncoding:(int)witch
-{
-    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
-    
-    //アーカイブ読み込み中もしくはサムネイル一覧実行中ではない場合
-    if(!app.isLoadingArchive && !app.isThumbnail)
-    {
-        //0→日本語,1→中国語,2→韓国語
-        [[app.plistValue objectAtIndex:0] replaceObjectAtIndex:7 withObject:[NSNumber numberWithInteger:witch]];
-        
-        //メインメニューを再構成
-        [self reloadMainMenu];
-        
-        //アーカイブを開き直す
-        //空でないことを確認
-        if(app.listSize)
-        {
-            //アーカイブリストを更新
-            [self reloadFileListFullPathOfArchive];
-            
-            //1つ以上アーカイブがリストに存在する場合
-            if(app.listSizeOfArchive)
-            {
-                //閲覧中のアーカイブがリスト内で何番目にあるか取得
-                int indexOfArchiveTemp = (int)[app.fileListFullPathOfArchive indexOfObject:app.filePath];
-                
-                //存在しなかった場合
-                if(indexOfArchiveTemp < 0)
-                {
-                    //最初のアーカイブを選択
-                    app.indexOfArchive = 0;
-                }
-                //存在した場合
-                else
-                {
-                    app.indexOfArchive = indexOfArchiveTemp;
-                }
-                
-                app.filePath = [app.fileListFullPathOfArchive objectAtIndex:app.indexOfArchive];
-                
-                [self loadArchive];
-            }
-            //アーカイブがリストに存在しない場合
-            else
-            {
-                //初期状態にする
-                [self resetMangao];
-            }
-        }
-    }
-}*/
 
 //모든 이미지 효과를 끄기
 - (void)SetImageEffectsOff
@@ -1579,6 +1530,25 @@
     }
 }
 
+//항상 처음부터 읽기 설정
+
+- (void)defaultReadFromFirstPage
+{
+    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
+    //디폴트로 켜진 경우
+    if([[[app.plistValue objectAtIndex:0] objectAtIndex:8] intValue])
+    {
+        [[app.plistValue objectAtIndex:0] replaceObjectAtIndex:8 withObject:[NSNumber numberWithInteger:0]];
+    }
+    //디폴트가 꺼진 경우
+    else
+    {
+        [[app.plistValue objectAtIndex:0] replaceObjectAtIndex:8 withObject:[NSNumber numberWithInteger:1]];
+    }
+    //메뉴 재구성
+    [self reloadMainMenu];
+}
+
 //デフォルトで右回転
 - (void)defaultRotateRight
 {
@@ -1775,8 +1745,10 @@
         float cursor_onImage_onField_X;
         float cursor_onImage_onField_Y;
         
-        //centerFieldに画像が表示されている場合
-        if(app.imageCenter && (((0 < app.cursor_onImageCenterField.y) && (app.cursor_onImageCenterField.y < size_imageField.height))))
+        //centerFieldに画像が表示されていてマウスカーソルが上にある場合
+        if(app.imageCenter
+           && (0 < app.cursor_onImageCenterField.y)
+           && (app.cursor_onImageCenterField.y < size_imageField.height))
         {
             //ルーペの配列を取得
             loupeArray = [[Loupe alloc] loupe:app.isLoupe witchField:2 cursor_onImageField:app.cursor_onImageCenterField windowSize:size_window imageFieldSize:size_imageField image:app.imageCenter];
@@ -1784,23 +1756,57 @@
         //centerField以外に画像が表示されている場合
         else
         {
-            //LeftFieldに画像が表示されている場合(左開きの場合も考慮)
-            if(app.imageLeft && (((!app.isHidaribiraki) && (0 < cursor_onImageCenterField.x) && (cursor_onImageCenterField.x < size_imageField.width/2)) || ((app.isHidaribiraki) && (size_imageField.width/2 < cursor_onImageCenterField.x) && (cursor_onImageCenterField.x < size_imageField.width))))
+            //左開きの場合
+            if(app.isHidaribiraki)
             {
-                NSPoint cursor_onImageLeftField = [app.imageLeftFieldxxx convertPoint:[[self viewWindow] convertScreenToBase:[NSEvent mouseLocation]] fromView:nil];
-                size_imageField = self.imageLeftFieldxxx.frame.size;
-                
-                //ルーペの配列を取得
-                loupeArray = [[Loupe alloc] loupe:app.isLoupe witchField:1 cursor_onImageField:cursor_onImageLeftField windowSize:size_window imageFieldSize:size_imageField image:app.imageLeft];
+                //LeftFieldに画像が表示されていてマウスカーソルが上にある場合
+                if(app.imageLeft
+                   && (size_imageField.width/2 < cursor_onImageCenterField.x)
+                   && (cursor_onImageCenterField.x < size_imageField.width))
+                {
+                    NSPoint cursor_onImageLeftField = [app.imageLeftFieldxxx convertPoint:[[self viewWindow] convertScreenToBase:[NSEvent mouseLocation]] fromView:nil];
+                    size_imageField = self.imageLeftFieldxxx.frame.size;
+                    
+                    //ルーペの配列を取得
+                    loupeArray = [[Loupe alloc] loupe:app.isLoupe witchField:0 cursor_onImageField:cursor_onImageLeftField windowSize:size_window imageFieldSize:size_imageField image:app.imageLeft];
+                }
+                //RightFieldに画像が表示されていてマウスカーソルが上にある場合
+                else if(app.imageRight
+                        && (0 < app.cursor_onImageCenterField.x)
+                        && (app.cursor_onImageCenterField.x < size_imageField.width/2))
+                {
+                    NSPoint cursor_onImageRightField = [app.imageRightFieldxxx convertPoint:[[self viewWindow] convertScreenToBase:[NSEvent mouseLocation]] fromView:nil];
+                    size_imageField = self.imageRightFieldxxx.frame.size;
+                    
+                    //ルーペの配列を取得
+                    loupeArray = [[Loupe alloc] loupe:app.isLoupe witchField:1 cursor_onImageField:cursor_onImageRightField windowSize:size_window imageFieldSize:size_imageField image:app.imageRight];
+                }
             }
-            //RightFieldに画像が表示されている場合(左開きの場合も考慮)
-            else if(app.imageRight && (((!app.isHidaribiraki) && (size_imageField.width/2 < cursor_onImageCenterField.x) && (app.cursor_onImageCenterField.x < size_imageField.width)) || ((app.isHidaribiraki) && (0 < app.cursor_onImageCenterField.x) && (app.cursor_onImageCenterField.x < size_imageField.width/2))))
+            //右開きの場合
+            else
             {
-                NSPoint cursor_onImageRightField = [app.imageRightFieldxxx convertPoint:[[self viewWindow] convertScreenToBase:[NSEvent mouseLocation]] fromView:nil];
-                size_imageField = self.imageRightFieldxxx.frame.size;
-                
-                //ルーペの配列を取得
-                loupeArray = [[Loupe alloc] loupe:app.isLoupe witchField:0 cursor_onImageField:cursor_onImageRightField windowSize:size_window imageFieldSize:size_imageField image:app.imageRight];
+                //LeftFieldに画像が表示されていてマウスカーソルが上にある場合
+                if(app.imageLeft
+                   && (0 < cursor_onImageCenterField.x)
+                   && (cursor_onImageCenterField.x < size_imageField.width/2))
+                {
+                    NSPoint cursor_onImageLeftField = [app.imageLeftFieldxxx convertPoint:[[self viewWindow] convertScreenToBase:[NSEvent mouseLocation]] fromView:nil];
+                    size_imageField = self.imageLeftFieldxxx.frame.size;
+                    
+                    //ルーペの配列を取得
+                    loupeArray = [[Loupe alloc] loupe:app.isLoupe witchField:1 cursor_onImageField:cursor_onImageLeftField windowSize:size_window imageFieldSize:size_imageField image:app.imageLeft];
+                }
+                //RightFieldに画像が表示されていいてマウスカーソルが上にある場合
+                else if(app.imageRight
+                        && (size_imageField.width/2 < cursor_onImageCenterField.x)
+                        && (app.cursor_onImageCenterField.x < size_imageField.width))
+                {
+                    NSPoint cursor_onImageRightField = [app.imageRightFieldxxx convertPoint:[[self viewWindow] convertScreenToBase:[NSEvent mouseLocation]] fromView:nil];
+                    size_imageField = self.imageRightFieldxxx.frame.size;
+                    
+                    //ルーペの配列を取得
+                    loupeArray = [[Loupe alloc] loupe:app.isLoupe witchField:0 cursor_onImageField:cursor_onImageRightField windowSize:size_window imageFieldSize:size_imageField image:app.imageRight];
+                }
             }
         }
         
@@ -1812,18 +1818,15 @@
             size_image_onField_Y = [[loupeArray objectAtIndex:2]floatValue];
             cursor_onImage_onField_X = [[loupeArray objectAtIndex:3]floatValue];
             cursor_onImage_onField_Y = [[loupeArray objectAtIndex:4]floatValue];
-        }
-        //ルーペイメージが正常に取得できなかった場合
-        else
-        {
-            loupeImage = NULL;
-        }
-        
-        //ルーペイメージが正常に取得できた場合
-        if(loupeImage)
-        {
+            
             [loupeField setImage:loupeImage];
             
+            //大きいルーペの場合
+            if(app.isLoupe == 2)
+            {
+                //ルーペウィンドウをビューウィンドウと同じサイズにする
+                [loupeWindow setFrame:viewWindow.frame display:NO];
+            }
             //ルーペウィンドウを有効にする
             [[self loupeWindow] makeKeyAndOrderFront:self];
             //メニューバーより手前に表示
@@ -1887,6 +1890,8 @@
         //ルーペイメージが正常に取得できなかった場合
         else
         {
+            loupeImage = NULL;
+            
             //ルーペウィンドウを無効にする
             [[self loupeWindow] orderOut:self];
         }
@@ -1997,6 +2002,35 @@
     app.listSize = 0;
     app.listSizeOfArchive = 0;
 }
+
+/*오디오 입력 기능 시작*/
+
+//오디오 입력 레벨이 일정 수준 이상을 넘었을 경우
+- (void)acceptSound:(NSNotification*)notification;
+{
+    [self pageNext];
+}
+
+//오디오 입력 패널을 닫으라는 notification 접수시
+- (void)closeAudioInputPanel:(NSNotification*)notification;
+{
+    [audioInputPanel orderOut:self];
+    //isAudioInput 값을 변경
+    if (isAudioInput == 0)
+        isAudioInput = 1;
+    else
+        isAudioInput = 0;
+    [self reloadMainMenu];
+}
+
+//오디오 패널 불러오기
+- (void)showAudioInputPanel
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NCopenAudioInputPanel" object:self];
+    [audioInputPanel makeKeyAndOrderFront:self];
+}
+
+/* 오디오 입력 기능 끝 */
 
 //CをCantOpen
 - (void)CwoCantOpen
@@ -2127,7 +2161,7 @@
         NSOpenPanel *openPanel = [NSOpenPanel openPanel];
         
         //許可するファイル拡張子を設定
-        NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"jpg",@"jpeg",@"png",@"gif",@"bmp",@"tif",@"tiff",@"zip",@"cbz",@"rar",@"cbr",@"7z",@"cb7",@"lha",@"lzh",@"pdf",@"cvbdl",@"tc",@"cbtc",nil];
+        NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"jpg",@"jpeg",@"png",@"gif",@"bmp",@"tif",@"tiff",@"zip",@"cbz",@"rar",@"cbr",@"7z",@"cb7",@"lha",@"lzh",@"tar",@"gz",@"bz2",@"xz",@"cab",@"pdf",@"cvbdl",@"tc",@"cbtc",nil];
         [openPanel setAllowedFileTypes:allowedFileTypes];
         
         //フォルダを選択可能にする
@@ -2210,7 +2244,8 @@
     }
     
     //압축 파일 안의 압축 파일을 열기 위한 Temporary 파일의 확인 및 삭제
-    [self deleteTempFiles];
+    NSString *deletedTempFolder = [NSString stringWithFormat:@"archivetemp"];
+    [DeleteTempFile deleteTempFile:deletedTempFolder];
 }
 
 //アーカイブ読み込みを別スレッドで実行する
@@ -2238,6 +2273,9 @@
     {
         [self.viewWindow setTitle:[NSString stringWithFormat:@"%@ [Loading...]",[[app.filePath lastPathComponent] stringByDeletingPathExtension]]];
     }
+    
+    //독 아이콘에 loading 표시
+    [[[NSApplication sharedApplication] dockTile]setBadgeLabel:@"Loading"];
     
     //0.5秒後にCをLoading
     [self performSelector:@selector(CwoLoading:) withObject:app.filePath afterDelay:0.5];
@@ -2281,7 +2319,17 @@
     }
     
     //app.indexを最後に表示したページにセット(NSNumberからintに変換)
-    app.index = [[[app.plistValue objectAtIndex:app.plistKeyIndex] objectAtIndex:0]intValue];
+    //단, 항상 처음부터 읽기가 켜진 경우에는 0으로 세팅
+    //NSLog(@"항상 처음부터 읽기: %i", [[[app.plistValue objectAtIndex:0] objectAtIndex:8] intValue]);
+    if ([[[app.plistValue objectAtIndex:0] objectAtIndex:8] intValue])
+    {
+        app.index = 0;
+    }
+    else
+    {
+        app.index = [[[app.plistValue objectAtIndex:app.plistKeyIndex] objectAtIndex:0]intValue];
+    }
+    
     //左開きフラグを確認
     app.isHidaribiraki = [[[app.plistValue objectAtIndex:app.plistKeyIndex] objectAtIndex:1]intValue];
     //1画面フラグを確認
@@ -2290,8 +2338,20 @@
     //メインメニューを再構成
     [self reloadMainMenu];
     
-    //選択したのがZIP・CBZファイルの場合 @"zip",@"cbz",@"rar",@"cbr",@"7z",@"cb7",@"lha",@"lzh"
-    if([[app.filePath lowercaseString] hasSuffix:@".zip"] || [[app.filePath lowercaseString] hasSuffix:@".cbz"] || [[app.filePath lowercaseString] hasSuffix:@".rar"] || [[app.filePath lowercaseString] hasSuffix:@".cbr"] || [[app.filePath lowercaseString] hasSuffix:@".7z"] || [[app.filePath lowercaseString] hasSuffix:@".cb7"] || [[app.filePath lowercaseString] hasSuffix:@".lha"] || [[app.filePath lowercaseString] hasSuffix:@".lzh"])
+    //아카이브 파일 선택시
+    if([[app.filePath lowercaseString] hasSuffix:@".zip"]
+       || [[app.filePath lowercaseString] hasSuffix:@".cbz"]
+       || [[app.filePath lowercaseString] hasSuffix:@".rar"]
+       || [[app.filePath lowercaseString] hasSuffix:@".cbr"]
+       || [[app.filePath lowercaseString] hasSuffix:@".7z"]
+       || [[app.filePath lowercaseString] hasSuffix:@".cb7"]
+       || [[app.filePath lowercaseString] hasSuffix:@".lha"]
+       || [[app.filePath lowercaseString] hasSuffix:@".lzh"]
+       || [[app.filePath lowercaseString] hasSuffix:@".tar"]
+       || [[app.filePath lowercaseString] hasSuffix:@".gz"]
+       || [[app.filePath lowercaseString] hasSuffix:@".bz2"]
+       || [[app.filePath lowercaseString] hasSuffix:@".xz"]
+       || [[app.filePath lowercaseString] hasSuffix:@".cab"])
     {
         [self unarchiveFile];
     }
@@ -2333,7 +2393,21 @@ end:app.isLoadingArchive = 0;
         NSString *fullPathString = [app.folderPath stringByAppendingPathComponent:string];
         
         //アーカイブの場合
-        if([[fullPathString lowercaseString] hasSuffix:@".zip"] || [[fullPathString lowercaseString] hasSuffix:@".cbz"] || [[fullPathString lowercaseString] hasSuffix:@".rar"] || [[fullPathString lowercaseString] hasSuffix:@".cbr"] || [[fullPathString lowercaseString] hasSuffix:@".7z"] || [[fullPathString lowercaseString] hasSuffix:@".cb7"] || [[fullPathString lowercaseString] hasSuffix:@".lha"] || [[fullPathString lowercaseString] hasSuffix:@".lzh"] || [[fullPathString lowercaseString] hasSuffix:@".pdf"] || [[fullPathString lowercaseString] hasSuffix:@".cvbdl"])
+        if([[fullPathString lowercaseString] hasSuffix:@".zip"]
+           || [[fullPathString lowercaseString] hasSuffix:@".cbz"]
+           || [[fullPathString lowercaseString] hasSuffix:@".rar"]
+           || [[fullPathString lowercaseString] hasSuffix:@".cbr"]
+           || [[fullPathString lowercaseString] hasSuffix:@".7z"]
+           || [[fullPathString lowercaseString] hasSuffix:@".cb7"]
+           || [[fullPathString lowercaseString] hasSuffix:@".lha"]
+           || [[fullPathString lowercaseString] hasSuffix:@".lzh"]
+           || [[fullPathString lowercaseString] hasSuffix:@".tar"]
+           || [[fullPathString lowercaseString] hasSuffix:@".gz"]
+           || [[fullPathString lowercaseString] hasSuffix:@".bz2"]
+           || [[fullPathString lowercaseString] hasSuffix:@".xz"]
+           || [[fullPathString lowercaseString] hasSuffix:@".cab"]
+           || [[fullPathString lowercaseString] hasSuffix:@".pdf"]
+           || [[fullPathString lowercaseString] hasSuffix:@".cvbdl"])
         {
             //リストに追加する
             [app.fileListFullPathOfArchive addObject:fullPathString];
@@ -2425,6 +2499,9 @@ end:app.isLoadingArchive = 0;
     [passwordPanel orderOut:self];
     //패스워드창 표시중 변수 0으로 설정
     app.isPassword = 0;
+    app.isLoadingArchive = 0;
+    app.isLoadingArchiveNotSetImage = 0;
+    app.isCancelLoadingArchive = 0;
 }
 
 //아카이브 파일 Path로부터 이미지 파일만 추출, MutableArray로 반환하는 함수
@@ -2452,6 +2529,8 @@ end:app.isLoadingArchive = 0;
     for (counter = 0; counter < archivedFilesCount; ++counter)
     {
         fileName = [archive nameOfEntry: counter];
+        //NSLog(@"filename:%@", fileName);
+
         if (fileName)
         {
             [xadFileTempList addObject:fileName];
@@ -2517,7 +2596,7 @@ end:app.isLoadingArchive = 0;
             while ([fileManager fileExistsAtPath: archivePath]);
             
             //archivePath 출력
-            NSLog(@"archive Path at : %@", archivePath);
+            //NSLog(@"archive Path at : %@", archivePath);
             
             [[NSFileManager defaultManager] createDirectoryAtPath: [archivePath stringByDeletingLastPathComponent]
                                       withIntermediateDirectories: YES
@@ -2717,7 +2796,7 @@ end:
 end:app.selectionImageFilePath = NULL;
 }
 
-//フォルダ・cvbdl
+//폴더 및 cvbdl을 여는 루틴
 - (void)imageFolder
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
@@ -2773,7 +2852,20 @@ end:app.selectionImageFilePath = NULL;
             app.listSize = [app.imageArray count];
         }
         //Archiveの場合
-        else if([[string lowercaseString] hasSuffix:@".zip"] || [[string lowercaseString] hasSuffix:@".cbz"] || [[string lowercaseString] hasSuffix:@".rar"] || [[string lowercaseString] hasSuffix:@".cbr"] || [[string lowercaseString] hasSuffix:@".7z"] || [[string lowercaseString] hasSuffix:@".cb7"] || [[string lowercaseString] hasSuffix:@".lha"] || [[string lowercaseString] hasSuffix:@".lzh"])
+        else if([[string lowercaseString] hasSuffix:@".zip"]
+                || [[string lowercaseString] hasSuffix:@".cbz"]
+                || [[string lowercaseString] hasSuffix:@".rar"]
+                || [[string lowercaseString] hasSuffix:@".cbr"]
+                || [[string lowercaseString] hasSuffix:@".7z"]
+                || [[string lowercaseString] hasSuffix:@".cb7"]
+                || [[string lowercaseString] hasSuffix:@".lha"]
+                || [[string lowercaseString] hasSuffix:@".lzh"]
+                || [[string lowercaseString] hasSuffix:@".tar"]
+                || [[string lowercaseString] hasSuffix:@".gz"]
+                || [[string lowercaseString] hasSuffix:@".bz2"]
+                || [[string lowercaseString] hasSuffix:@".xz"]
+                || [[string lowercaseString] hasSuffix:@".cab"]
+                )
         {
             //imageArray 배열 선언
             NSMutableArray *imageArray1 = [self imageArrayFromArchive:string];
@@ -2918,29 +3010,14 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     if([[app.filePath lowercaseString] hasSuffix:@".pdf"])
     {
         PDFPage *page = [PDFArray objectAtIndex:app.index];
-        
-        NSRect bounds = [page boundsForBox:kPDFDisplayBoxMediaBox];
-        float dimension = 1600;
-        float scale = 1 > (NSHeight(bounds) / NSWidth(bounds)) ? dimension / NSWidth(bounds) :  dimension / NSHeight(bounds);
-        bounds.size = NSMakeSize(bounds.size.width*scale,bounds.size.height*scale);
-        
-        image = [[[NSImage alloc] initWithSize: bounds.size] autorelease];
-        [image lockFocus];
-        //高画質補間を行う
-        [[NSGraphicsContext currentContext] setImageInterpolation: NSImageInterpolationHigh];
-		[[NSColor whiteColor] set];
-		NSRectFill(bounds );
-		NSAffineTransform * scaleTransform = [NSAffineTransform transform];
-		[scaleTransform scaleBy: scale];
-		[scaleTransform concat];
-		[page drawWithBox: kPDFDisplayBoxMediaBox];
-        [image unlockFocus];
+        image = [[PDFPageToImage alloc]PDFPageToImage:page pageNumber:app.index];
     }
 
     //現在ZIP・RAR・cvbdl・画像フォルダを開いている場合
     else
     {
         image = [app.imageArray objectAtIndex:app.index];
+        //NSLog(@"image: %@", image);
     }
     
     //画像が読めなかった場合
@@ -4411,9 +4488,16 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     int thumbLength = windowRect.size.height / 5;
     NSRect thumbFrame = NSMakeRect(windowRect.origin.x, windowRect.origin.y, windowRect.size.width, thumbLength + 24);
     [thumbnailWindow setFrame:thumbFrame display:NO animate:YES];
-    [thumbnailScrollView setHasHorizontalScroller:NO];
+    //관성을 없음으로 설정
     [thumbnailScrollView setHorizontalScrollElasticity:1];
+    //다이나믹 스크롤 없음
     [thumbnailScrollView setScrollsDynamically:NO];
+    //스크롤 바 표시 On
+    [thumbnailScrollView setHasHorizontalScroller:YES];
+    //스크롤러 스타일을 overlay로 설정
+    [thumbnailScrollView setScrollerStyle:1];
+    //scroller know 스타일을 light로 설정
+    [thumbnailScrollView setScrollerKnobStyle:2];
     [thumbnailScrollView setVerticalLineScroll:0.0];
     [thumbnailScrollView setVerticalPageScroll:0.0];
     
@@ -5123,6 +5207,8 @@ end://左側の画像のIndexを最後に表示した画像として記録する
             
             [self loupe];
         }
+        //メインメニューを再構成する
+        [self reloadMainMenu];
     }
 }
 
@@ -5158,6 +5244,8 @@ end://左側の画像のIndexを最後に表示した画像として記録する
             
             [self loupe];
         }
+        //メインメニューを再構成する
+        [self reloadMainMenu];
     }
 }
 

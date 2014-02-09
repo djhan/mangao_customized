@@ -268,3 +268,15 @@
 
 /* fit to screen (10.6 style) */
 "画面にフィットする" = "fit to screen";
+
+/*audio input comment */
+"Limit値を超える音量が入力すれば次のページへ移動します" = "Go to Next Page when input volume over limit value";
+
+/* 항상 처음부터 읽기 */
+"いつも最初から読む" = "Read from first page";
+
+/* 오디오 입력 */
+"Audio Input" = "Audio Input";
+
+/* 업데이트 확인 */
+"Check for update..." = "Check for update...";
