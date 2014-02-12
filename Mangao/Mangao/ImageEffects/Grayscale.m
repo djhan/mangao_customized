@@ -42,7 +42,8 @@
     NSData *tiffData = [srcImage TIFFRepresentation];
     CIImage *ciImage = [CIImage imageWithData:tiffData];
 
-    // 그레이스케일 여부를 판정
+    // 그레이스케일 여부를 판정 - 사용하지 않음
+    
 #define kRectToCheckReduction 4
     CGRect rectToCheck=[ciImage extent];
     CGFloat width=CGRectGetWidth(rectToCheck);
@@ -70,6 +71,7 @@
     }
     else
     {
+     
     CIFilter *filter = [CIFilter filterWithName:@"CIColorMonochrome"
                                   keysAndValues:kCIInputImageKey, ciImage,
                         @"inputColor", [CIColor colorWithRed:0.7 green:0.7 blue:0.7],
