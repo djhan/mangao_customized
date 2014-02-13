@@ -70,6 +70,8 @@
 #import "DeleteTempFile.h"
 //pdfpage to imagearray 함수 도입
 #import "importPDFPageArrayFromPDF.h"
+//centerScrollingView 도입
+#import "CenterScrollingView.h"
 
 @implementation Mangao
 
@@ -310,15 +312,18 @@
                      {//二本指タップのタイムスタンプをリセット
                          app.timestamp_tapWithTwoFingers = 0;
                          [self pageNext];}
-                     else if (viewSetting == 1)
-                     {[self scrollDownScrollView:[event deltaY]];}
+                     //else if (viewSetting == 1)
+                     //{[self scrollDownScrollView:[event deltaY]];}
                  }
                  //下スクロールなら戻る
                  else if([event deltaY] > 0)
                  {
-                     //二本指タップのタイムスタンプをリセット
+                     if (viewSetting == 0)
+                     {//二本指タップのタイムスタンプをリセット
                      app.timestamp_tapWithTwoFingers = 0;
-                     [self pagePrev];
+                         [self pagePrev];}
+                     //else if (viewSetting == 1)
+                     //{[self scrollUpScrollView:[event deltaY]];}
                  }
                  //二本指タップ
                  else if ([event phase] == 32)
@@ -2158,19 +2163,6 @@
 {
     Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
     [imageCenterField setImage:app.imageCenter];
-    
-    if (viewSetting == 1) {
-        NSSize documentViewSize = [[centerScrollView documentView] frame].size;
-        //NSLog(@"centerscrollview height / documentviewsize height:%f,%f", centerScrollView.frame.size.height,documentViewSize.height);
-        
-        NSPoint newOrigin = NSMakePoint((centerScrollView.frame.size.width - documentViewSize.width)/2, (documentViewSize.height - centerScrollView.frame.size.height));
-
-        //NSLog(@"origin x/y:%f,%f", newOrigin.x,newOrigin.y);
-
-        [[centerScrollView documentView] scrollPoint:newOrigin];
-        //[imageCenterField setNeedsDisplay:YES];
-    }
-
 }
 
 //윈도우 크기에 맞추기
@@ -2184,6 +2176,7 @@
     }
     //if (!isThumbnail)
     [self setImage];
+    [centerScrollView setNeedsDisplay:YES];
 }
 
 //윈도우 폭에 맞추기
@@ -2192,20 +2185,24 @@
 {
     if (viewSetting == 0)
     {
-        [centerScrollView isFlipped];
         viewSetting = 1;
     }
     [self setImage];
 }
-
+/*
 - (void)scrollDownScrollView: (float)deltaY
 {
-    NSLog(@"deltay:%f", deltaY);
-    NSRect visible = [[centerScrollView documentView] frame];
-    NSLog(@"old point x/y:%f,%f", visible.origin.x,visible.origin.y);
-    //NSPoint scrollPoint = NSMakePoint(0.0, NSMinY(visible) - deltaY);
-    //[[centerScrollView documentView] scrollPoint:scrollPoint];
+    //NSLog(@"deltay:%f", deltaY);
+    NSPoint origin = [[centerScrollView contentView] bounds].origin;
+    NSLog(@"old point x/y:%f,%f", origin.x,origin.y);
 }
+
+- (void)scrollUpScrollView: (float)deltaY
+{
+    //NSLog(@"deltay:%f", deltaY);
+    NSPoint origin = [[centerScrollView contentView] bounds].origin;
+    NSLog(@"old point x/y:%f,%f", origin.x,origin.y);
+}*/
 
 // viewsetting 값에 따라 메뉴 업데이트
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem

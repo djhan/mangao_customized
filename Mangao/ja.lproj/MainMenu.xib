@@ -55,7 +55,7 @@
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="right" imageScaling="proportionallyUpOrDown" id="1489"/>
                     </imageView>
                     <imageView identifier="rightView" autoresizesSubviews="NO" focusRingType="none" id="1494" userLabel="imageRightField" customClass="DragAndDrop">
-                        <rect key="frame" x="293" y="-1.0000001059639954" width="293" height="402"/>
+                        <rect key="frame" x="293" y="-1" width="293" height="401.99999989403602"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="left" imageScaling="proportionallyUpOrDown" id="1495"/>
                     </imageView>
@@ -93,7 +93,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="586" height="402"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <imageView identifier="centerView" autoresizesSubviews="NO" focusRingType="none" id="1695" userLabel="imageCenterField" customClass="DragAndDrop">
+                                <imageView identifier="centerView" autoresizesSubviews="NO" focusRingType="none" id="1695" userLabel="imageCenterField" customClass="CenterScrollingView">
                                     <rect key="frame" x="0.0" y="0.0" width="586" height="402"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                     <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="1698"/>
@@ -108,7 +108,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="h5x-5Y-x52">
-                            <rect key="frame" x="-100" y="-100" width="15" height="419"/>
+                            <rect key="frame" x="-100" y="-100" width="15" height="402"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>

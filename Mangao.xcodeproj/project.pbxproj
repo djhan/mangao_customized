@@ -42,6 +42,7 @@
 		CEECAAF3185602C20014E1DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEECAAF2185602C20014E1DA /* QuartzCore.framework */; };
 		EE025A4C188C9FA100EDB7D1 /* AutoLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE025A4B188C9FA100EDB7D1 /* AutoLevel.m */; };
 		EE11DE941892BFC700E7AEC4 /* XADMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE11DE931892BFC700E7AEC4 /* XADMaster.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		EE43D2BD18AC4231009B0DB5 /* CenterScrollingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE43D2BC18AC4231009B0DB5 /* CenterScrollingView.m */; };
 		EE476ED5189D31000047AD8E /* AudioInput.m in Sources */ = {isa = PBXBuildFile; fileRef = EE476ED4189D31000047AD8E /* AudioInput.m */; };
 		EE5D0BCC189F37C20054F3BC /* DeleteTempFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5D0BCB189F37C20054F3BC /* DeleteTempFile.m */; };
 		EE659FD618A0CB1D00747017 /* importPDFPageArrayFromPDF.m in Sources */ = {isa = PBXBuildFile; fileRef = EE659FD518A0CB1D00747017 /* importPDFPageArrayFromPDF.m */; };
@@ -128,6 +129,8 @@
 		EE025A4A188C9F9900EDB7D1 /* AutoLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLevel.h; sourceTree = "<group>"; };
 		EE025A4B188C9FA100EDB7D1 /* AutoLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLevel.m; sourceTree = "<group>"; };
 		EE11DE931892BFC700E7AEC4 /* XADMaster.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XADMaster.framework; path = Mangao/Frameworks/XADMaster.framework; sourceTree = "<group>"; };
+		EE43D2BB18AC4227009B0DB5 /* CenterScrollingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterScrollingView.h; sourceTree = "<group>"; };
+		EE43D2BC18AC4231009B0DB5 /* CenterScrollingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterScrollingView.m; sourceTree = "<group>"; };
 		EE476ED3189D30F90047AD8E /* AudioInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioInput.h; sourceTree = "<group>"; };
 		EE476ED4189D31000047AD8E /* AudioInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioInput.m; sourceTree = "<group>"; };
 		EE5D0BCA189F37B60054F3BC /* DeleteTempFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteTempFile.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				CED9573D178B257C00A2994D /* Mangao.m */,
 				CEAD23C1183E3C850066759E /* DragAndDrop.h */,
 				CEAD23C0183E3C850066759E /* DragAndDrop.m */,
+				EE43D2BB18AC4227009B0DB5 /* CenterScrollingView.h */,
+				EE43D2BC18AC4231009B0DB5 /* CenterScrollingView.m */,
 				CE58E84417F7307400CA3DD8 /* Loupe.h */,
 				CE58E84517F7307400CA3DD8 /* Loupe.m */,
 				CE739B27185346A900A5876D /* thumbnail.h */,
@@ -452,6 +457,7 @@
 				EE659FD618A0CB1D00747017 /* importPDFPageArrayFromPDF.m in Sources */,
 				CE17245C187FC42E007EFE59 /* AutoEnhance.m in Sources */,
 				CE739B29185346A900A5876D /* thumbnail.m in Sources */,
+				EE43D2BD18AC4231009B0DB5 /* CenterScrollingView.m in Sources */,
 				CEAD23C2183E3C850066759E /* DragAndDrop.m in Sources */,
 				CE17245E187FC42E007EFE59 /* Grayscale.m in Sources */,
 				CEA4763018647C01007CA2D4 /* HTMangaColorize.m in Sources */,
