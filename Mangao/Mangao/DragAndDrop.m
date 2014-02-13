@@ -20,7 +20,6 @@
 //
 
 #import "DragAndDrop.h"
-#import "Mangao.h"
 
 @implementation DragAndDrop
 
@@ -111,18 +110,10 @@
 
 - (void)drawRect:(NSRect)rect
 {
-<<<<<<< HEAD
-    //Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
-
     [super drawRect:rect];
     float displayScale = [[NSScreen mainScreen] backingScaleFactor];
     // 비레티나 디스플레이일 경우에만 화질 향상 루틴 적용
     //NSLog(@"displayscale: %f", displayScale);
-=======
-    [super drawRect:rect];
-    float displayScale = [[NSScreen mainScreen] backingScaleFactor];
-    // 비레티나 디스플레이일 경우에만 화질 향상 루틴 적용
->>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
     if (displayScale == 1)
     {
         [NSGraphicsContext saveGraphicsState];
@@ -192,37 +183,6 @@
         
         [NSGraphicsContext restoreGraphicsState];
     }
-<<<<<<< HEAD
-    
-    //fit to width 관련 추가중
-    /*
-    NSSize contentViewSize; //센터 이미지 프레임의 크기
-    // viewsetting이 1일 때, 즉 fit to width가 ON일 때
-    if (app.viewSetting == 1)
-    {
-        //centerScrollViewContentView 의 뷰 사이즈 크기 계산
-        float scaleFactor;
-        if (app.imageCenter.size.width < app.viewWindow.frame.size.width)
-        {
-            scaleFactor = app.viewWindow.frame.size.width / app.imageCenter.size.width;
-        }
-        else scaleFactor = app.imageCenter.size.width / app.viewWindow.frame.size.width;
-        
-        contentViewSize.width = app.viewWindow.frame.size.width;
-        contentViewSize.height = app.imageCenter.size.height * scaleFactor;
-    }
-    else
-    {
-        contentViewSize = app.viewWindow.frame.size;
-        //NSLog(@"viewsetting:%i", viewSetting);
-    }
-    //NSSize centerImageSize = app.imageCenter.size;
-    //NSLog(@"content view size- width/hieght: %f/%f", contentViewSize.width, contentViewSize.height);
-    
-    NSRect documentViewRect = NSMakeRect(NSZeroPoint.x, NSZeroPoint.y, contentViewSize.width, contentViewSize.height);
-    [self setFrame:documentViewRect];*/
-=======
->>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
 }
 
 @end

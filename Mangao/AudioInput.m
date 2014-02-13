@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 //  Created by DJ.HAN 2014/02/12
 //  Copyright (c) 2014. DJ.HAN All rights reserved.
 
-=======
->>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
 #import "AudioInput.h"
 //audio 관련 coreaudio, avfoundation 임포트
 #import <AVFoundation/AVFoundation.h>

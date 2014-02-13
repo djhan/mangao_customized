@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1070" identifier="macosx"/>
+        <deployment defaultVersion="1050" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
         <plugIn identifier="com.apple.imagekit.ibplugin" version="3338"/>
     </dependencies>
@@ -18,25 +18,6 @@
                 <menuItem title="Mangao_Customized" id="56">
                     <menu key="submenu" title="Mangao_Customized" systemMenu="apple" id="2062"/>
                 </menuItem>
-                <menuItem title="View" id="wXU-Ta-0ZU" userLabel="Menu Item - View">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="View" id="44g-75-kJp">
-                        <items>
-                            <menuItem title="Fit to Window" tag="100" id="FaB-Bi-Aj9">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="fitToWindow:" target="494" id="hNX-AI-ye0"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Fit to Width" tag="101" id="Jpu-EM-go4">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="fitToWidth:" target="494" id="vEi-Up-qUe"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
             </items>
         </menu>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" oneShot="NO" releasedWhenClosed="NO" frameAutosaveName="Autosave" animationBehavior="default" id="371" userLabel="viewWindow">
@@ -49,38 +30,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="586" height="402"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="boP-ak-3aZ" userLabel="Bordered Scroll View - centerView">
-                        <rect key="frame" x="-1" y="-1" width="588" height="404"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Tgm-su-3VX">
-                            <rect key="frame" x="0.0" y="0.0" width="588" height="404"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <imageView autoresizesSubviews="NO" focusRingType="none" id="1695" userLabel="imageCenterField" customClass="CenterScrollingView">
-                                    <rect key="frame" x="0.0" y="0.0" width="588" height="404"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                    <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="1698"/>
-                                </imageView>
-                            </subviews>
-                        </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="itT-DK-tdf">
-                            <rect key="frame" x="-100" y="-100" width="588" height="16"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Snl-3k-BWQ">
-                            <rect key="frame" x="-100" y="-100" width="16" height="404"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                    </scrollView>
                     <imageView autoresizesSubviews="NO" focusRingType="none" id="1488" userLabel="imageLeftField">
                         <rect key="frame" x="0.0" y="0.0" width="293" height="402"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="right" imageScaling="proportionallyUpOrDown" id="1489"/>
                     </imageView>
                     <imageView autoresizesSubviews="NO" focusRingType="none" id="1494" userLabel="imageRightField">
-                        <rect key="frame" x="293" y="-1.0000000793739239" width="293" height="402"/>
+                        <rect key="frame" x="293" y="-1.0000000528500803" width="293" height="402"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="left" imageScaling="proportionallyUpOrDown" id="1495"/>
+                    </imageView>
+                    <imageView autoresizesSubviews="NO" focusRingType="none" id="1695" userLabel="imageCenterField" customClass="DragAndDrop">
+                        <rect key="frame" x="0.0" y="0.0" width="586" height="402"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="1698"/>
                     </imageView>
                     <tokenField focusRingType="none" verticalHuggingPriority="750" id="snr-5d-hDi">
                         <rect key="frame" x="-2" y="0.0" width="64" height="20"/>
@@ -267,14 +230,14 @@ DQ
                         <rect key="frame" x="-1" y="-1" width="577" height="409"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="dQW-C0-7Sr">
-                            <rect key="frame" x="1" y="1" width="575" height="407"/>
+                            <rect key="frame" x="1" y="1" width="575" height="392"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <ikImageBrowserView autoresizesSubviews="NO" zoomValue="0.74622470140457153" allowsMultipleSelection="NO" allowsEmptySelection="NO" animates="YES" id="Gzm-h2-eyn">
-                                    <rect key="frame" x="0.0" y="0.0" width="575" height="407"/>
+                                <ikImageBrowserView autoresizesSubviews="NO" zoomValue="0.76509201526641846" allowsMultipleSelection="NO" allowsEmptySelection="NO" animates="YES" id="Gzm-h2-eyn">
+                                    <rect key="frame" x="0.0" y="0.0" width="575" height="392"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <autoresizingMask key="contentResizingMask" heightSizable="YES"/>
-                                    <size key="cellSize" width="235" height="235"/>
+                                    <size key="cellSize" width="236" height="236"/>
                                     <connections>
                                         <binding destination="5Rs-eM-ksS" name="content" keyPath="arrangedObjects" id="uVf-bc-aud"/>
                                         <outlet property="delegate" destination="494" id="GuO-UF-gCp"/>
@@ -283,7 +246,7 @@ DQ
                             </subviews>
                         </clipView>
                         <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="iyw-06-gJj">
-                            <rect key="frame" x="1" y="392" width="575" height="16"/>
+                            <rect key="frame" x="1" y="393" width="575" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="wdZ-iu-giN">
