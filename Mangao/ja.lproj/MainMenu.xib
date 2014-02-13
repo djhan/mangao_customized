@@ -17,6 +17,7 @@
             <items>
                 <menuItem title="Mangao Kai" id="56">
                     <menu key="submenu" title="Mangao Kai" systemMenu="apple" id="2062"/>
+<<<<<<< HEAD
                 </menuItem>
                 <menuItem title="View" id="vEP-8P-MPU">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -36,6 +37,8 @@
                             </menuItem>
                         </items>
                     </menu>
+=======
+>>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
                 </menuItem>
             </items>
         </menu>
@@ -55,10 +58,25 @@
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="right" imageScaling="proportionallyUpOrDown" id="1489"/>
                     </imageView>
                     <imageView identifier="rightView" autoresizesSubviews="NO" focusRingType="none" id="1494" userLabel="imageRightField" customClass="DragAndDrop">
+<<<<<<< HEAD
                         <rect key="frame" x="293" y="-1" width="293" height="401.99999989403602"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="left" imageScaling="proportionallyUpOrDown" id="1495"/>
                     </imageView>
+=======
+                        <rect key="frame" x="293" y="-1.0000000263921245" width="293" height="402"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="left" imageScaling="proportionallyUpOrDown" id="1495"/>
+                    </imageView>
+                    <imageView identifier="centerView" autoresizesSubviews="NO" focusRingType="none" id="1695" userLabel="imageCenterField" customClass="DragAndDrop">
+                        <rect key="frame" x="0.0" y="0.0" width="586" height="402"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="1698"/>
+                        <connections>
+                            <accessibilityConnection property="title" destination="u2l-vE-ylr" id="pcv-wj-lkG"/>
+                        </connections>
+                    </imageView>
+>>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
                     <textField focusRingType="none" verticalHuggingPriority="750" id="pEn-z6-wZb">
                         <rect key="frame" x="545" y="1" width="40" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -179,7 +197,10 @@ DQ
         <customObject id="494" customClass="Mangao">
             <connections>
                 <outlet property="audioInputPanel" destination="ZJi-Jy-nNN" id="Mcb-Uw-3R9"/>
+<<<<<<< HEAD
                 <outlet property="centerScrollView" destination="uPf-vR-wFu" id="LiZ-G9-UsD"/>
+=======
+>>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
                 <outlet property="confirmPanel" destination="9Bt-gh-RzF" id="x4b-0q-Wc8"/>
                 <outlet property="confirmPanel_text" destination="sq2-pQ-uEa" id="7U3-3F-jdH"/>
                 <outlet property="imageCenterField" destination="1695" id="2184"/>

@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 //  Created by DJ.HAN 2014/02/12
 //  Copyright (c) 2014. DJ.HAN All rights reserved.
 
+=======
+>>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
 #import <Cocoa/Cocoa.h>
 
 @class AVCaptureDevice;

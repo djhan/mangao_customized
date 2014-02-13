@@ -111,12 +111,18 @@
 
 - (void)drawRect:(NSRect)rect
 {
+<<<<<<< HEAD
     //Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
 
     [super drawRect:rect];
     float displayScale = [[NSScreen mainScreen] backingScaleFactor];
     // 비레티나 디스플레이일 경우에만 화질 향상 루틴 적용
     //NSLog(@"displayscale: %f", displayScale);
+=======
+    [super drawRect:rect];
+    float displayScale = [[NSScreen mainScreen] backingScaleFactor];
+    // 비레티나 디스플레이일 경우에만 화질 향상 루틴 적용
+>>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
     if (displayScale == 1)
     {
         [NSGraphicsContext saveGraphicsState];
@@ -186,6 +192,7 @@
         
         [NSGraphicsContext restoreGraphicsState];
     }
+<<<<<<< HEAD
     
     //fit to width 관련 추가중
     /*
@@ -214,6 +221,8 @@
     
     NSRect documentViewRect = NSMakeRect(NSZeroPoint.x, NSZeroPoint.y, contentViewSize.width, contentViewSize.height);
     [self setFrame:documentViewRect];*/
+=======
+>>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
 }
 
 @end

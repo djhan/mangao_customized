@@ -70,8 +70,11 @@
 #import "DeleteTempFile.h"
 //pdfpage to imagearray 함수 도입
 #import "importPDFPageArrayFromPDF.h"
+<<<<<<< HEAD
 //centerScrollingView 도입
 #import "CenterScrollingView.h"
+=======
+>>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
 
 @implementation Mangao
 
@@ -182,6 +185,7 @@
 @synthesize audioInputPanel;
 @synthesize isAudioInput;
 
+<<<<<<< HEAD
 //PDFview 선언
 @synthesize leftPdfView;
 @synthesize rightPdfView;
@@ -191,6 +195,8 @@
 @synthesize viewSetting; //0은 fit to window, 1은 fit to width
 @synthesize centerScrollView;
 
+=======
+>>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
 - (void)dealloc
 {
     [super dealloc];
@@ -1052,11 +1058,19 @@
     if([[[app.plistValue objectAtIndex:0] objectAtIndex:8] intValue])
     {
         [NSMenuItemDefaultReadFromFirstPage setState:NSOnState];
+<<<<<<< HEAD
     }
     else
     {
         [NSMenuItemDefaultReadFromFirstPage setState:NSOffState];
     }
+=======
+    }
+    else
+    {
+        [NSMenuItemDefaultReadFromFirstPage setState:NSOffState];
+    }
+>>>>>>> ef14c5b17f9fd6cae9c2351244ec0f3ccfeb08ad
     //오디오 인풋의 체크 유무 설정. 환경설정 대신 전역변수 isAudioInput의 값으로 체크
     if(isAudioInput)
     {
