@@ -105,7 +105,6 @@
  NSLog(@"test");
  }*/
 
-
 // 화질 보정을 위한 코드 삽입
 
 - (void)drawRect:(NSRect)rect
