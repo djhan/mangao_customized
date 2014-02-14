@@ -19,10 +19,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "CenterScrollingView.h"
-#import "Mangao.h"
+#import "DragAndDrop.h"
 
-@implementation CenterScrollingView
+@implementation DragAndDrop
 
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
 {
@@ -98,6 +97,7 @@
     return YES;
 }
 
+
 // TEST 중
 /*
  - (void)setImage:(NSImage *)image
@@ -110,19 +110,15 @@
 
 - (void)drawRect:(NSRect)rect
 {
-    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
-
+    [super drawRect:rect];
     float displayScale = [[NSScreen mainScreen] backingScaleFactor];
-    // 비레티나 디스플레이인 경우 화질 향상 루틴 적용
+    // 비레티나 디스플레이일 경우에만 화질 향상 루틴 적용
     //NSLog(@"displayscale: %f", displayScale);
-    
-    NSImage *image = [self image];
-
     if (displayScale == 1)
     {
         [NSGraphicsContext saveGraphicsState];
         
-        //NSLog(@"image:%@", image);
+        NSImage *image = [self image];
         
         NSRect originFrame;
         originFrame.origin = NSZeroPoint;
@@ -164,14 +160,15 @@
             
             if (scaleHeight < targetHeight)
             {
-                //프레임 높이가 이미지 높이보다 클 때 중앙에 위치시킨다
                 scaleOriginY = (targetHeight - scaleHeight) /2;
-                //NSLog(@"scaled originY: %f", scaleOriginY);
             }
             
             if (scaleWidth < targetWidth)
             {
+                if ([self.identifier isEqual: @"centerView"])
                     scaleOriginX = (targetWidth - scaleWidth) /2;
+                else if ([self.identifier isEqual: @"leftView"])
+                    scaleOriginX = (targetWidth - scaleWidth);
             }
         }
         
@@ -186,95 +183,6 @@
         
         [NSGraphicsContext restoreGraphicsState];
     }
-
-    if (app.viewSetting == 1)
-    {
-        [self resizeFrame:image];
-    }
-    
-    //super 함수의 위치 변경
-    [super drawRect:rect];
-}
-
-- (void)resizeFrame:(NSImage *)image
-{
-    //center imageview frame 설정
-    float imageWidth = image.size.width;
-    float imageHeight = image.size.height;
-
-    NSSize finalFrameSize = [self frameSize:imageWidth:imageHeight];
-    //NSLog(@"image size x/y: %f/%f", imageWidth,imageHeight);
-    //NSLog(@"scrollview x/y: %f/%f", [[self enclosingScrollView] visibleRect].size.width, [[self enclosingScrollView] visibleRect].size.height);
-    //NSLog(@"final frame size x/y: %f/%f", finalFrameSize.width,finalFrameSize.height);
-    [self setFrameSize:finalFrameSize];
-}
-
-- (NSSize)frameSize: (float)width : (float)height;
-{
-    NSRect scrollViewRect = [[self enclosingScrollView] visibleRect];
-    //scrollViewRect의 width/height를 변수로 설정
-    float scrollViewWidth = scrollViewRect.size.width;
-    //float scrollViewHeight = scrollViewRect.size.height;
-    
-    float scaleWidth = scrollViewWidth;
-    float scaleFactor = scrollViewWidth / width;
-    float scaleHeight = height * scaleFactor;
-
-    NSSize finalFrameSize;
-    if (scaleHeight) {
-        finalFrameSize = NSMakeSize(scaleWidth, scaleHeight);
-    } else {
-        finalFrameSize = NSMakeSize([[self enclosingScrollView] visibleRect].size.width, [[self enclosingScrollView] visibleRect].size.height);
-    }
-    return finalFrameSize;
-}
-
-- (void)setImage:(NSImage *)image
-{
-    Mangao *app = (Mangao *)[[NSApplication sharedApplication] delegate];
-
-    [super setImage:image];
-    
-    if (app.viewSetting == 1)
-    {
-        [self resizeFrame:image];
-        /*
-        NSRect viewFrame = [self frame];
-        viewFrame.origin.y = NSMaxY([self bounds]) - NSMaxY([[self enclosingScrollView] visibleRect]);
-        viewFrame.origin.x = 0.0;
-        if (!isnan(viewFrame.origin.y)) {
-            NSPoint scrollPoint = NSMakePoint(0.0, viewFrame.origin.y);
-            [self scrollPoint:scrollPoint];
-        }*/
-    }
-    /*
-
-    NSPoint defaultScrollPoint;
-
-    if (app.viewSetting == 1)
-    {
-        [self resizeFrame:image];
-        
-        NSRect scrollViewRect = [[self enclosingScrollView] visibleRect];
-        float height = image.size.height;
-        float width = image.size.width;
-        if (!(height == 0))
-        {
-            
-            float scaleFactor = scrollViewRect.size.width / width;
-            float scaleHeight = height * scaleFactor;
-            
-            float defaultScrollPointY = scaleHeight - [[self enclosingScrollView] visibleRect].size.height;
-            //NSLog(@"scrollpoint:%f",defaultScrollPointY);
-            if (defaultScrollPointY > 0)
-            {
-                defaultScrollPoint = NSMakePoint(0, defaultScrollPointY);
-                [self scrollPoint:defaultScrollPoint];
-            }
-            [[self enclosingScrollView] setNeedsDisplay:YES];
-        }
-    }*/
-    //[[self enclosingScrollView] setNeedsDisplay:YES];
 }
 
 @end

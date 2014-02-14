@@ -2172,7 +2172,8 @@
 {
     if (viewSetting == 1)
     {
-        viewSetting = 0;
+        [centerScrollView isFlipped];
+        viewSetting = 0;    
     }
     //if (!isThumbnail)
     [self setImage];
@@ -2188,7 +2189,6 @@
         viewSetting = 1;
     }
     [self setImage];
-    [centerScrollView setNeedsDisplay:YES];
 }
 /*
 - (void)scrollDownScrollView: (float)deltaY
@@ -3030,7 +3030,6 @@ end:
         if (viewSetting == 1)
         {
             app.imageCenter = [self readImage];
-            //NSLog(@"test:%@", app.imageCenter);
             [self CniSet];
             
             goto end;
@@ -3315,7 +3314,6 @@ end://左側の画像のIndexを最後に表示した画像として記録する
             {
                 app.index--;
                 app.imageCenter = [self readImage];
-                //NSLog(@"test:%@", app.imageCenter);
                 [self CniSet];
             }
             //1画面表示の場合(『デフォルトで1画面』を考慮)
@@ -3454,7 +3452,6 @@ end://左側の画像のIndexを最後に表示した画像として記録する
             {
                 app.index++;
                 app.imageCenter = [self readImage];
-                //NSLog(@"test:%@", app.imageCenter);
                 [self CniSet];
             }
             //1画面表示の場合(『デフォルトで1画面』を考慮)
@@ -4021,13 +4018,9 @@ end://左側の画像のIndexを最後に表示した画像として記録する
     //타이틀 바에 경로 추가 (파일명 및 페이지 번호 추가보다 앞으로 오면 크래쉬 발생)
     //[self.viewWindow setRepresentedFilename: app.filePath];
     //타이틀 바에 파일명 및 페이지 번호 추가
-    //NSLog(@"settitle: %@", title_index_bookmark);
-    if (title_index_bookmark)
-    {
-        [self.viewWindow setTitle:title_index_bookmark];
-        //타이틀 바에 파일 패스 추가
-        [self.viewWindow setRepresentedURL:[NSURL fileURLWithPath:app.filePath]];
-    }
+    [self.viewWindow setTitle:title_index_bookmark];
+    //타이틀 바에 파일 패스 추가
+    [self.viewWindow setRepresentedURL:[NSURL fileURLWithPath:app.filePath]];
     
     //ルーペが起動中の場合
     if(app.isLoupe)
@@ -4591,11 +4584,13 @@ end://左側の画像のIndexを最後に表示した画像として記録する
 
 //메인 윈도우의 리사이징을 nsnotificatiocenter를 통해서 확인, 리스트 썸네일 뷰의 리사이징
 - (void)windowDidResize:(NSNotification *)notification {
-    if (isThumbnail) {
+    if (isThumbnail && viewSetting) {
         [self setListThumbnailView];
     }
     else if (isThumbnail) {
         [self setListThumbnailView];
+    }
+    else if (viewSetting) {
     }
 }
 

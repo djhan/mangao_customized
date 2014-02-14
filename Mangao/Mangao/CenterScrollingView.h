@@ -2,6 +2,6 @@
 
 @interface CenterScrollingView : NSImageView
 
-- (void)resizeFrame;
+- (void)resizeFrame:(NSImage *)image;
 
 @end
